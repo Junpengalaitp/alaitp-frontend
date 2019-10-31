@@ -1,13 +1,11 @@
-import React from 'react';
-import './App.css';
-import SearchBar from './components/SearchBar';
-import Keywords from './components/Keywords';
+import React, { } from 'react';
+import Layout from './containers/Layout/Layout';
 
 const App = () => {
+
   return (
-    <div className="App">
-      <SearchBar />
-      <Keywords />
+    <div>
+      <Layout />
     </div>
   );
 }
