@@ -1,0 +1,1 @@
+export const GET_KEYWORDS = 'GET_KEYWORDS'
