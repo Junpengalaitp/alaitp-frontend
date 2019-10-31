@@ -5,14 +5,14 @@ const SearchBar = props => {
   const [searchInput, setSearchInput] = useState('')
 
   const handleSubmit = event => {
-    console.log('search input: ' + searchInput)
+    console.log('search input: ')
+    event.preventDefault()
     props.startSearch()
     // props.searching(searchInput)
-    event.preventDefault()
   }
 
   const inputChangedHandler = (event) => {
-    setSearchInput(event.target.value)
+    // setSearchInput(event.target.value)
 }
 
   return (

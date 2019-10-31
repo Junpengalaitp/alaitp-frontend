@@ -16,10 +16,10 @@ const Layout = props => {
     // console.log('searchInput: ' + searchInput)
   };
 
-  const SearchingHandler = () => {
-    setSearchInput('remotive');
-    console.log('searchInput: ' + searchInput)
-  };
+  // const SearchingHandler = () => {
+  //   setSearchInput('remotive');
+  //   console.log('searchInput: ' + searchInput)
+  // };
 
   return (
     <Fragment>
