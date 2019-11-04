@@ -1,0 +1,1 @@
+export const SEARCH_START = 'SEARCH_START'
