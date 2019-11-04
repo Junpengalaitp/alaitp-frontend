@@ -1,0 +1,24 @@
+import Axios from "axios";
+
+import * as actionTypes from './actions'
+
+export const setKeywords = keywords => {
+  return {
+    type: actionTypes.SEARCH_SUCCESS,
+    keywords: keywords
+  };
+};
+
+export const searchKeywords = () => {
+  return dispatch => {
+    Axios.get(`http://127.0.0.1:5000/keywords/remotive`)
+      .then(response => {
+        console.log(response)
+        dispatch(setKeywords(response.data));
+      })
+      .catch(error => {
+        // dispatch(fetchIngredientsFailed());
+        console.log('error happened during searching keywords')
+      });
+  };
+};

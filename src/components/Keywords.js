@@ -1,68 +1,37 @@
-import React, { useEffect, useState } from "react";
-import Axios from "axios";
+import React from "react";
 import Spinner from "./UI/Spinner/Spinner";
+import { connect } from 'react-redux';
+
+import * as actionTypes from '../store/actions/actions'
 
 const Keywords = props => {
-  const [keywords, setKeywords] = useState({
-    programmingLanguage: [],
-    libraryOrFramework: [],
-    division: [],
-    dataStorage: [],
-    platform: [],
-    approach: []
-  });
+  
 
-  // const [keywords, setKeywords] = useState([]);
-
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    getKeywords();
-  }, []);
-
-  const getKeywords = () => {
-    // const source = props.input === null ? 'remotive' : props.input
-    Axios.get(`http://127.0.0.1:5000/keywords/remotive`)
-      .then(res => {
-        console.log(res.data);
-        setKeywords({
-          programmingLanguage: Object.keys(res.data.PROGRAMMING_LANGUAGE),
-          libraryOrFramework: Object.keys(res.data.LIBRARY_OR_FRAMEWORK),
-          division: Object.keys(res.data.DIVISION),
-          dataStorage: Object.keys(res.data.DATA_STORAGE),
-          platform: Object.keys(res.data.PLATFORM),
-          approach: Object.keys(res.data.APPROACH)
-        });
-        setLoading(false);
-      })
-      .catch(err => console.log(err));
-  };
-
-  const programmingLanguagesItems = keywords.programmingLanguage.map((keyword, index) => (
+  const programmingLanguagesItems = props.keywords === null? null : props.keywords.programmingLanguage.map((keyword, index) => (
     <li key={index}>{keyword}</li>
   ))
 
-  const libraryOrFrameworksItems = keywords.libraryOrFramework.map((keyword, index) => (
+  const libraryOrFrameworksItems = props.keywords === null? null : props.keywords.libraryOrFramework.map((keyword, index) => (
     <li key={index}>{keyword}</li>
   ))
 
-  const divisionsItems = keywords.division.map((keyword, index) => (
+  const divisionsItems = props.keywords === null? null : props.keywords.division.map((keyword, index) => (
     <li key={index}>{keyword}</li>
   ))
 
-  const dataStoragesItems = keywords.dataStorage.map((keyword, index) => (
+  const dataStoragesItems = props.keywords === null? null : props.keywords.dataStorage.map((keyword, index) => (
     <li key={index}>{keyword}</li>
   ))
 
-  const platformsItems = keywords.platform.map((keyword, index) => (
+  const platformsItems = props.keywords === null? null : props.keywords.platform.map((keyword, index) => (
     <li key={index}>{keyword}</li>
   ))
 
-  const approachesItems = keywords.approach.map((keyword, index) => (
+  const approachesItems = props.keywords === null? null : props.keywords.approach.map((keyword, index) => (
     <li key={index}>{keyword}</li>
   ))
 
-  const searchResult = loading ? (
+  const searchResult = props.loading ? (
     <Spinner />
   ) : (
     <div className="row">
@@ -115,4 +84,20 @@ const Keywords = props => {
   return <div className="container">{props.show ? searchResult : null}</div>;
 };
 
-export default Keywords;
+const mapStateToProps = state => {
+  return {
+    loading: state.loading,
+    keywords: state.keywords
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    // onSearchSuccess: () => dispatch({ type: actions.searchKeywords() }),
+    onSearchEnd: () => dispatch({ type: actionTypes.SEARCH_END })
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps)(Keywords);

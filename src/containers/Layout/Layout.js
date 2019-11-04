@@ -11,22 +11,10 @@ const Layout = props => {
 
   console.log(props.search);
 
-  // const startSearchHandler = () => {
-  //   setSearch(!search);
-  //   console.log('search is: ' + search)
-  //   // setSearchInput('remotive');
-  //   // console.log('searchInput: ' + searchInput)
-  // };
-
-  // // const SearchingHandler = () => {
-  // //   setSearchInput('remotive');
-  // //   console.log('searchInput: ' + searchInput)
-  // // };
-
   return (
     <Fragment>
       <SearchBar startSearch={() => props.onSearchStart()} />
-      <Keywords show={props.search} input={searchInput} />
+      <Keywords show={!props.search} input={searchInput} />
     </Fragment>
   )
 }
