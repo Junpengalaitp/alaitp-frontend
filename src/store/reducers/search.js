@@ -27,6 +27,7 @@ const setKeywords = (state, payload) => {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SEARCH_START:
+      console.log("search start")
       return {
         ...state,
         searching: true
