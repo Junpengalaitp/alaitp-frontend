@@ -1,8 +1,6 @@
-import React from "react";
-import Spinner from "./UI/Spinner/Spinner";
-import { connect } from 'react-redux';
-
-import * as actionTypes from '../store/actions/actionTypes'
+import React from "react"
+import Spinner from "./UI/Spinner/Spinner"
+import { connect } from 'react-redux'
 
 const Keywords = props => {
   
@@ -91,13 +89,5 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    // onSearchSuccess: () => dispatch({ type: actions.searchKeywords() }),
-    // onSearchEnd: () => dispatch({ type: actionTypes.SEARCH_END })
-  };
-};
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps)(Keywords);
+export default connect(mapStateToProps)(Keywords);

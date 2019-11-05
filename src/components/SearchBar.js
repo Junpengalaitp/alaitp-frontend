@@ -2,14 +2,39 @@ import React, { useState } from "react"
 import { connect } from "react-redux"
 
 import * as actionTypes from "../store/actions/actionTypes"
-import { setKeywords, searchKeywords } from './../store/actions/search'
+import { searchKeywords } from './../store/actions/search'
+import Input from './UI/Input/Input';
+import { updateObject } from './../shared/utility';
 
 const SearchBar = props => {
+
+  const [searchForm, setSearchForm] = useState({
+      elementType: "input",
+      elementConfig: {
+        type: "text",
+        placeholder: "Place You Want To Work"
+      },
+      value: "",
+      validation: {
+        required: true
+      },
+      valid: true,
+      touched: false
+  })
+
+  const inputChangedHandler = event => {
+    const updatedSearchForm = updateObject(searchForm, {
+      value: event.target.value,
+      touched: true
+    })
+    setSearchForm(updatedSearchForm)
+    console.log(searchForm.value)
+  }
 
   const handleSubmit = event => {
     event.preventDefault()
     props.onSearchStart()
-    props.onSearchSuccess()
+    props.onSearchSuccess(searchForm.value)
   }
 
   return (
@@ -23,10 +48,14 @@ const SearchBar = props => {
             <form onSubmit={handleSubmit}>
               <div className="form-row">
                 <div className="col-12 col-md-9 mb-2 mb-md-0">
-                  <input
-                    type="text"
-                    className="form-control form-control-lg"
-                    placeholder="Area You Want to Work"
+                  <Input
+                    elementType={searchForm.elementType}
+                    elementConfig={searchForm.elementConfig}
+                    value={searchForm.value}
+                    invalid={!searchForm.valid}
+                    shouldValidate={searchForm.validation}
+                    touched={searchForm.touched}
+                    changed={event => inputChangedHandler(event)}
                   />
                 </div>
                 <div className="col-12 col-md-3">
@@ -56,7 +85,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onSearchStart: () => dispatch({ type: actionTypes.SEARCH_START }),
-    onSearchSuccess: () => dispatch(searchKeywords())
+    onSearchSuccess: (searchInput) => dispatch(searchKeywords(searchInput))
   }
 }
 

@@ -9,9 +9,10 @@ export const setKeywords = keywords => {
   };
 };
 
-export const searchKeywords = () => {
+export const searchKeywords = (searchInput) => {
+  if (searchInput === '') searchInput = 'remotive'
   return dispatch => {
-    Axios.get(`http://127.0.0.1:5000/keywords/remotive`)
+    Axios.get(`http://127.0.0.1:5000/keywords/${searchInput}`)
       .then(response => {
         console.log(response)
         dispatch(setKeywords(response.data))

@@ -4,10 +4,10 @@ import { updateObject } from './../../shared/utility'
 const initialState = {
   searchComplete: false,
   loading: false,
+  searchInput: '',
   keywords: null,
   error: false
 }
-
 
 const setKeywords = (state, payload) => {
   return updateObject(state, {
