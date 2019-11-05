@@ -1,35 +1,16 @@
 import React, { useState } from "react"
 import { connect } from "react-redux"
 
-import * as actionTypes from "../store/actions/actions"
+import * as actionTypes from "../store/actions/actionTypes"
 import { setKeywords, searchKeywords } from './../store/actions/search'
 
 const SearchBar = props => {
-  const [searchInput, setSearchInput] = useState("")
 
   const handleSubmit = event => {
     event.preventDefault()
     props.onSearchStart()
     props.onSearchSuccess()
-    props.onSearchEnd()
   }
-
-  // const getKeywords = () => {
-  //   // const source = props.input === null ? 'remotive' : props.input
-  //   Axios.get(`http://127.0.0.1:5000/keywords/remotive`)
-  //     .then(res => {
-  //       console.log(res.data)
-  //       setKeywords({
-  //         programmingLanguage: Object.keys(res.data.PROGRAMMING_LANGUAGE),
-  //         libraryOrFramework: Object.keys(res.data.LIBRARY_OR_FRAMEWORK),
-  //         division: Object.keys(res.data.DIVISION),
-  //         dataStorage: Object.keys(res.data.DATA_STORAGE),
-  //         platform: Object.keys(res.data.PLATFORM),
-  //         approach: Object.keys(res.data.APPROACH)
-  //       })
-  //     })
-  //     .catch(err => console.log(err))
-  // }
 
   return (
     <div>
@@ -75,8 +56,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onSearchStart: () => dispatch({ type: actionTypes.SEARCH_START }),
-    onSearchSuccess: () => dispatch(searchKeywords()),
-    onSearchEnd: () => dispatch({ type: actionTypes.SEARCH_END })
+    onSearchSuccess: () => dispatch(searchKeywords())
   }
 }
 

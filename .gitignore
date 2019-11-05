@@ -22,3 +22,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .vscode/settings.json
+.idea/alaitp-frontend.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/dictionaries/hejun.xml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/.gitignore

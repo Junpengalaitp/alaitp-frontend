@@ -1,9 +1,8 @@
-import * as actionTypes from '../actions/actions'
-import { updateObject } from './../../shared/utility';
-import { searchKeywords } from '../actions/search';
+import * as actionTypes from '../actions/actionTypes'
+import { updateObject } from './../../shared/utility'
 
 const initialState = {
-  searching: false,
+  searchComplete: false,
   loading: false,
   keywords: null,
   error: false
@@ -20,7 +19,8 @@ const setKeywords = (state, payload) => {
       platform: Object.keys(payload.keywords.PLATFORM),
       approach: Object.keys(payload.keywords.APPROACH)
     },
-    searching: false
+    loading: false,
+    searchComplete: true
   })
 }
 
@@ -30,17 +30,18 @@ const reducer = (state = initialState, action) => {
       console.log("search start")
       return {
         ...state,
-        searching: true
+        loading: true
       }
 
     case actionTypes.SEARCH_SUCCESS:
         console.log("search complete")
         return setKeywords(state, action)
 
-    case actionTypes.SEARCH_END:
+    case actionTypes.SEARCH_FAIL:
         return {
           ...state,
-          loading: false
+          loading: false,
+          searchComplete: true
         }
   
     default:

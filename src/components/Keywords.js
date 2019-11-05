@@ -2,7 +2,7 @@ import React from "react";
 import Spinner from "./UI/Spinner/Spinner";
 import { connect } from 'react-redux';
 
-import * as actionTypes from '../store/actions/actions'
+import * as actionTypes from '../store/actions/actionTypes'
 
 const Keywords = props => {
   
@@ -94,7 +94,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     // onSearchSuccess: () => dispatch({ type: actions.searchKeywords() }),
-    onSearchEnd: () => dispatch({ type: actionTypes.SEARCH_END })
+    // onSearchEnd: () => dispatch({ type: actionTypes.SEARCH_END })
   };
 };
 
