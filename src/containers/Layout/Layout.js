@@ -1,14 +1,16 @@
 import React, { Fragment } from "react";
 import { connect } from 'react-redux';
+import { Route } from 'react-router'
 import SearchBar from "./../../components/SearchBar";
 import Keywords from "./../../components/Keywords"
 
 const Layout = props => {
+
   
   return (
     <Fragment>
-      <SearchBar />
-      <Keywords show={props.loading || props.searchComplete} />
+      <Route path='/' exact component={SearchBar} />
+      <Route path='/' exact render={() => <Keywords show={props.loading || props.searchComplete} />} />
     </Fragment>
   )
 }
