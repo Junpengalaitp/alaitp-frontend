@@ -10,7 +10,7 @@ const Layout = props => {
   return (
     <Fragment>
       <Route path='/' exact component={SearchBar} />
-      <Route path='/' exact render={() => <Keywords show={props.loading || props.searchComplete} />} />
+      <Route path='/keywords' render={() => <Keywords show={props.loading || props.searchComplete} />} />
     </Fragment>
   )
 }
