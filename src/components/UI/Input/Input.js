@@ -12,7 +12,7 @@ const Input = (props) => {
     switch (props.elementType) {
         case ('input'):
             inputElement = <input 
-                className="form-control form-control-lg"
+                className={props.className}
                 {...props.elementConfig}
                 value={props.value}
                 onChange={props.changed}

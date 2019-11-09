@@ -1,31 +1,30 @@
 import React from 'react'
+import { Route } from 'react-router';
+import SearchForm from '../SearchForm';
 
 export const Navbar = () => {
   return (
     <div>
-      <nav class="navbar navbar-expand-sm navbar-light bg-light mb-3">
-        <div class="container">
-            <a class="navbar-brand" href='/'>ALAITP</a>
-            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+      <nav className="navbar navbar-expand-sm navbar-light bg-light mb-3">
+        <div className="container">
+            <a className="navbar-brand" href='/'>ALAITP</a>
+            <button className="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+                <span className="navbar-toggler-icon"></span>
             </button>
-            <div id="navbarNav" class="collapse navbar-collapse">
-                <form class="form-inline mr-auto">
-                  <input type="text" class="form-control mr-2" placeholder="search" />
-                  <button class="btn btn-outline-primary">search</button>
-                </form>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class='nav-link' href='/'>Home</a>
+            <div id="navbarNav" className="collapse navbar-collapse">
+              <Route path='/keywords' render={(props) => <SearchForm {...props} inputCSS="form-control mr-2" buttonCSS="btn btn-outline-primary" />} />
+                <ul className="navbar-nav ml-auto">
+                    <li className="nav-item">
+                        <a className='nav-link' href='/'>Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class='nav-link' href='/'>About</a>
+                    <li className="nav-item">
+                        <a className='nav-link' href='/'>About</a>
                     </li>
-                    <li class="nav-item">
-                        <a class='nav-link' href='/'>Services</a>
+                    <li className="nav-item">
+                        <a className='nav-link' href='/'>Services</a>
                     </li>
-                    <li class="nav-item">
-                        <a class='nav-link' href='/'>Contact</a>
+                    <li className="nav-item">
+                        <a className='nav-link' href='/'>Contact</a>
                     </li>
                 </ul>
             </div>
