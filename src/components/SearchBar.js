@@ -61,7 +61,7 @@ const SearchBar = props => {
                 <div className="col-12 col-md-3">
                   <button
                     type="submit"
-                    className="btn btn-block btn-lg btn-primary"
+                    className="btn btn-outline-primary btn-lg"
                   >
                     See Result
                   </button>
