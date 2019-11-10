@@ -2,8 +2,8 @@ import React, { Fragment } from "react";
 import { connect } from 'react-redux';
 import { Route } from 'react-router'
 import SearchBar from "../../components/Search/SearchBar";
-import Keywords from "../../components/Keywords/Keywords"
-import { NavBar } from '../../components/UI/NavBar';
+import Keywords from "../../components/Keywords/KeywordsResults"
+import { NavBar } from '../../components/UI/NavBar'
 
 const Layout = props => {
 
