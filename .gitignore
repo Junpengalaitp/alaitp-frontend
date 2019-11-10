@@ -29,3 +29,5 @@ yarn-error.log*
 .idea/dictionaries/hejun.xml
 .idea/inspectionProfiles/Project_Default.xml
 .idea/.gitignore
+.idea
+.idea/dictionaries/hejunpeng.xml

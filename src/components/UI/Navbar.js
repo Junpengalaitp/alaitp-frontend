@@ -1,8 +1,8 @@
 import React from 'react'
 import { Route } from 'react-router';
-import SearchForm from '../SearchForm';
+import SearchForm from '../Search/SearchForm';
 
-export const Navbar = () => {
+export const NavBar = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-sm navbar-light bg-light mb-3">

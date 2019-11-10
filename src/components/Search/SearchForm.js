@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import Input from "./UI/Input/Input";
-import { updateObject } from "./../shared/utility";
+import Input from "../UI/Input/Input";
+import { updateObject } from "../../shared/utility";
 
-import * as actionTypes from "../store/actions/actionTypes";
-import { searchKeywords } from "./../store/actions/search";
-import Button from './UI/Button';
+import * as actionTypes from "../../store/actions/actionTypes";
+import { searchKeywords } from "../../store/actions/search";
+import Button from '../UI/Button';
 
 const SearchForm = props => {
   const [searchForm, setSearchForm] = useState({

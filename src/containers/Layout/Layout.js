@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 import { connect } from 'react-redux';
 import { Route } from 'react-router'
-import SearchBar from "./../../components/SearchBar";
-import Keywords from "./../../components/Keywords"
-import { Navbar } from '../../components/UI/Navbar';
+import SearchBar from "../../components/Search/SearchBar";
+import Keywords from "../../components/Keywords/Keywords"
+import { NavBar } from '../../components/UI/NavBar';
 
 const Layout = props => {
 
@@ -11,7 +11,7 @@ const Layout = props => {
   return (
     <Fragment>
       <Route path='/' exact component={SearchBar} />
-      <Route path='/keywords' component={Navbar} />
+      <Route path='/keywords' component={NavBar} />
       <Route path='/keywords' render={() => <Keywords show={props.loading || props.searchComplete} />} />
     </Fragment>
   )
