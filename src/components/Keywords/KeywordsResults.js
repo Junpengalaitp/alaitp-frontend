@@ -1,14 +1,14 @@
 import React from "react";
 import Spinner from "../UI/Spinner/Spinner";
 import { connect } from "react-redux";
-import { KeywordList } from "./KeywordList/KeywordList";
-import { JobDescription } from '../JobDescription/JobDescription';
+import { KeywordList } from "./KeywordList/KeywordList"
+import { JobDescriptionList } from "../JobDescription/JobDescriptionList";
 
 const KeywordsResults = props => {
   const KeywordLists = (
     <div className="row">
       <div className="col-6">
-        <JobDescription />
+        <JobDescriptionList />
       </div>
     <div className="col-6">
       <div className="row">
