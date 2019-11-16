@@ -2,10 +2,11 @@ import React from 'react'
 
 export const JobDescription = () => {
   return (
-    <div>
-      <h1>Software Engineer</h1>
-      <p>Hello</p>
-      <p>We are hiring!</p>
+    <div className="card border-dark mb-1" style={{maxWidth: '32rem'}}>
+      <div className="card-body text-dark">
+        <h5 className="card-title">Software Engineer</h5>
+        <p className="card-text">Alaitp Co.</p>
+      </div>
     </div>
   )
 }
