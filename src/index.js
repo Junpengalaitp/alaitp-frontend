@@ -7,7 +7,7 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
-import reducer from './store/reducers/search'
+import reducer from './store/reducers/keywordSearch'
 import thunk from "redux-thunk";
 
 

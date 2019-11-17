@@ -4,7 +4,7 @@ import * as actionTypes from './actionTypes'
 
 export const setKeywords = keywords => {
   return {
-    type: actionTypes.SEARCH_SUCCESS,
+    type: actionTypes.KEYWORD_SEARCH_SUCCESS,
     keywords: keywords
   };
 };
@@ -18,7 +18,6 @@ export const searchKeywords = (searchInput) => {
         dispatch(setKeywords(response.data))
       })
       .catch(error => {
-        // dispatch(fetchIngredientsFailed());
         console.log('error happened during searching keywords' + error)
       })
   };

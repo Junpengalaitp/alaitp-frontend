@@ -5,7 +5,7 @@ import Input from "../UI/Input/Input";
 import { updateObject } from "../../shared/utility";
 
 import * as actionTypes from "../../store/actions/actionTypes";
-import { searchKeywords } from "../../store/actions/search";
+import { searchKeywords } from "../../store/actions/keywordSearch";
 import Button from '../UI/Button';
 
 const SearchForm = props => {
@@ -34,9 +34,9 @@ const SearchForm = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    props.onSearchStart();
+    props.onKeywordSearchStart();
     props.history.push(`/keywords/${searchForm.value}`);
-    props.onSearchSuccess(searchForm.value);
+    props.onKeywordSearchSuccess(searchForm.value);
   };
 
   return (
@@ -68,15 +68,14 @@ const SearchForm = props => {
 
 const mapStateToProps = state => {
   return {
-    search: state.searching,
     keywords: state.keywords
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSearchStart: () => dispatch({ type: actionTypes.SEARCH_START }),
-    onSearchSuccess: searchInput => dispatch(searchKeywords(searchInput))
+    onKeywordSearchStart: () => dispatch({ type: actionTypes.KEYWORD_SEARCH_START }),
+    onKeywordSearchSuccess: searchInput => dispatch(searchKeywords(searchInput))
   };
 };
 
