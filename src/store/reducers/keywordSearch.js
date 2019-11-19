@@ -6,7 +6,6 @@ const initialState = {
   loading: false,
   searchInput: '',
   keywords: null,
-  jobList: [],
   error: false
 }
 
@@ -26,23 +25,17 @@ const setKeywords = (state, payload) => {
   })
 }
 
-// const setJobList= (state, payload) => {
-//   return updateObject(state, {
-//     jobList: payload.jobList
-//   )
-// }
-
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.KEYWORD_SEARCH_START:
-      console.log("search start")
+      console.log("keyword search start")
       return {
         ...state,
         loading: true
       }
 
     case actionTypes.KEYWORD_SEARCH_SUCCESS:
-        console.log("search complete")
+        console.log("keyword search complete")
         return setKeywords(state, action)
 
     case actionTypes.KEYWORD_SEARCH_FAIL:

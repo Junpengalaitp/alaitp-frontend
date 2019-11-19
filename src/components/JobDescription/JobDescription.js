@@ -1,11 +1,12 @@
 import React from 'react'
 
-const JobDescription = () => {
+const JobDescription = props => {
   return (
     <div className="card border-dark mb-1" style={{maxWidth: '32rem'}}>
-      <div className="card-body text-dark">
-        <h5 className="card-title">Software Engineer</h5>
-        <p className="card-text">Alaitp Co.</p>
+      <div className="card-header blockquote">{props.title}</div>
+      <div className="card-body text-dark clearfix">
+        <p className="card-title float-left"><strong>{props.company}</strong></p>
+        <p className="card-text float-right">{props.tags}</p>
       </div>
     </div>
   )

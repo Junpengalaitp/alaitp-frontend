@@ -20,14 +20,14 @@ const setJobList = (state, payload) => {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.JOB_SEARCH_START:
-      console.log("search start")
+      console.log("job search start")
       return {
         ...state,
         loading: true
       }
 
     case actionTypes.JOB_SEARCH_SUCCESS:
-        console.log("search complete")
+        console.log("job search complete")
         return setJobList(state, action)
 
     case actionTypes.JOB_SEARCH_FAIL:

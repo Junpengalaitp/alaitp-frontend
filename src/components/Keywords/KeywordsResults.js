@@ -1,8 +1,9 @@
 import React from "react";
 import Spinner from "../UI/Spinner/Spinner";
-import { connect } from "react-redux";
-import { KeywordList } from "./KeywordList/KeywordList"
-import { JobDescriptionList } from "../JobDescription/JobDescriptionList";
+import { connect } from "react-redux"
+import JobDescriptionList from './../JobDescription/JobDescriptionList';
+import KeywordList from './KeywordList/KeywordList';
+
 
 const KeywordsResults = props => {
 

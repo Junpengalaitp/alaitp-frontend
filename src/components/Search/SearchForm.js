@@ -6,7 +6,7 @@ import { updateObject } from "../../shared/utility";
 
 import * as actionTypes from "../../store/actions/actionTypes";
 import { searchKeywords } from "../../store/actions/keywordSearch";
-import Button from '../UI/Button';
+import Button from "../UI/Button";
 
 const SearchForm = props => {
   const [searchForm, setSearchForm] = useState({
@@ -35,6 +35,7 @@ const SearchForm = props => {
   const handleSubmit = event => {
     event.preventDefault();
     props.onKeywordSearchStart();
+    props.onJobSearchStart()
     props.history.push(`/keywords/${searchForm.value}`);
     props.onKeywordSearchSuccess(searchForm.value);
   };
@@ -66,20 +67,13 @@ const SearchForm = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    keywords: state.keywords
-  };
-};
-
 const mapDispatchToProps = dispatch => {
   return {
-    onKeywordSearchStart: () => dispatch({ type: actionTypes.KEYWORD_SEARCH_START }),
+    onKeywordSearchStart: () =>
+      dispatch({ type: actionTypes.KEYWORD_SEARCH_START }),
+    onJobSearchStart: () => dispatch({ type: actionTypes.JOB_SEARCH_START }),
     onKeywordSearchSuccess: searchInput => dispatch(searchKeywords(searchInput))
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SearchForm);
+export default connect(null, mapDispatchToProps)(SearchForm);
