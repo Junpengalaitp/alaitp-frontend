@@ -1,5 +1,5 @@
 import React from 'react'
-import { JobDescription } from './JobDescription';
+import JobDescription from './JobDescription';
 
 export const JobDescriptionList = () => {
   return (

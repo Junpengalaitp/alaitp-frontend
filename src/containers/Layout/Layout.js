@@ -19,8 +19,8 @@ const Layout = props => {
 
 const mapStateToProps = (state) => {
   return {
-    searchComplete: state.searchComplete,
-    loading: state.loading
+    searchComplete: state.keyword.searchComplete,
+    loading: state.keyword.loading
   }
 }
 

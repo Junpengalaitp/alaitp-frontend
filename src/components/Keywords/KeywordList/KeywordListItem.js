@@ -12,7 +12,7 @@ const KeywordListItem = props => {
 
 const mapStateToProps = state => {
   return {
-    keywords: state.keywords
+    keywords: state.keyword.keywords
   };
 };
 

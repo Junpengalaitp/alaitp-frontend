@@ -70,7 +70,7 @@ const KeywordsResults = props => {
 
 const mapStateToProps = state => {
   return {
-    loading: state.loading
+    loading: state.keyword.loading
   };
 };
 

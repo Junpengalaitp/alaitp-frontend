@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const JobDescription = () => {
+const JobDescription = () => {
   return (
     <div className="card border-dark mb-1" style={{maxWidth: '32rem'}}>
       <div className="card-body text-dark">
@@ -10,3 +10,5 @@ export const JobDescription = () => {
     </div>
   )
 }
+
+export default JobDescription
