@@ -8,6 +8,9 @@ import * as actionTypes from "../../store/actions/actionTypes";
 import { searchKeywords } from "../../store/actions/keywordSearch";
 import Button from "../UI/Button";
 import { searchJobs } from "../../store/actions/jobSearch";
+import { Form } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 
 const SearchForm = props => {
   const [searchForm, setSearchForm] = useState({
@@ -43,29 +46,27 @@ const SearchForm = props => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div className="form-row">
-          <div className="col-12 col-md-9 mb-2 mb-md-0">
-            <Input
-              className={props.inputCSS}
-              elementType={searchForm.elementType}
-              elementConfig={searchForm.elementConfig}
-              value={searchForm.value}
-              invalid={!searchForm.valid}
-              shouldValidate={searchForm.validation}
-              touched={searchForm.touched}
-              changed={event => inputChangedHandler(event)}
-            />
-          </div>
-          <div className="col-12 col-md-3">
-            <Button type="submit" className={props.buttonCSS}>
-              Search
-            </Button>
-          </div>
-        </div>
-      </form>
-    </div>
+    <Form onSubmit={handleSubmit}>
+      <Row>
+        <Col xs={9}>
+          <Input
+            className={props.inputCSS}
+            elementType={searchForm.elementType}
+            elementConfig={searchForm.elementConfig}
+            value={searchForm.value}
+            invalid={!searchForm.valid}
+            shouldValidate={searchForm.validation}
+            touched={searchForm.touched}
+            changed={event => inputChangedHandler(event)}
+          />
+        </Col>
+        <Col xs={3}>
+          <Button type="submit" className={props.buttonCSS}>
+            Search
+          </Button>
+        </Col>
+      </Row>
+    </Form>
   );
 };
 

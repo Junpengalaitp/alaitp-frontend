@@ -7,11 +7,11 @@ const SearchBar = () => {
 
   return (
     <Container className="mt-5">
-      <Row>
-        <Col className="col-xl-9 mx-auto">
-          <h1 className="mb-5">Search For Most Wanted Technical Skills!</h1>
+      <Row className="mt-5">
+        <Col xl={9} className="mx-auto" >
+          <h1 className="mt-5">Search For Most Wanted Technical Skills!</h1>
         </Col>
-        <Col className="col-md-10 col-lg-8 col-xl-7 mx-auto">
+        <Col xl={7} lg={8} md={10} className="mx-auto mt-5" >
           <Route path='/' exact render={(props) => <SearchForm {...props} inputCSS="form-control form-control-lg" buttonCSS="btn btn-outline-primary btn-lg" />} />
         </Col>
       </Row>
