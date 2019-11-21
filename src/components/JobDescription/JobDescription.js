@@ -18,13 +18,13 @@ const JobDescription = props => {
           aria-controls="job-collapse-text"
           aria-expanded={open}
         >See Job Text</Button>
-        <Card.Text>
-          <Collapse in={open}>
-            <div id="job-collapse-text mx-1">
-              {props.jobDescriptionText}
-            </div>
-          </Collapse>
-        </Card.Text>
+        
+        <Collapse in={open}>
+          <div id="job-collapse-text mx-1">
+            <Card.Text>{props.jobDescriptionText}</Card.Text>
+          </div>
+        </Collapse>
+        
       </Card.Body>
     </Card>
   )

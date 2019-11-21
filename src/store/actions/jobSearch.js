@@ -14,7 +14,8 @@ export const searchJobs = (searchInput) => {
   return dispatch => {
     Axios.get(`http://127.0.0.1:8811/job-list/${searchInput}`)
       .then(response => {
-        console.log(response)
+        console.log(response.data)
+        console.log("job search success")
         dispatch(setJobs(response.data))
       })
       .catch(error => {

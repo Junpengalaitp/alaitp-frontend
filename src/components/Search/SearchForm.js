@@ -7,6 +7,7 @@ import { updateObject } from "../../shared/utility";
 import * as actionTypes from "../../store/actions/actionTypes";
 import { searchKeywords } from "../../store/actions/keywordSearch";
 import Button from "../UI/Button";
+import { searchJobs } from "../../store/actions/jobSearch";
 
 const SearchForm = props => {
   const [searchForm, setSearchForm] = useState({
@@ -38,6 +39,7 @@ const SearchForm = props => {
     props.onJobSearchStart()
     props.history.push(`/keywords/${searchForm.value}`);
     props.onKeywordSearchSuccess(searchForm.value);
+    props.onJobSearchSuccess("Software Engineer")
   };
 
   return (
@@ -71,8 +73,9 @@ const mapDispatchToProps = dispatch => {
   return {
     onKeywordSearchStart: () =>
       dispatch({ type: actionTypes.KEYWORD_SEARCH_START }),
+    onKeywordSearchSuccess: searchInput => dispatch(searchKeywords(searchInput)),
     onJobSearchStart: () => dispatch({ type: actionTypes.JOB_SEARCH_START }),
-    onKeywordSearchSuccess: searchInput => dispatch(searchKeywords(searchInput))
+    onJobSearchSuccess: searchInput => dispatch(searchJobs(searchInput)),
   };
 };
 
