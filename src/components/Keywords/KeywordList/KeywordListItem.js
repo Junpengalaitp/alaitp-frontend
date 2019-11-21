@@ -6,7 +6,7 @@ const KeywordListItem = props => {
   console.log("keyword List Item: " + props.keywords)
   if (props.keywords === null) return null
   const keywordListItem = props.keywords[props.keywordType].slice(0, 6).map((keyword, index) => (
-      <ListGroup.Item href='/' variant="primary" key={index}>{keyword}</ListGroup.Item>
+      <ListGroup.Item href='/' variant="light" key={index}>{keyword}</ListGroup.Item>
   ))
   return keywordListItem;
 }

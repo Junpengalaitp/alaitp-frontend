@@ -5,7 +5,7 @@ const JobDescription = props => {
   const [open, setOpen] = useState(false)
 
   return (
-    <Card style={{ width: '32rem' }}>
+    <Card style={{ width: '49rem' }}>
       <Card.Body>
         <Card.Title className="clearfix">
           <p className="card-title float-left"><strong>{props.title}</strong></p>
