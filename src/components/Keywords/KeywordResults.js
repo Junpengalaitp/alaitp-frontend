@@ -1,68 +1,72 @@
 import React from "react";
 import Spinner from "../UI/Spinner/Spinner";
 import { connect } from "react-redux"
-import JobDescriptionList from './../JobDescription/JobDescriptionList';
+import JobDescriptionList from '../JobDescription/JobDescriptionList';
 import KeywordList from './KeywordList/KeywordList';
+import { Row, Container } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 
 
 const KeywordsResults = props => {
 
   const KeywordLists = props.loading ? <Spinner /> : (
     <React.Fragment>
-      <div className="row">
+        <Row>
           <KeywordList
             title="Programming Language"
             keywordType="programmingLanguage"
             keywordListCSS="list-group-item-info"
           />
-        </div>
-        <div className="row">
+        </Row>
+        <Row>
           <KeywordList
             title="Library and Framework"
             keywordType="libraryOrFramework"
             keywordListCSS="list-group-item-success"
           />
-        </div>
-        <div className="row">
+        </Row>
+        <Row>
           <KeywordList
             title="Division"
             keywordType="division"
             keywordListCSS="list-group-item-danger"
           />
-        </div>
-        <div className="row">
+        </Row>
+        <Row>
           <KeywordList
             title="Platform"
             keywordType="platform"
             keywordListCSS="list-group-item-warning"
           />
-        </div>
-        <div className="row">
+        </Row>
+        <Row>
           <KeywordList
             title="Approach"
             keywordType="approach"
             keywordListCSS="list-group-item-light"
           />
-        </div>
-        <div className="row">
+        </Row>
+        <Row>
           <KeywordList
             title="Data Storage"
             keywordType="dataStorage"
             keywordListCSS="list-group-item-dark"
           />
-        </div>
+        </Row>
     </React.Fragment>
   )
 
   const searchResult = (
-    <div className='row'>
-      <div className='col-6'>
-        <JobDescriptionList />
-      </div>
-      <div className='col-6'>
-        {KeywordLists}
-      </div>    
-    </div>
+    <Container>
+      <Row>
+        <Col xs={6}>
+          <JobDescriptionList />
+        </Col>
+        <Col xs={6}>
+          {KeywordLists}
+        </Col>    
+      </Row>
+    </Container>
   )
 
   console.log("show: " + props.show);

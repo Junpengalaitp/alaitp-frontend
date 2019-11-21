@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { connect } from 'react-redux';
 import { Route } from 'react-router'
 import SearchBar from "../../components/Search/SearchBar";
-import Keywords from "../../components/Keywords/KeywordsResults"
+import KeywordResults from "../../components/Keywords/KeywordResults"
 import { NavBar } from '../../components/UI/NavBar'
 
 const Layout = props => {
@@ -12,7 +12,7 @@ const Layout = props => {
     <Fragment>
       <Route path='/' exact component={SearchBar} />
       <Route path='/keywords' component={NavBar} />
-      <Route path='/keywords' render={() => <Keywords show={props.loading || props.searchComplete} />} />
+      <Route path='/keywords' render={() => <KeywordResults show={props.loading || props.searchComplete} />} />
     </Fragment>
   )
 }
