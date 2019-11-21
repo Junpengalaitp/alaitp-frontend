@@ -1,15 +1,16 @@
 import React from 'react'
 import KeywordListItem from './KeywordListItem';
 import { ListGroup } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 
 const KeywordList = props => {
   return (
-    <div className="col-sm-2 col align-self-start">
+    <Col sm={2} className="align-self-start">
       <ListGroup horizontal>
         <a href='/' className={'list-group-item ' + (props.keywordListCSS)}>{props.title}</a>
         <KeywordListItem keywordType={props.keywordType} />
       </ListGroup>
-    </div>
+    </Col>
   )
 }
 
