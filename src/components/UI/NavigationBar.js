@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route } from 'react-router';
 import SearchForm from '../Search/SearchForm';
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 
 const NavBar = () => {
   return (
