@@ -8,7 +8,7 @@ import * as actionTypes from "../../store/actions/actionTypes";
 import { searchKeywords } from "../../store/actions/keywordSearch";
 import Button from "../UI/Button";
 import { searchJobs } from "../../store/actions/jobSearch";
-import { Form } from 'react-bootstrap';
+import { Form, FormControl } from 'react-bootstrap';
 import { Row } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
 
@@ -45,7 +45,7 @@ const SearchForm = props => {
     props.onJobSearchSuccess("Software Engineer")
   };
 
-  return (
+  const onSearchBar = (
     <Form onSubmit={handleSubmit}>
       <Row>
         <Col xs={9}>
@@ -67,7 +67,27 @@ const SearchForm = props => {
         </Col>
       </Row>
     </Form>
-  );
+    )
+
+  const onNavBar = (
+    <Form onSubmit={handleSubmit} inline>
+      <FormControl
+        className={props.inputCSS}
+        elementType={searchForm.elementType}
+        elementConfig={searchForm.elementConfig}
+        value={searchForm.value}
+        invalid={!searchForm.valid}
+        shouldValidate={searchForm.validation}
+        touched={searchForm.touched}
+        changed={event => inputChangedHandler(event)}
+      />
+      <Button type="submit" className={props.buttonCSS}>
+        Search
+      </Button>
+    </Form>
+  )
+
+  return props.show ? onNavBar: onSearchBar
 };
 
 const mapDispatchToProps = dispatch => {

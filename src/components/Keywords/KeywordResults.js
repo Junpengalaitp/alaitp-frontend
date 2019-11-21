@@ -57,11 +57,11 @@ const KeywordsResults = props => {
   )
 
   const searchResult = (
-    <Row className="mx-auto">
-      <Col xs={6}>
+    <Row className="justify-content-md-center">
+      <Col xs={5}>
         <JobDescriptionList />
       </Col>
-      <Col xs={6}>
+      <Col xs={5}>
         {KeywordLists}
       </Col>    
     </Row>
