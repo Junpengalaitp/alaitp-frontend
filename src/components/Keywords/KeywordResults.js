@@ -3,7 +3,7 @@ import Spinner from "../UI/Spinner/Spinner";
 import { connect } from "react-redux"
 import JobDescriptionList from '../JobDescription/JobDescriptionList';
 import KeywordList from './KeywordList/KeywordList';
-import { Row, Container } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
 
 
@@ -57,20 +57,18 @@ const KeywordsResults = props => {
   )
 
   const searchResult = (
-    <Container>
-      <Row>
-        <Col xs={6}>
-          <JobDescriptionList />
-        </Col>
-        <Col xs={6}>
-          {KeywordLists}
-        </Col>    
-      </Row>
-    </Container>
+    <Row className="mx-auto">
+      <Col xs={6}>
+        <JobDescriptionList />
+      </Col>
+      <Col xs={6}>
+        {KeywordLists}
+      </Col>    
+    </Row>
   )
 
   console.log("show: " + props.show);
-  return <div className="container">{props.show ? searchResult : null}</div>;
+  return <div>{props.show ? searchResult : null}</div>;
 };
 
 const mapStateToProps = state => {

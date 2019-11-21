@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Route } from 'react-router'
 import SearchBar from "../../components/Search/SearchBar";
 import KeywordResults from "../../components/Keywords/KeywordResults"
-import { NavBar } from '../../components/UI/NavBar'
+import NavBar from '../../components/UI/NavBar'
 
 const Layout = props => {
 
