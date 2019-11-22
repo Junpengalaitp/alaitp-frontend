@@ -4,10 +4,20 @@ import { connect } from "react-redux";
 import JobDescription from "./JobDescription";
 import Spinner from "./../UI/Spinner/Spinner";
 
+
+
+import * as actionTypes from "../../store/actions/actionTypes"
+import { searchKeywords } from "../../store/actions/keywordSearch";
+
 class JobDescriptionList extends React.Component {
+
   render() {
     let searchResult = <Spinner />;
     if (!this.props.loading) {
+
+      this.props.onKeywordSearchStart()
+      this.props.onKeywordSearchSuccess()
+
       searchResult = this.props.jobList
         .slice(0, 6)
         .map(jobDescription => (
@@ -30,6 +40,14 @@ const mapStateToProps = state => {
     jobList: state.jobDescription.jobList,
     loading: state.jobDescription.loading
   };
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onKeywordSearchStart: () =>
+      dispatch({ type: actionTypes.KEYWORD_SEARCH_START }),
+    onKeywordSearchSuccess: searchInput => dispatch(searchKeywords(searchInput))
+  };
 };
 
-export default connect(mapStateToProps)(JobDescriptionList);
+export default connect(mapStateToProps, mapDispatchToProps)(JobDescriptionList);

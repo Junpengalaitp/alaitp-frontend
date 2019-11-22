@@ -17,8 +17,7 @@ const SearchResult = props => {
     </Row>
   )
 
-  console.log("show: " + props.show);
-  return <div>{props.show ? searchResult : null}</div>;
+  return searchResult
 };
 
 export default SearchResult;

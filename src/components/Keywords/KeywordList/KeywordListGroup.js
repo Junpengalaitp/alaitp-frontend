@@ -4,6 +4,7 @@ import KeywordList from './KeywordList';
 import { connect } from 'react-redux';
 import Spinner from '../../UI/Spinner/Spinner';
 
+
 const KeywordListGroup = props => {
 
   const categories = [
@@ -34,7 +35,7 @@ const mapStateToProps = state => {
   return {
     jobDescriptionLoading: state.jobDescription.loading,
     keywordsLoading: state.keyword.loading
-  };
-};
+  }
+}
 
 export default connect(mapStateToProps)(KeywordListGroup);

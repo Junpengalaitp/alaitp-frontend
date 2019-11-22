@@ -38,10 +38,10 @@ const SearchForm = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    props.onKeywordSearchStart();
+    // props.onKeywordSearchStart();
     props.onJobSearchStart()
     props.history.push(`/keywords/${searchForm.value}`);
-    props.onKeywordSearchSuccess(searchForm.value);
+    // props.onKeywordSearchSuccess(searchForm.value);
     props.onJobSearchSuccess("Software Engineer")
   };
 
