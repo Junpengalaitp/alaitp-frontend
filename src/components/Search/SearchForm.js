@@ -73,13 +73,9 @@ const SearchForm = props => {
     <Form onSubmit={handleSubmit} inline>
       <FormControl
         className={props.inputCSS}
-        elementType={searchForm.elementType}
-        elementConfig={searchForm.elementConfig}
+        type={searchForm.elementConfig.type}
         value={searchForm.value}
-        invalid={!searchForm.valid}
-        shouldValidate={searchForm.validation}
-        touched={searchForm.touched}
-        changed={event => inputChangedHandler(event)}
+        onChange={event => inputChangedHandler(event)}
       />
       <Button type="submit" className={props.buttonCSS}>
         Search

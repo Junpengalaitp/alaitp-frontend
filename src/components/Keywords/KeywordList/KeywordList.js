@@ -8,7 +8,7 @@ const KeywordList = props => {
     <Col sm={2} className="align-self-start">
       <ListGroup horizontal>
         <a href='/' className={'list-group-item ' + (props.keywordListCSS)}>{props.title}</a>
-        <KeywordListItem keywordType={props.keywordType} />
+        <KeywordListItem keywordType={props.keywordType}/>
       </ListGroup>
     </Col>
   )

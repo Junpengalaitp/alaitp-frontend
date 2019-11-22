@@ -13,7 +13,7 @@ const JobDescription = props => {
         </Card.Title>
         <Card.Subtitle className="mb-2 text-muted clearfix">
           <Button
-            lassName="card-title float-left"
+            className="card-title float-left"
             variant="outline-info btn-sm"
             onClick={() => setOpen(!open)}
             aria-controls="job-collapse-text"

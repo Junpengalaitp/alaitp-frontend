@@ -16,24 +16,24 @@ const KeywordListGroup = props => {
   ]
 
   const KeywordListRows = categories.map((category, index) => (
-    <Row>
+    <Row key={index}>
       <KeywordList
         title={category.title}
         keywordType={category.keywordType}
         keywordListCSS={category.keywordListCSS}
-        key={index}
       />
     </Row>
   ))
 
-  const KeywordLists = props.loading ? <Spinner /> : KeywordListRows;
+  const keywordListGroup = props.keywordsLoading ? <Spinner /> : KeywordListRows;
 
-  return KeywordLists
+  return keywordListGroup
 }
 
 const mapStateToProps = state => {
   return {
-    loading: state.keyword.loading
+    jobDescriptionLoading: state.jobDescription.loading,
+    keywordsLoading: state.keyword.loading
   };
 };
 
