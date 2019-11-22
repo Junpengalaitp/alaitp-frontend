@@ -16,7 +16,7 @@ class JobDescriptionList extends React.Component {
     if (!this.props.loading) {
 
       this.props.onKeywordSearchStart()
-      this.props.onKeywordSearchSuccess()
+      this.props.onKeywordSearchSuccess(this.props.jobList)
 
       searchResult = this.props.jobList
         .slice(0, 6)
@@ -44,9 +44,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onKeywordSearchStart: () =>
-      dispatch({ type: actionTypes.KEYWORD_SEARCH_START }),
-    onKeywordSearchSuccess: searchInput => dispatch(searchKeywords(searchInput))
+    onKeywordSearchStart: () => dispatch({ type: actionTypes.KEYWORD_SEARCH_START }),
+    onKeywordSearchSuccess: jobDescriptionList => dispatch(searchKeywords(jobDescriptionList))
   };
 };
 

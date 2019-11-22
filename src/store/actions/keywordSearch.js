@@ -9,10 +9,10 @@ export const setKeywords = keywords => {
   };
 };
 
-export const searchKeywords = (searchInput) => {
-  if (searchInput === '' || searchInput === undefined) searchInput = 'remotive'
+export const searchKeywords = (jobDescription) => {
+  if (jobDescription === '' || jobDescription === undefined) jobDescription = {desc: 'description'}
   return dispatch => {
-    Axios.get(`http://127.0.0.1:5000/keywords/${searchInput}`)
+    Axios.post(`http://localhost:5000/keywords`, jobDescription)
       .then(response => {
         console.log(response)
         dispatch(setKeywords(response.data))
