@@ -37,12 +37,10 @@ const SearchForm = props => {
   };
 
   const handleSubmit = event => {
-    event.preventDefault();
-    // props.onKeywordSearchStart();
+    event.preventDefault()
     props.onJobSearchStart()
-    props.history.push(`/keywords/${searchForm.value}`);
-    // props.onKeywordSearchSuccess(searchForm.value);
-    props.onJobSearchSuccess("Software Engineer")
+    props.history.push(`/keywords/${searchForm.value}`)
+    props.onJobSearchSuccess(searchForm.value)
   };
 
   const onSearchBar = (
