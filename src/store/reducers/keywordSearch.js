@@ -5,19 +5,20 @@ const initialState = {
   searchComplete: false,
   loading: false,
   searchInput: '',
-  keywords: null,
+  keywords: {},
   error: false
 }
 
 const setKeywords = (state, payload) => {
+
   return updateObject(state, {
     keywords: {
-      programmingLanguage: Object.keys(payload.keywords.PROGRAMMING_LANGUAGE),
-      libraryOrFramework: Object.keys(payload.keywords.LIBRARY_OR_FRAMEWORK),
-      division: Object.keys(payload.keywords.DIVISION),
-      dataStorage: Object.keys(payload.keywords.DATA_STORAGE),
-      platform: Object.keys(payload.keywords.PLATFORM),
-      approach: Object.keys(payload.keywords.APPROACH)
+      programmingLanguage: payload.keywords.PROGRAMMING_LANGUAGE,
+      libraryOrFramework: payload.keywords.LIBRARY_OR_FRAMEWORK,
+      division: payload.keywords.DIVISION,
+      dataStorage: payload.keywords.DATA_STORAGE,
+      platform: payload.keywords.PLATFORM,
+      approach: payload.keywords.APPROACH
     },
     jobList: payload.jobList,
     loading: false,

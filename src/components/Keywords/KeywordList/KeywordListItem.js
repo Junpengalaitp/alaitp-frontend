@@ -3,9 +3,16 @@ import { connect } from 'react-redux'
 import { ListGroup } from 'react-bootstrap'
 
 const KeywordListItem = props => {
-  console.log("keyword List Item: " + props.keywords)
   if (props.keywords === null) return null
-  const keywordListItem = props.keywords[props.keywordType].slice(0, 6).map((keyword, index) => (
+  const keywordJson = props.keywords[props.keywordType]
+  if (keywordJson === null || keywordJson === undefined) return null
+  const keywords = Object.keys(keywordJson)
+  // sort keywords by its count, DESC
+  keywords.sort((a, b) => {
+    return keywordJson[b] - keywordJson[a]
+  })
+
+  const keywordListItem = keywords.slice(0, 6).map((keyword, index) => (
       <ListGroup.Item href='/' variant="light" key={index}>{keyword}</ListGroup.Item>
   ))
   return keywordListItem;

@@ -4,7 +4,7 @@ import { Col, Row } from 'react-bootstrap';
 import KeywordListGroup from "../Keywords/KeywordList/KeywordListGroup";
 
 
-const SearchResult = props => {
+const SearchResult = () => {
 
   const searchResult = (
     <Row className="justify-content-md-center">
