@@ -6,11 +6,11 @@ const KeywordListItem = props => {
   if (props.keywords === null) return null
   const keywordJson = props.keywords[props.keywordType]
   if (keywordJson === null || keywordJson === undefined) return null
-  const keywords = Object.values(keywordJson)
+  const keywords = Object.keys(keywordJson)
   // sort keywords by its count, DESC
-  // keywords.sort((a, b) => {
-  //   return keywordJson[b] - keywordJson[a]
-  // })
+  keywords.sort((a, b) => {
+    return keywordJson[b] - keywordJson[a]
+  })
 
   const keywordListItem = keywords.slice(0, 6).map((keyword, index) => (
       <ListGroup.Item href='/' variant="light" key={index}>{keyword}</ListGroup.Item>
