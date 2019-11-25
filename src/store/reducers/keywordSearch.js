@@ -6,6 +6,7 @@ const initialState = {
   loading: false,
   searchInput: '',
   keywords: {},
+  jobKeywordIndex: null,
   error: false
 }
 
@@ -20,10 +21,12 @@ const setKeywords = (state, payload) => {
       platform: payload.keywords.keywordByLabel.PLATFORM,
       approach: payload.keywords.keywordByLabel.APPROACH
     },
+    jobKeywordIndex: payload.keywords.keywordByJob,
     jobList: payload.jobList,
     loading: false,
     searchComplete: true
   })
+
 }
 
 const reducer = (state = initialState, action) => {
@@ -32,6 +35,7 @@ const reducer = (state = initialState, action) => {
       console.log("keyword search start")
       return {
         ...state,
+        searchComplete: false,
         loading: true
       }
 
@@ -43,7 +47,7 @@ const reducer = (state = initialState, action) => {
         return {
           ...state,
           loading: false,
-          searchComplete: true
+          searchComplete: false
         }
   
     default:

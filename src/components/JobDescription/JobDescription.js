@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Button, Collapse, Card } from 'react-bootstrap';
+import { Button, Collapse, Card, Badge } from 'react-bootstrap';
+import JobDescriptionText from './JobDescriptionText';
 
 const JobDescription = props => {
   const [open, setOpen] = useState(false)
@@ -23,7 +24,8 @@ const JobDescription = props => {
         </Card.Subtitle>
         <Collapse in={open}>
           <div id="job-collapse-text mx-1">
-            <Card.Text>{props.jobDescriptionText}</Card.Text>
+            <JobDescriptionText jobDescriptionText={props.jobDescriptionText}></JobDescriptionText>
+            {/* <Card.Text>I'm <Badge variant="success">highlighted</Badge>!</Card.Text> */}
           </div>
         </Collapse>
         

@@ -4,8 +4,6 @@ import { connect } from "react-redux";
 import JobDescription from "./JobDescription";
 import Spinner from "./../UI/Spinner/Spinner";
 
-
-
 import * as actionTypes from "../../store/actions/actionTypes"
 import { searchKeywords } from "../../store/actions/keywordSearch";
 
