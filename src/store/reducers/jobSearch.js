@@ -11,7 +11,7 @@ const initialState = {
 
 const setJobList = (state, payload) => {
   return updateObject(state, {
-    jobList: payload.jobList,
+    jobList: Object.values(payload.jobList),
     loading: false,
     searchComplete: true
   })
