@@ -23,6 +23,7 @@ class JobDescriptionList extends React.Component {
             title={jobDescription.jobTitle}
             company={jobDescription.company}
             tags={jobDescription.tags}
+            jobId={jobDescription.jobId}
             key={jobDescription.jobId}
             jobDescriptionText={jobDescription.jobDescriptionText}
           />
