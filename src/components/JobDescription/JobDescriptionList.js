@@ -17,7 +17,6 @@ class JobDescriptionList extends React.Component {
       this.props.onKeywordSearchSuccess(this.props.jobList)
 
       searchResult = this.props.jobList
-        .slice(0, 6)
         .map(jobDescription => (
           <JobDescription
             title={jobDescription.jobTitle}

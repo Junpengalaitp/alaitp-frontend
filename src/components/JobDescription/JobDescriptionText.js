@@ -19,6 +19,7 @@ const JobDescriptionText = props => {
     keywordIndices.sort((a, b) => (a[0] - b[0]))
 
     console.log(keywordIndices)
+    if (keywordIndices[0] === null || keywordIndices[0] === undefined) return <React.Fragment>{jobDescriptionText}</React.Fragment>
     // init with the start to first keyword
     let jobTextWithKeyword = [props.jobDescriptionText.substring(0, keywordIndices[0][0])]
     for (let i = 0; i < keywordIndices.length - 1; i++) {
