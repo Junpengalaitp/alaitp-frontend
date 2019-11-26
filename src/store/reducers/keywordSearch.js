@@ -19,7 +19,11 @@ const setKeywords = (state, payload) => {
       division: payload.keywords.keywordByLabel.DIVISION,
       dataStorage: payload.keywords.keywordByLabel.DATA_STORAGE,
       platform: payload.keywords.keywordByLabel.PLATFORM,
-      approach: payload.keywords.keywordByLabel.APPROACH
+      approach: payload.keywords.keywordByLabel.APPROACH,
+      computerScience: payload.keywords.keywordByLabel.COMPUTER_SCIENCE,
+      os: payload.keywords.keywordByLabel.OS,
+      protocol: payload.keywords.keywordByLabel.PROTOCOL,
+      workExperience: payload.keywords.keywordByLabel.WORK_EXPERIENCE,
     },
     jobKeywordIndex: payload.keywords.keywordByJob,
     jobList: payload.jobList,
