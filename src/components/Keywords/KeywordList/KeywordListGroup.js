@@ -9,11 +9,27 @@ const KeywordListGroup = props => {
 
   const categories = [
     {title: "Programming Language", keywordType: "programmingLanguage", keywordListCSS:"list-group-item-warning" },
-    {title: "Library and Framework", keywordType: "libraryOrFramework", keywordListCSS:"list-group-item-success" },
-    {title: "Division", keywordType: "division", keywordListCSS:"list-group-item-primary" },
+    {title: "Other Language", keywordType: "otherLanguage", keywordListCSS:"list-group-item-success" },
+    {title: "Library", keywordType: "library", keywordListCSS:"list-group-item-primary" },
+    {title: "Framework", keywordType: "framework", keywordListCSS:"list-group-item-warning" },
+    {title: "Division", keywordType: "division", keywordListCSS:"list-group-item-success" },
+    {title: "Position", keywordType: "position", keywordListCSS:"list-group-item-primary" },
     {title: "Platform", keywordType: "platform", keywordListCSS:"list-group-item-warning" },
     {title: "Approach", keywordType: "approach", keywordListCSS:"list-group-item-success" },
-    {title: "Data Storage", keywordType: "dataStorage", keywordListCSS:"list-group-item-primary" },
+    {title: "Data Storage", keywordType: "dataStorage", keywordListCSS:"list-group-item-warning" },
+    {title: "Data Transmission", keywordType: "dataTransmission", keywordListCSS:"list-group-item-success" },
+    {title: "Server", keywordType: "server", keywordListCSS:"list-group-item-primary" },
+    {title: "Software Engineering", keywordType: "softwareEngineering", keywordListCSS:"list-group-item-warning" },
+    {title: "Computer Science", keywordType: "computerScience", keywordListCSS:"list-group-item-success" },
+    {title: "Architect", keywordType: "architect", keywordListCSS:"list-group-item-primary" },
+    {title: "AI", keywordType: "ai", keywordListCSS:"list-group-item-warning" },
+    {title: "Quality", keywordType: "quality", keywordListCSS:"list-group-item-success" },
+    {title: "Product", keywordType: "product", keywordListCSS:"list-group-item-primary" },
+    {title: "Work Experienceity", keywordType: "workExperience", keywordListCSS:"list-group-item-warning" },
+    {title: "Tool", keywordType: "tool", keywordListCSS:"list-group-item-success" },
+    {title: "Soft Skill", keywordType: "softSkill", keywordListCSS:"list-group-item-primary" },
+    {title: "Offer", keywordType: "offer", keywordListCSS:"list-group-item-warning" },
+    {title: "Team", keywordType: "team", keywordListCSS:"list-group-item-success" },
   ]
 
   const KeywordListRows = categories.map((category, index) => (
