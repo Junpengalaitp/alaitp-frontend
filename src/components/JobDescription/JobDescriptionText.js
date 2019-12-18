@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Badge } from "react-bootstrap";
+import { Badge, OverlayTrigger, Tooltip } from "react-bootstrap";
 
 const JobDescriptionText = props => {
   // console.log('keyword indices are ' +  JSON.stringify(props.keywordIndex))
@@ -33,12 +33,23 @@ const JobDescriptionText = props => {
       if (keywordIndices[i][3] !== null) {
         const badgeColor = badgeColors[Math.floor(Math.random() * badgeColors.length)];
         const keywordBadge = (
-          <Badge variant={badgeColor} key={keywordIndices[i][0]}>
+          <OverlayTrigger
+            key={"top"}
+            placement={"top"}
+            overlay={
+              <Tooltip id={'tooltip-top'}>
+                <strong>{"top"}</strong>.
+              </Tooltip>
+            }
+          >
+            <Badge variant={badgeColor} key={keywordIndices[i][0]}>
             {props.jobDescriptionText.substring(
               keywordIndices[i][0],
               keywordIndices[i][1]
             )}
-          </Badge>
+            </Badge>
+          </OverlayTrigger>
+          
         );
         const textBetweenBadges = props.jobDescriptionText.substring(
           keywordIndices[i][1],

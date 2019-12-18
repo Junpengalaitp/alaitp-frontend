@@ -25,7 +25,6 @@ const JobDescription = props => {
         <Collapse in={open}>
           <div id="job-collapse-text mx-1">
             <JobDescriptionText jobDescriptionText={props.jobDescriptionText} jobId={props.jobId}></JobDescriptionText>
-            {/* <Card.Text>I'm <Badge variant="success">highlighted</Badge>!</Card.Text> */}
           </div>
         </Collapse>
         
