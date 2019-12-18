@@ -7,17 +7,18 @@ const JobDescriptionText = props => {
   let jobDescriptionText = props.jobDescriptionText;
   if (props.keywordSearchComplete) {
     const jobId = props.jobId;
-    const keywordObjects = Object.values(props.keywordIndex[jobId]);
-    const keywordIndices = [];
-    for (const keywordObject of keywordObjects) {
-      const startAndEndIndices = Object.keys(keywordObject);
-      for (const indices of startAndEndIndices) {
-        keywordIndices.push([
-          indices.split(",")[0],
-          indices.split(",")[1],
-          keywordObject[startAndEndIndices]
-        ]);
+    const keywordObjects = {};
+    for (let [key, value] of Object.entries(props.keywordIndex[jobId])) {
+      for (let [key2, value2] of Object.entries(value)) {
+        // const obj = {}
+        // obj[key2] = [value2, key]
+        keywordObjects[key2] = [value2, key]
       }
+    }
+    
+    const keywordIndices = [];
+    for (const keywordObject of Object.keys(keywordObjects)) {
+      keywordIndices.push([keywordObject.split(",")[0], keywordObject.split(",")[1], keywordObjects[keywordObject][1]])
     }
 
     keywordIndices.sort((a, b) => a[0] - b[0]);
@@ -32,21 +33,22 @@ const JobDescriptionText = props => {
     for (let i = 0; i < keywordIndices.length - 1; i++) {
       if (keywordIndices[i][3] !== null) {
         const badgeColor = badgeColors[Math.floor(Math.random() * badgeColors.length)];
+
         const keywordBadge = (
           <OverlayTrigger
-            key={"top"}
+            key={keywordIndices[i][0]}
             placement={"top"}
             overlay={
               <Tooltip id={'tooltip-top'}>
-                <strong>{"top"}</strong>.
+                <strong>{keywordIndices[i][2]}</strong>.
               </Tooltip>
             }
           >
             <Badge variant={badgeColor} key={keywordIndices[i][0]}>
-            {props.jobDescriptionText.substring(
-              keywordIndices[i][0],
-              keywordIndices[i][1]
-            )}
+              {props.jobDescriptionText.substring(
+                keywordIndices[i][0],
+                keywordIndices[i][1]
+              )}
             </Badge>
           </OverlayTrigger>
           
