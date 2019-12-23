@@ -25,11 +25,12 @@ const KeywordListGroup = props => {
     {title: "AI", keywordType: "ai", keywordListCSS:"list-group-item-warning" },
     {title: "Quality", keywordType: "quality", keywordListCSS:"list-group-item-success" },
     {title: "Product", keywordType: "product", keywordListCSS:"list-group-item-primary" },
-    {title: "Work Experienceity", keywordType: "workExperience", keywordListCSS:"list-group-item-warning" },
+    {title: "Work Experience", keywordType: "workExperience", keywordListCSS:"list-group-item-warning" },
     {title: "Tool", keywordType: "tool", keywordListCSS:"list-group-item-success" },
     {title: "Soft Skill", keywordType: "softSkill", keywordListCSS:"list-group-item-primary" },
     {title: "Offer", keywordType: "offer", keywordListCSS:"list-group-item-warning" },
     {title: "Team", keywordType: "team", keywordListCSS:"list-group-item-success" },
+    {title: "Company", keywordType: "company", keywordListCSS:"list-group-item-primary" },
   ]
 
   const KeywordListRows = categories.map((category, index) => (
