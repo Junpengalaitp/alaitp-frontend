@@ -33,7 +33,7 @@ const setKeywords = (state, payload) => {
       quality: payload.keywords.keywordByLabel.QUALITY,
       protocol: payload.keywords.keywordByLabel.PROTOCOL,
       tool: payload.keywords.keywordByLabel.TOOL,
-      product: payload.keywords.keywordByLabel.PRODUCT,
+      softwareProduct: payload.keywords.keywordByLabel.SOFTWARE_PRODUCT,
       workExperience: payload.keywords.keywordByLabel.WORK_EXPERIENCE,
       softSkill: payload.keywords.keywordByLabel.SOFT_SKILL,
       offer: payload.keywords.keywordByLabel.OFFER,

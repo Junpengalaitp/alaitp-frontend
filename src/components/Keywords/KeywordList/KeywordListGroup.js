@@ -24,7 +24,7 @@ const KeywordListGroup = props => {
     {title: "Architect", keywordType: "architect", keywordListCSS:"list-group-item-primary" },
     {title: "AI", keywordType: "ai", keywordListCSS:"list-group-item-warning" },
     {title: "Quality", keywordType: "quality", keywordListCSS:"list-group-item-success" },
-    {title: "Product", keywordType: "product", keywordListCSS:"list-group-item-primary" },
+    {title: "Product", keywordType: "softwareProduct", keywordListCSS:"list-group-item-primary" },
     {title: "Work Experienceity", keywordType: "workExperience", keywordListCSS:"list-group-item-warning" },
     {title: "Tool", keywordType: "tool", keywordListCSS:"list-group-item-success" },
     {title: "Soft Skill", keywordType: "softSkill", keywordListCSS:"list-group-item-primary" },
