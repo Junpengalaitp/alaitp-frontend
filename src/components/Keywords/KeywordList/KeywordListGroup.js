@@ -30,6 +30,7 @@ const KeywordListGroup = props => {
     {title: "Soft Skill", keywordType: "softSkill", keywordListCSS:"list-group-item-primary" },
     {title: "Offer", keywordType: "offer", keywordListCSS:"list-group-item-warning" },
     {title: "Team", keywordType: "team", keywordListCSS:"list-group-item-success" },
+    {title: "Company", keywordType: "company", keywordListCSS:"list-group-item-primary" },
   ]
 
   const KeywordListRows = categories.map((category, index) => (

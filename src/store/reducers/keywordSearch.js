@@ -38,6 +38,7 @@ const setKeywords = (state, payload) => {
       softSkill: payload.keywords.keywordByLabel.SOFT_SKILL,
       offer: payload.keywords.keywordByLabel.OFFER,
       team: payload.keywords.keywordByLabel.TEAM,
+      company: payload.keywords.keywordByLabel.COMPANY,
     },
     jobKeywordIndex: payload.keywords.keywordByJob,
     jobList: payload.jobList,
