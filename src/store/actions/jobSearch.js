@@ -12,7 +12,7 @@ export const setJobs = jobList => {
 export const searchJobs = (searchInput) => {
   if (searchInput === '') searchInput = 'Software Engineer'
   return dispatch => {
-    Axios.get(`http://127.0.0.1:8811/job-list/${searchInput}`)
+    Axios.get(`http://127.0.0.1:8888/job-description-api/job-list/${searchInput}`)
       .then(response => {
         console.log(response)
         console.log("job search success")
