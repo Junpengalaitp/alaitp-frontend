@@ -8,35 +8,35 @@ import Spinner from '../../UI/Spinner/Spinner';
 const KeywordListGroup = props => {
 
   const categories = [
-    {title: "Programming Language", keywordType: "programmingLanguage", keywordListCSS:"list-group-item-warning" },
-    {title: "Other Language", keywordType: "otherLanguage", keywordListCSS:"list-group-item-success" },
-    {title: "Library", keywordType: "library", keywordListCSS:"list-group-item-primary" },
-    {title: "Framework", keywordType: "framework", keywordListCSS:"list-group-item-warning" },
-    {title: "Division", keywordType: "division", keywordListCSS:"list-group-item-success" },
-    {title: "Position", keywordType: "position", keywordListCSS:"list-group-item-primary" },
-    {title: "Platform", keywordType: "platform", keywordListCSS:"list-group-item-warning" },
-    {title: "Approach", keywordType: "approach", keywordListCSS:"list-group-item-success" },
-    {title: "Data Storage", keywordType: "dataStorage", keywordListCSS:"list-group-item-warning" },
-    {title: "Data Transmission", keywordType: "dataTransmission", keywordListCSS:"list-group-item-success" },
-    {title: "Server", keywordType: "server", keywordListCSS:"list-group-item-primary" },
-    {title: "Software Engineering", keywordType: "softwareEngineering", keywordListCSS:"list-group-item-warning" },
-    {title: "Computer Science", keywordType: "computerScience", keywordListCSS:"list-group-item-success" },
-    {title: "Architect", keywordType: "architect", keywordListCSS:"list-group-item-primary" },
-    {title: "AI", keywordType: "ai", keywordListCSS:"list-group-item-warning" },
-    {title: "Quality", keywordType: "quality", keywordListCSS:"list-group-item-success" },
-    {title: "Product", keywordType: "softwareProduct", keywordListCSS:"list-group-item-primary" },
-    {title: "Work Experience", keywordType: "workExperience", keywordListCSS:"list-group-item-warning" },
-    {title: "Tool", keywordType: "tool", keywordListCSS:"list-group-item-success" },
-    {title: "Soft Skill", keywordType: "softSkill", keywordListCSS:"list-group-item-primary" },
-    {title: "Offer", keywordType: "offer", keywordListCSS:"list-group-item-warning" },
-    {title: "Team", keywordType: "team", keywordListCSS:"list-group-item-success" },
-    {title: "Company", keywordType: "company", keywordListCSS:"list-group-item-primary" },
+    {categoryTitle: "Programming Language", keywordType: "programmingLanguage", keywordListCSS:"list-group-item-warning" },
+    {categoryTitle: "Other Language", keywordType: "otherLanguage", keywordListCSS:"list-group-item-success" },
+    {categoryTitle: "Library", keywordType: "library", keywordListCSS:"list-group-item-primary" },
+    {categoryTitle: "Framework", keywordType: "framework", keywordListCSS:"list-group-item-warning" },
+    {categoryTitle: "Division", keywordType: "division", keywordListCSS:"list-group-item-success" },
+    {categoryTitle: "Position", keywordType: "position", keywordListCSS:"list-group-item-primary" },
+    {categoryTitle: "Platform", keywordType: "platform", keywordListCSS:"list-group-item-warning" },
+    {categoryTitle: "Approach", keywordType: "approach", keywordListCSS:"list-group-item-success" },
+    {categoryTitle: "Data Storage", keywordType: "dataStorage", keywordListCSS:"list-group-item-warning" },
+    {categoryTitle: "Data Transmission", keywordType: "dataTransmission", keywordListCSS:"list-group-item-success" },
+    {categoryTitle: "Server", keywordType: "server", keywordListCSS:"list-group-item-primary" },
+    {categoryTitle: "Software Engineering", keywordType: "softwareEngineering", keywordListCSS:"list-group-item-warning" },
+    {categoryTitle: "Computer Science", keywordType: "computerScience", keywordListCSS:"list-group-item-success" },
+    {categoryTitle: "Architect", keywordType: "architect", keywordListCSS:"list-group-item-primary" },
+    {categoryTitle: "AI", keywordType: "ai", keywordListCSS:"list-group-item-warning" },
+    {categoryTitle: "Quality", keywordType: "quality", keywordListCSS:"list-group-item-success" },
+    {categoryTitle: "Product", keywordType: "softwareProduct", keywordListCSS:"list-group-item-primary" },
+    {categoryTitle: "Work Experience", keywordType: "workExperience", keywordListCSS:"list-group-item-warning" },
+    {categoryTitle: "Tool", keywordType: "tool", keywordListCSS:"list-group-item-success" },
+    {categoryTitle: "Soft Skill", keywordType: "softSkill", keywordListCSS:"list-group-item-primary" },
+    {categoryTitle: "Offer", keywordType: "offer", keywordListCSS:"list-group-item-warning" },
+    {categoryTitle: "Team", keywordType: "team", keywordListCSS:"list-group-item-success" },
+    {categoryTitle: "Company", keywordType: "company", keywordListCSS:"list-group-item-primary" },
   ]
 
   const KeywordListRows = categories.map((category, index) => (
     <Row key={index}>
       <KeywordList
-        title={category.title}
+        categoryTitle={category.categoryTitle}
         keywordType={category.keywordType}
         keywordListCSS={category.keywordListCSS}
       />

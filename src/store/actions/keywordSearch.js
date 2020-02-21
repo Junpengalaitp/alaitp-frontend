@@ -3,6 +3,8 @@ import Axios from "axios";
 import * as actionTypes from './actionTypes'
 
 export const setKeywords = keywords => {
+  console.log("setKeywords arg: ")
+  console.log(keywords)
   return {
     type: actionTypes.KEYWORD_SEARCH_SUCCESS,
     keywords: keywords

@@ -7,18 +7,12 @@ const JobDescriptionText = props => {
   let jobDescriptionText = props.jobDescriptionText;
   if (props.keywordSearchComplete) {
     const jobId = props.jobId;
-    const keywordObjects = {};
-    for (let [key, value] of Object.entries(props.keywordIndex[jobId])) {
-      for (let [key2, value2] of Object.entries(value)) {
-        // const obj = {}
-        // obj[key2] = [value2, key]
-        keywordObjects[key2] = [value2, key]
-      }
-    }
-    
+
     const keywordIndices = [];
-    for (const keywordObject of Object.keys(keywordObjects)) {
-      keywordIndices.push([keywordObject.split(",")[0], keywordObject.split(",")[1], keywordObjects[keywordObject][1]])
+
+    const keywordList = props.keywordIndex[jobId]
+    for (const keywordObj of keywordList) {
+      keywordIndices.push([keywordObj.startIdx, keywordObj.endIdx, keywordObj.keyword])
     }
 
     keywordIndices.sort((a, b) => a[0] - b[0]);

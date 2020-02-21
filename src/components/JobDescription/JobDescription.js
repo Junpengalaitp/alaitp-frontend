@@ -27,7 +27,6 @@ const JobDescription = props => {
             <JobDescriptionText jobDescriptionText={props.jobDescriptionText} jobId={props.jobId}></JobDescriptionText>
           </div>
         </Collapse>
-        
       </Card.Body>
     </Card>
   )

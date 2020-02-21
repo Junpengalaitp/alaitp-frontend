@@ -10,7 +10,6 @@ const initialState = {
 }
 
 const setJobMap = (state, payload) => {
-  console.log("payload.jobMap: " + JSON.stringify(payload.jobMap))
   return updateObject(state, {
     jobMap: payload.jobMap,
     loading: false,

@@ -1,5 +1,6 @@
 import * as actionTypes from '../actions/actionTypes'
 import { updateObject } from './../../shared/utility'
+import {getAllKeywordsByCategory} from "../../service/jobKeywordService";
 
 const initialState = {
   searchComplete: false,
@@ -11,36 +12,39 @@ const initialState = {
 }
 
 const setKeywords = (state, payload) => {
+  // console.log("payload: " + JSON.stringify(payload))
+  const allKeywordsByCategory = getAllKeywordsByCategory(payload.keywords)
+  // console.log("allKeywordsByCategory: " + JSON.stringify(allKeywordsByCategory))
 
   return updateObject(state, {
     keywords: {
-      programmingLanguage: payload.keywords.keywordByLabel.PROGRAMMING_LANGUAGE,
-      otherLanguage: payload.keywords.keywordByLabel.OTHER_LANGUAGE,
-      library: payload.keywords.keywordByLabel.LIBRARY,
-      framework: payload.keywords.keywordByLabel.FRAMEWORK,
-      division: payload.keywords.keywordByLabel.DIVISION,
-      position: payload.keywords.keywordByLabel.POSITION,
-      dataStorage: payload.keywords.keywordByLabel.DATA_STORAGE,
-      dataTransmission: payload.keywords.keywordByLabel.DATA_TRANSMISSION,
-      server: payload.keywords.keywordByLabel.SERVER,
-      platform: payload.keywords.keywordByLabel.PLATFORM,
-      approach: payload.keywords.keywordByLabel.APPROACH,
-      softwareEngineering: payload.keywords.keywordByLabel.SOFTWARE_ENGINEERING,
-      computerScience: payload.keywords.keywordByLabel.COMPUTER_SCIENCE,
-      ai: payload.keywords.keywordByLabel.AI,
-      os: payload.keywords.keywordByLabel.OS,
-      architect: payload.keywords.keywordByLabel.ARCHITECT,
-      quality: payload.keywords.keywordByLabel.QUALITY,
-      protocol: payload.keywords.keywordByLabel.PROTOCOL,
-      tool: payload.keywords.keywordByLabel.TOOL,
-      softwareProduct: payload.keywords.keywordByLabel.SOFTWARE_PRODUCT,
-      workExperience: payload.keywords.keywordByLabel.WORK_EXPERIENCE,
-      softSkill: payload.keywords.keywordByLabel.SOFT_SKILL,
-      offer: payload.keywords.keywordByLabel.OFFER,
-      team: payload.keywords.keywordByLabel.TEAM,
-      company: payload.keywords.keywordByLabel.COMPANY,
+      programmingLanguage: allKeywordsByCategory.PROGRAMMING_LANGUAGE,
+      otherLanguage: allKeywordsByCategory.OTHER_LANGUAGE,
+      library: allKeywordsByCategory.LIBRARY,
+      framework: allKeywordsByCategory.FRAMEWORK,
+      division: allKeywordsByCategory.DIVISION,
+      position: allKeywordsByCategory.POSITION,
+      dataStorage: allKeywordsByCategory.DATA_STORAGE,
+      dataTransmission: allKeywordsByCategory.DATA_TRANSMISSION,
+      server: allKeywordsByCategory.SERVER,
+      platform: allKeywordsByCategory.PLATFORM,
+      approach: allKeywordsByCategory.APPROACH,
+      softwareEngineering: allKeywordsByCategory.SOFTWARE_ENGINEERING,
+      computerScience: allKeywordsByCategory.COMPUTER_SCIENCE,
+      ai: allKeywordsByCategory.AI,
+      os: allKeywordsByCategory.OS,
+      architect: allKeywordsByCategory.ARCHITECT,
+      quality: allKeywordsByCategory.QUALITY,
+      protocol: allKeywordsByCategory.PROTOCOL,
+      tool: allKeywordsByCategory.TOOL,
+      softwareProduct: allKeywordsByCategory.SOFTWARE_PRODUCT,
+      workExperience: allKeywordsByCategory.WORK_EXPERIENCE,
+      softSkill: allKeywordsByCategory.SOFT_SKILL,
+      offer: allKeywordsByCategory.OFFER,
+      team: allKeywordsByCategory.TEAM,
+      company: allKeywordsByCategory.COMPANY,
     },
-    jobKeywordIndex: payload.keywords.keywordByJob,
+    jobKeywordIndex: payload.keywords,
     jobMap: payload.jobMap,
     loading: false,
     searchComplete: true

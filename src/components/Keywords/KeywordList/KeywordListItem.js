@@ -4,15 +4,15 @@ import { ListGroup } from 'react-bootstrap'
 
 const KeywordListItem = props => {
   if (props.keywords === null) return null
-  const keywordJson = props.keywords[props.keywordType]
-  if (keywordJson === null || keywordJson === undefined) return null
-  const keywords = Object.keys(keywordJson)
+  const keywordInCategory = props.keywords[props.keywordType]
+  if (keywordInCategory === null || keywordInCategory === undefined) return null
+  
   // sort keywords by its count, DESC
-  keywords.sort((a, b) => {
-    return keywordJson[b] - keywordJson[a]
+  keywordInCategory.sort((a, b) => {
+    return keywordInCategory[b] - keywordInCategory[a]
   })
 
-  const keywordListItem = keywords.slice(0, 6).map((keyword, index) => (
+  const keywordListItem = keywordInCategory.slice(0, 6).map((keyword, index) => (
       <ListGroup.Item href='/' variant="light" key={index}>{keyword}</ListGroup.Item>
   ))
   return keywordListItem;
@@ -23,7 +23,6 @@ const mapStateToProps = state => {
     keywords: state.keyword.keywords
   };
 };
-
 
 export default connect(mapStateToProps)(KeywordListItem);
 
