@@ -14,17 +14,17 @@ class JobDescriptionList extends React.Component {
     if (!this.props.loading) {
 
       this.props.onKeywordSearchStart()
-      this.props.onKeywordSearchSuccess(this.props.jobList)
+      this.props.onKeywordSearchSuccess(this.props.jobMap)
 
-      searchResult = this.props.jobList
-        .map(jobDescription => (
+      searchResult = Object.keys(this.props.jobMap)
+        .map((jobId) => (
           <JobDescription
-            title={jobDescription.jobTitle}
-            company={jobDescription.company}
-            tags={jobDescription.tags}
-            jobId={jobDescription.jobId}
-            key={jobDescription.jobId}
-            jobDescriptionText={jobDescription.jobDescriptionText}
+            jobId={jobId}
+            key={jobId}
+            title={this.props.jobMap[jobId].jobTitle}
+            company={this.props.jobMap[jobId].company}
+            tags={this.props.jobMap[jobId].tags}
+            jobDescriptionText={this.props.jobMap[jobId].jobDescriptionText}
           />
         ));
     }
@@ -35,7 +35,7 @@ class JobDescriptionList extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    jobList: state.jobDescription.jobList,
+    jobMap: state.jobDescription.jobMap,
     loading: state.jobDescription.loading
   };
 }

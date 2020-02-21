@@ -33,7 +33,7 @@ const SearchForm = props => {
       touched: true
     });
     setSearchForm(updatedSearchForm);
-    console.log(searchForm.value);
+    // console.log(searchForm.value);
   };
 
   const handleSubmit = event => {

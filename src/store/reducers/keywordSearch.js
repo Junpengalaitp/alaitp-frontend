@@ -41,7 +41,7 @@ const setKeywords = (state, payload) => {
       company: payload.keywords.keywordByLabel.COMPANY,
     },
     jobKeywordIndex: payload.keywords.keywordByJob,
-    jobList: payload.jobList,
+    jobMap: payload.jobMap,
     loading: false,
     searchComplete: true
   })

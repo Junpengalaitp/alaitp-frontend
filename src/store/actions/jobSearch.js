@@ -2,10 +2,10 @@ import Axios from "axios";
 
 import * as actionTypes from './actionTypes'
 
-export const setJobs = jobList => {
+export const setJobs = jobMap => {
   return {
     type: actionTypes.JOB_SEARCH_SUCCESS,
-    jobList: jobList
+    jobMap: jobMap
   };
 };
 

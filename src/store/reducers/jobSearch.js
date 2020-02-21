@@ -5,13 +5,14 @@ const initialState = {
   searchComplete: false,
   loading: false,
   searchInput: '',
-  jobList: [],
+  jobMap: {},
   error: false
 }
 
-const setJobList = (state, payload) => {
+const setJobMap = (state, payload) => {
+  console.log("payload.jobMap: " + JSON.stringify(payload.jobMap))
   return updateObject(state, {
-    jobList: Object.values(payload.jobList),
+    jobMap: payload.jobMap,
     loading: false,
     searchComplete: true
   })
@@ -28,7 +29,7 @@ const reducer = (state = initialState, action) => {
 
     case actionTypes.JOB_SEARCH_SUCCESS:
         console.log("job search complete")
-        return setJobList(state, action)
+        return setJobMap(state, action)
 
     case actionTypes.JOB_SEARCH_FAIL:
         return {
