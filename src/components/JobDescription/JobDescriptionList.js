@@ -5,7 +5,7 @@ import JobDescription from "./JobDescription";
 import Spinner from "./../UI/Spinner/Spinner";
 
 import * as actionTypes from "../../store/actions/actionTypes"
-import { searchKeywords } from "../../store/actions/keywordSearch";
+import { getJobKeyword, postJobKeyword } from "../../store/actions/keywordSearch";
 
 class JobDescriptionList extends React.Component {
 
@@ -14,7 +14,11 @@ class JobDescriptionList extends React.Component {
     if (!this.props.loading) {
 
       this.props.onKeywordSearchStart()
-      this.props.onKeywordSearchSuccess(this.props.jobMap)
+      this.props.onJobSearchSuccess(this.props.jobSearchId)
+
+      if (this.props.cacheError === true) {
+        this.props.onJobCacheFail(this.props.jobMap)
+      }
 
       searchResult = Object.keys(this.props.jobMap)
         .map((jobId) => (
@@ -35,15 +39,18 @@ class JobDescriptionList extends React.Component {
 
 const mapStateToProps = state => {
   return {
+    jobSearchId: state.jobDescription.jobSearchId,
     jobMap: state.jobDescription.jobMap,
-    loading: state.jobDescription.loading
+    loading: state.jobDescription.loading,
+    cacheError: state.keyword.cacheError
   };
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     onKeywordSearchStart: () => dispatch({ type: actionTypes.KEYWORD_SEARCH_START }),
-    onKeywordSearchSuccess: jobDescriptionList => dispatch(searchKeywords(jobDescriptionList))
+    onJobSearchSuccess: jobSearchId => dispatch(getJobKeyword(jobSearchId)),
+    onJobCacheFail: jobMap => dispatch(postJobKeyword(jobMap)),
   };
 };
 

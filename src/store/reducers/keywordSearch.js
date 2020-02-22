@@ -7,14 +7,12 @@ const initialState = {
   searchInput: '',
   orderedKeywordByCategory: {},
   keywordIndexByJob: null,
+  cacheError: false,
   error: false
 }
 
 const setKeywords = (state, payload) => {
-  // console.log("payload: " + JSON.stringify(payload))
-  // const allKeywordsByCategory = getAllKeywordsByCategory(payload.keywords)
   const allKeywordsByCategory = payload.keywords.orderedKeywordByCategory
-  // console.log("allKeywordsByCategory: " + JSON.stringify(allKeywordsByCategory))
 
   return updateObject(state, {
     orderedKeywordByCategory: {
@@ -65,6 +63,14 @@ const reducer = (state = initialState, action) => {
     case actionTypes.KEYWORD_SEARCH_SUCCESS:
         console.log("keyword search complete")
         return setKeywords(state, action)
+        
+    case actionTypes.JOB_SEARCH_CACHE_FAIL:
+        console.log("job cache fail, trying post job description")
+        return {
+          ...state,
+          cacheError: true,
+          searchComplete: false
+        }
 
     case actionTypes.KEYWORD_SEARCH_FAIL:
         return {

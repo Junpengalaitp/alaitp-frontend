@@ -31,3 +31,5 @@ yarn-error.log*
 .idea/.gitignore
 .idea
 .idea/dictionaries/hejunpeng.xml
+
+/.vscode/

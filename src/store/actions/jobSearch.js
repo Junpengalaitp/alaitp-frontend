@@ -2,21 +2,23 @@ import Axios from "axios";
 
 import * as actionTypes from './actionTypes'
 
-export const setJobs = jobMap => {
+export const setJobs = (jobMap, jobSearchId) => {
   return {
     type: actionTypes.JOB_SEARCH_SUCCESS,
-    jobMap: jobMap
+    jobMap: jobMap,
+    jobSearchId: jobSearchId,
   };
 };
 
 export const searchJobs = (searchInput) => {
   if (searchInput === '') searchInput = 'Software Engineer'
   return dispatch => {
-    Axios.get(`http://127.0.0.1:8888/job-description-api/job-list/${searchInput}`)
+    const uuidv4 = require('uuid/v4')
+    const requestId = uuidv4()
+    console.log("requestId: " + requestId)
+    Axios.get(`http://127.0.0.1:8888/job-description-api/job-list/${searchInput}/${requestId}`)
       .then(response => {
-        console.log(response)
-        console.log("job search success")
-        dispatch(setJobs(response.data))
+        dispatch(setJobs(response.data, requestId))
       })
       .catch(error => {
         console.log('error happened during searching keywords' + error)

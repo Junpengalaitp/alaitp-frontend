@@ -5,7 +5,6 @@ import Input from "../UI/Input/Input";
 import { updateObject } from "../../shared/utility";
 
 import * as actionTypes from "../../store/actions/actionTypes";
-import { searchKeywords } from "../../store/actions/keywordSearch";
 import Button from "../UI/Button";
 import { searchJobs } from "../../store/actions/jobSearch";
 import { Form, FormControl } from 'react-bootstrap';
@@ -32,16 +31,15 @@ const SearchForm = props => {
       value: event.target.value,
       touched: true
     });
-    setSearchForm(updatedSearchForm);
-    // console.log(searchForm.value);
-  };
+    setSearchForm(updatedSearchForm)
+  }
 
   const handleSubmit = event => {
     event.preventDefault()
     props.onJobSearchStart()
     props.history.push(`/keywords/${searchForm.value}`)
     props.onJobSearchSuccess(searchForm.value)
-  };
+  }
 
   const onSearchBar = (
     <Form onSubmit={handleSubmit}>
@@ -86,12 +84,9 @@ const SearchForm = props => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onKeywordSearchStart: () =>
-      dispatch({ type: actionTypes.KEYWORD_SEARCH_START }),
-    onKeywordSearchSuccess: searchInput => dispatch(searchKeywords(searchInput)),
     onJobSearchStart: () => dispatch({ type: actionTypes.JOB_SEARCH_START }),
-    onJobSearchSuccess: searchInput => dispatch(searchJobs(searchInput)),
-  };
-};
+    onJobSearchSuccess: searchInput => dispatch(searchJobs(searchInput))
+  }
+}
 
 export default connect(null, mapDispatchToProps)(SearchForm);

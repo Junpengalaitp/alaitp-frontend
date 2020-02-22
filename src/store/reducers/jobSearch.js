@@ -5,13 +5,15 @@ const initialState = {
   searchComplete: false,
   loading: false,
   searchInput: '',
+  jobSearchId: null,
   jobMap: {},
-  error: false
+  error: false,
 }
 
 const setJobMap = (state, payload) => {
   return updateObject(state, {
     jobMap: payload.jobMap,
+    jobSearchId: payload.jobSearchId,
     loading: false,
     searchComplete: true
   })
