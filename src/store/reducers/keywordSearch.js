@@ -1,23 +1,23 @@
 import * as actionTypes from '../actions/actionTypes'
 import { updateObject } from './../../shared/utility'
-import {getAllKeywordsByCategory} from "../../service/jobKeywordService";
 
 const initialState = {
   searchComplete: false,
   loading: false,
   searchInput: '',
-  keywords: {},
-  jobKeywordIndex: null,
+  orderedKeywordByCategory: {},
+  keywordIndexByJob: null,
   error: false
 }
 
 const setKeywords = (state, payload) => {
   // console.log("payload: " + JSON.stringify(payload))
-  const allKeywordsByCategory = getAllKeywordsByCategory(payload.keywords)
+  // const allKeywordsByCategory = getAllKeywordsByCategory(payload.keywords)
+  const allKeywordsByCategory = payload.keywords.orderedKeywordByCategory
   // console.log("allKeywordsByCategory: " + JSON.stringify(allKeywordsByCategory))
 
   return updateObject(state, {
-    keywords: {
+    orderedKeywordByCategory: {
       programmingLanguage: allKeywordsByCategory.PROGRAMMING_LANGUAGE,
       otherLanguage: allKeywordsByCategory.OTHER_LANGUAGE,
       library: allKeywordsByCategory.LIBRARY,
@@ -44,7 +44,7 @@ const setKeywords = (state, payload) => {
       team: allKeywordsByCategory.TEAM,
       company: allKeywordsByCategory.COMPANY,
     },
-    jobKeywordIndex: payload.keywords,
+    keywordIndexByJob: payload.keywords.keywordIndexByJob,
     jobMap: payload.jobMap,
     loading: false,
     searchComplete: true

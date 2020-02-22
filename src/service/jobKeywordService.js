@@ -12,9 +12,3 @@ export const getAllKeywordsByCategory = (allKeywordsJson) => {
   }
   return allKeywordsByCategory
 }
-
-export const getAllKeywordsByJobId = (allKeywordsJson) => {
-  const allKeywordsByJobId = {}
-  
-  return allKeywordsByJobId
-}

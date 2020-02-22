@@ -69,7 +69,7 @@ const JobDescriptionText = props => {
 const mapStateToProps = state => {
   return {
     keywordSearchComplete: state.keyword.searchComplete,
-    keywordIndex: state.keyword.jobKeywordIndex
+    keywordIndex: state.keyword.keywordIndexByJob
   };
 };
 
