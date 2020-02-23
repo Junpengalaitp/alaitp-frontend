@@ -10,7 +10,7 @@ export const setJobs = (jobMap, jobSearchId) => {
   };
 };
 
-export const searchJobs = (searchInput) => {
+export const searchJobs = searchInput => {
   if (searchInput === '') searchInput = 'Software Engineer'
   return dispatch => {
     const uuidv4 = require('uuid/v4')

@@ -27,6 +27,7 @@ export const getJobKeyword = requestId => {
       .then(response => {
         console.log("getJobKeyword response", response)
         if (response.data.error === true) {
+          console.log("requestId cache failed, tring to post jobs", response)
           dispatch(setKeywordOnCacheFail())
         } else {
           dispatch(setKeywords(response.data))
