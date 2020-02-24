@@ -8,7 +8,7 @@ const JobDescription = props => {
 
   const handleOpen = () => {
     setOpen(!open)
-    setOpened(true)
+    setOpened(true) // for rendering the keywords
   }
 
   return (
