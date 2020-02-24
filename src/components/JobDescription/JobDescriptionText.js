@@ -6,8 +6,10 @@ const JobDescriptionText = props => {
   // console.log('keyword indices are ' +  JSON.stringify(props.keywordIndex))
   let jobDescriptionText = props.jobDescriptionText;
   if (props.keywordSearchComplete) {
-    const jobId = props.jobId;
-
+    if (!props.opened) {
+      return <React.Fragment>{jobDescriptionText}</React.Fragment>
+    }
+    const jobId = props.jobId
     const keywordIndices = [];
     let keywordList
     try {

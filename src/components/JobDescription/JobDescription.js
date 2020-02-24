@@ -4,6 +4,12 @@ import JobDescriptionText from './JobDescriptionText';
 
 const JobDescription = props => {
   const [open, setOpen] = useState(false)
+  const [opened, setOpened] = useState(false)
+
+  const handleOpen = () => {
+    setOpen(!open)
+    setOpened(true)
+  }
 
   return (
     <Card style={{ width: '49rem' }}>
@@ -16,7 +22,7 @@ const JobDescription = props => {
           <Button
             className="card-title float-left"
             variant="outline-info btn-sm"
-            onClick={() => setOpen(!open)}
+            onClick={() => handleOpen()}
             aria-controls="job-collapse-text"
             aria-expanded={open}
           >See Job Text</Button>
@@ -24,7 +30,7 @@ const JobDescription = props => {
         </Card.Subtitle>
         <Collapse in={open}>
           <div id="job-collapse-text mx-1">
-            <JobDescriptionText jobDescriptionText={props.jobDescriptionText} jobId={props.jobId}></JobDescriptionText>
+            <JobDescriptionText jobDescriptionText={props.jobDescriptionText} jobId={props.jobId} opened={opened}></JobDescriptionText>
           </div>
         </Collapse>
       </Card.Body>
