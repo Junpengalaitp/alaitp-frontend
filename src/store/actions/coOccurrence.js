@@ -15,7 +15,7 @@ export const searchCoCoOccurrence = (word, categories='all', count=10) => {
     Axios.get(`http://127.0.0.1:8888/co_occurrence_matrix/most-correlated-words/${word}/${count}/${categories}`)
       .then(response => {
         // dispatch(setJobs(response.data, requestId))
-        console.log(response)
+        console.log(response.data.words)
       })
       .catch(error => {
         console.log('error happened during searching keywords' + error)

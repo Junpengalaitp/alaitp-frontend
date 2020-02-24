@@ -9,12 +9,17 @@ const JobDescriptionText = props => {
     const jobId = props.jobId;
 
     const keywordIndices = [];
-
-    const keywordList = props.keywordIndex[jobId]
-    for (const keywordObj of keywordList) {
-      keywordIndices.push([keywordObj.startIdx, keywordObj.endIdx, keywordObj.keyword])
+    let keywordList
+    try {
+      keywordList = props.keywordIndex[jobId]
+      for (const keywordObj of keywordList) {
+        keywordIndices.push([keywordObj.startIdx, keywordObj.endIdx, keywordObj.keyword])
+      }
+    } catch (error) {
+      console.log("error, job id: ", jobId, "keyword list: ", keywordList, error)
+      return <React.Fragment>{jobDescriptionText}</React.Fragment>
     }
-
+    
     keywordIndices.sort((a, b) => a[0] - b[0]);
 
     if (keywordIndices[0] === null || keywordIndices[0] === undefined)
@@ -63,8 +68,8 @@ const JobDescriptionText = props => {
     );
     jobDescriptionText = <p>{jobTextWithKeyword}</p>;
   }
-  return <React.Fragment>{jobDescriptionText}</React.Fragment>;
-};
+  return <React.Fragment>{jobDescriptionText}</React.Fragment>
+}
 
 const mapStateToProps = state => {
   return {
