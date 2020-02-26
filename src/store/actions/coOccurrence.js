@@ -9,7 +9,8 @@ export const setCoCoOccurredWords = coOccurredWords => {
   }
 }
 
-export const searchCoCoOccurrence = (word, categories='all', count=10) => {
+export const searchCoCoOccurrence = (word, categories='all', count=20) => {
+  word = word.replace('#', '%23')
   return dispatch => {
     console.log(`get ${count} co-occurred words for word: ${word} in categories: ${categories}`)
     Axios.get(`http://127.0.0.1:8888/co_occurrence_matrix/most-correlated-words/${word}/${count}/${categories}`)
