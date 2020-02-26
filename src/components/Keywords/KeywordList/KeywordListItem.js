@@ -5,6 +5,7 @@ import { searchCoCoOccurrence } from '../../../store/actions/coOccurrence'
 import { Dropdown } from 'react-bootstrap';
 import { CustomToggle, CustomMenu } from '../CoOccurredWord/CoOccurredWords'
 import * as actionTypes from '../../../store/actions/actionTypes';
+import Spinner from '../../UI/Spinner/Spinner';
 
 
 const KeywordListItem = props => {
@@ -20,7 +21,7 @@ const KeywordListItem = props => {
     console.log("search co-occurred words")
   }
 
-  let coOccurredWordDropdown = null
+  let coOccurredWordDropdown = <Spinner />
   if (!props.loading) {
       coOccurredWordDropdown = Object.keys(props.coOccurredWords).map((word, index) => (
       <Dropdown.Item key={index} eventKey={index}>{word}</Dropdown.Item>
