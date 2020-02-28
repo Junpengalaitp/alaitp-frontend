@@ -12,7 +12,7 @@ const SearchBar = () => {
           <h1 className="mt-5">Search For Most Wanted Technical Skills!</h1>
         </Col>
         <Col xl={7} lg={8} md={10} className="mx-auto mt-5" >
-          <Route path='/' exact render={(props) => <SearchForm {...props} inputCSS="form-control form-control-lg" buttonCSS="btn btn-outline-primary btn-lg" show={false} />} />
+          <Route path='/alaitp-frontend' exact render={(props) => <SearchForm {...props} inputCSS="form-control form-control-lg" buttonCSS="btn btn-outline-primary btn-lg" show={false} />} />
         </Col>
       </Row>
     </Container>

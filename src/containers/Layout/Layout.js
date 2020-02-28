@@ -10,9 +10,9 @@ const Layout = props => {
   
   return (
     <Fragment>
-      <Route path='/' exact component={SearchBar} />
-      <Route path='/keywords' component={NavBar} />
-      <Route path='/keywords' render={() => <SearchResults show={props.loading || props.searchComplete} />} />
+      <Route path='/alaitp-frontend' exact component={SearchBar} />
+      <Route path='/alaitp-frontend/keywords' component={NavBar} />
+      <Route path='/alaitp-frontend/keywords' render={() => <SearchResults show={props.loading || props.searchComplete} />} />
     </Fragment>
   )
 }

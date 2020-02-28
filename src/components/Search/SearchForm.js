@@ -37,7 +37,7 @@ const SearchForm = props => {
   const handleSubmit = event => {
     event.preventDefault()
     props.onJobSearchStart()
-    props.history.push(`/keywords/${searchForm.value}`)
+    props.history.push(`/alaitp-frontend/keywords/${searchForm.value}`)
     props.onJobSearchSuccess(searchForm.value)
   }
 
