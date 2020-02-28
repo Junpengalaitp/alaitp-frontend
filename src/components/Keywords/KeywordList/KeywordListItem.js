@@ -4,8 +4,8 @@ import { ListGroup } from 'react-bootstrap'
 import { searchCoCoOccurrence } from '../../../store/actions/coOccurrence'
 import { Dropdown } from 'react-bootstrap';
 import { CustomToggle, CustomMenu } from '../CoOccurredWord/CoOccurredWords'
-import * as actionTypes from '../../../store/actions/actionTypes';
-import Spinner from '../../UI/Spinner/Spinner';
+import * as actionTypes from '../../../store/actions/actionTypes'
+import Spinner from '../../UI/Spinner/Spinner'
 
 
 const KeywordListItem = props => {
@@ -22,12 +22,21 @@ const KeywordListItem = props => {
   }
 
   let coOccurredWordDropdown = <Spinner />
+  let wordByCategory = {}
   if (!props.loading) {
     const coOccurredWordList = Object.keys(props.coOccurredWords)
     coOccurredWordList.sort((a, b) => props.coOccurredWords[b].count - props.coOccurredWords[a].count);
       coOccurredWordDropdown = coOccurredWordList.map((word, index) => (
       <Dropdown.Item key={index} eventKey={index}>{word}</Dropdown.Item>
     ))
+    for (let [key, value] of Object.entries(props.coOccurredWords)) {
+      if (!(value.category in wordByCategory)) {
+        wordByCategory[value.category] = [key]
+      } else {
+        wordByCategory[value.category].push(key)
+      }
+    }
+    console.log("wordByCategory: ", wordByCategory)
   }
 
   const keywordListItem = keywordInCategory.slice(0, 8).map((keyword, index) => (
