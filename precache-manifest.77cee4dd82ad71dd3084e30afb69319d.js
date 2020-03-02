@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "64efb3c64fd4e94d797a9566913bac32",
+    "revision": "a4002a8fdadec4a4c6cf5a9bc095e66a",
     "url": "/alaitp-frontend/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/alaitp-frontend/static/css/2.2ec3db0d.chunk.css"
   },
   {
-    "revision": "5bb23527f7e977edadfc",
+    "revision": "bf6c866d755bf8673e5f",
     "url": "/alaitp-frontend/static/css/main.a5c7e922.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/alaitp-frontend/static/js/2.93c56fcc.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "5bb23527f7e977edadfc",
-    "url": "/alaitp-frontend/static/js/main.ce2b28ee.chunk.js"
+    "revision": "bf6c866d755bf8673e5f",
+    "url": "/alaitp-frontend/static/js/main.f7644710.chunk.js"
   },
   {
     "revision": "0e3360c621c19212b184",
