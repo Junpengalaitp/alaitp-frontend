@@ -23,7 +23,7 @@ const KeywordListItem = props => {
 
   let coOccurredWordDropdown = <Spinner />
   let wordByCategory = {}
-  if (!props.loading) {
+  if (!props.loading && Object.keys(wordByCategory).length === 0) {
     const coOccurredWordList = Object.keys(props.coOccurredWords)
     coOccurredWordList.sort((a, b) => props.coOccurredWords[b].count - props.coOccurredWords[a].count);
       coOccurredWordDropdown = coOccurredWordList.map((word, index) => (

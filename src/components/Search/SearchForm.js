@@ -16,7 +16,7 @@ const SearchForm = props => {
     elementType: "input",
     elementConfig: {
       type: "text",
-      placeholder: "Place You Want To Work"
+      placeholder: "Software Engineer"
     },
     value: "",
     validation: {
@@ -72,6 +72,7 @@ const SearchForm = props => {
         type={searchForm.elementConfig.type}
         value={searchForm.value}
         onChange={event => inputChangedHandler(event)}
+        placeholder={searchForm.elementConfig.placeholder}
       />
       <Button type="submit" className={props.buttonCSS}>
         Search
