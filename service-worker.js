@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/alaitp-frontend/precache-manifest.77cee4dd82ad71dd3084e30afb69319d.js"
+  "/alaitp-frontend/precache-manifest.df9a125f5e40da72a8accd2e8ff4fb6c.js"
 );
 
 self.addEventListener('message', (event) => {
