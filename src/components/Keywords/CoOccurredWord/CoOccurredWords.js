@@ -52,7 +52,8 @@ export const CustomMenu = React.forwardRef(
         <Form onSubmit={handleSubmit}>
           <div key={`inline-${type}`} className="mb-3">
             {categoryList.map(category => (
-              <Form.Check inline label={categoryMap[category]} type={type} id={`inline-${type}-${category}`} onClick={() => handleOnClick(category)} />
+              <Form.Check inline label={categoryMap[category]} type={type} id={`inline-${type}-${category}`}
+               key={`inline-${type}-${category}`} onClick={() => handleOnClick(category)} />
             ))}
           </div>
         </Form>

@@ -1,7 +1,7 @@
 import React from 'react'
-import KeywordListItem from './KeywordListItem';
-import { ListGroup } from 'react-bootstrap';
-import { Col } from 'react-bootstrap';
+import KeywordListItem from './KeywordListItem'
+import { ListGroup } from 'react-bootstrap'
+import { Col } from 'react-bootstrap'
 
 class KeywordList extends React.Component {
 
