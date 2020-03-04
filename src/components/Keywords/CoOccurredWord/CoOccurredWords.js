@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { FormControl, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 
 export const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
   
@@ -17,14 +17,15 @@ export const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
 // Dropdown needs access to the DOM of the Menu to measure it
 export const CustomMenu = React.forwardRef(
   ({ children, style, className, "aria-labelledby": labeledBy }, ref) => {
-    const [value, setValue] = useState("");
+    // const [value, setValue] = useState("");
+    const value = ""
     const [categories, setCategories] = useState([]);
     const type = "radio"
     const categoryList = ['pl', 'ol', 'lb', 'fw', 'cs', 'ai', 'pt', 'ds', 'dt', 'dv', 'ps', 'we', 'os', 'sv', 'ap', 'se', 'pf', 'ge', 'sf', 'tl', 'at', 'pd', 'ql', 'of', 'tm', 'cp']
     const categoryMap = {pl: "programming language", ol: "other language", lb: "library", fw: "framework", cs: "computer science", ai: "artificial intelligence", pt: "protocol",
-                          ds: "data storage", dt: "data transmission", dv: "division", ps: "position", we: "work experience", os_: "operating system", sv: "server", ap: "approach", 
-                          se: "software engineering", pf: "platform", ge: "general", sf: "soft skills", tl: "tool", at: "architect", pd: "product", ql: "quality", of: "offer", tm: "team", cp: "company",
-                }
+                         ds: "data storage", dt: "data transmission", dv: "division", ps: "position", we: "work experience", os_: "operating system", sv: "server", ap: "approach", 
+                         se: "software engineering", pf: "platform", ge: "general", sf: "soft skills", tl: "tool", at: "architect", pd: "product", ql: "quality", of: "offer", tm: "team", cp: "company"}
+
     const handleSubmit = event => {
       event.preventDefault()
     }

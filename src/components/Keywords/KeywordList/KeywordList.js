@@ -9,7 +9,7 @@ class KeywordList extends React.Component {
     return (
       <Col sm={2} className="align-self-start">
         <ListGroup horizontal>
-          <a href='#' className={'list-group-item ' + (this.props.keywordListCSS)}>{this.props.categoryTitle}</a>
+          <p className={'list-group-item ' + (this.props.keywordListCSS)}>{this.props.categoryTitle}</p>
           <KeywordListItem keywordType={this.props.keywordType}/>
         </ListGroup>
       </Col>
