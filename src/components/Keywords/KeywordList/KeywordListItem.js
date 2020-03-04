@@ -16,20 +16,14 @@ class KeywordListItem extends React.Component {
     
     if (keywordInCategory === null || keywordInCategory === undefined) return null
 
-    const getCoOccurredWordsByCategory = (keyword) => {
-      this.props.onCoOccurrenceSearchStart()
-      this.props.onCoOccurrenceSearchSuccess(keyword)
-      console.log("search co-occurred words")
-    }
-
     const keywordListItem = keywordInCategory.slice(0, 8).map((keyword, index) => (
-      <ListGroup.Item variant="light" key={index} action onClick={() => getCoOccurredWordsByCategory(keyword)}>
+      <ListGroup.Item variant="light" key={index} action>
         <Dropdown>
           <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
             {keyword}
           </Dropdown.Toggle>
           <Dropdown.Menu as={CustomMenu}>
-            <CoOccurredWordDropdown />
+            <CoOccurredWordDropdown keyword={keyword}/>
           </Dropdown.Menu>
         </Dropdown>
       </ListGroup.Item>

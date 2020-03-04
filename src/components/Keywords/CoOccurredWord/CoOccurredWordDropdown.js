@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { Fragment } from 'react'
-import { Dropdown } from 'react-bootstrap'
+import { Dropdown, ButtonToolbar, SplitButton } from 'react-bootstrap'
 import Spinner from './../../UI/Spinner/Spinner'
-import { connect } from 'react-redux'
-import { searchCoCoOccurrence } from '../../../store/actions/coOccurrence'
 import Axios from 'axios'
 
 class CoOccurredWordDropdown extends Component {
@@ -13,25 +11,31 @@ class CoOccurredWordDropdown extends Component {
   }
 
   componentDidMount() {
-    const word = "java"
+    const word = this.props.keyword
     const count = 10
     const categories = "all"
     Axios.get(`http://127.0.0.1:8888/co_occurrence_matrix/most-correlated-words/${word}/${count}/${categories}`)
     .then(res => {
-      console.log("componentDidMount: ", res)
-    });
+      this.setState({coOccurredWords: res.data.words})
+    })
   }
 
   render() {
+    const type = "radio"
+    const categoryList = ['pl', 'ol', 'lb', 'fw', 'cs', 'ai', 'pt', 'ds', 'dt', 'dv', 'ps', 'we', 'os', 'sv', 'ap', 'se', 'pf', 'ge', 'sf', 'tl', 'at', 'pd', 'ql', 'of', 'tm', 'cp']
+    const categoryMap = {pl: "programming language", ol: "other language", lb: "library", fw: "framework", cs: "computer science", ai: "artificial intelligence", pt: "protocol",
+                         ds: "data storage", dt: "data transmission", dv: "division", ps: "position", we: "work experience", os_: "operating system", sv: "server", ap: "approach", 
+                         se: "software engineering", pf: "platform", ge: "general", sf: "soft skills", tl: "tool", at: "architect", pd: "product", ql: "quality", of: "offer", tm: "team", cp: "company"}
+
     let coOccurredWordDropdown = <Spinner />
     let wordByCategory = {}
-    if (this.props.search && Object.keys(wordByCategory).length === 0) {
-      const coOccurredWordList = Object.keys(this.props.coOccurredWords)
-      coOccurredWordList.sort((a, b) => this.props.coOccurredWords[b].count - this.props.coOccurredWords[a].count);
+    if (this.state.coOccurredWords !== null) {
+      const coOccurredWordList = Object.keys(this.state.coOccurredWords)
+      coOccurredWordList.sort((a, b) => this.state.coOccurredWords[b].count - this.state.coOccurredWords[a].count);
         const coOccurredWordDropdownItems = coOccurredWordList.map((word, index) => (
         <Dropdown.Item key={index} eventKey={index}>{word}</Dropdown.Item>
       ))
-      for (let [key, value] of Object.entries(this.props.coOccurredWords)) {
+      for (let [key, value] of Object.entries(this.state.coOccurredWords)) {
         if (!(value.category in wordByCategory)) {
           wordByCategory[value.category] = [key]
         } else {
@@ -41,23 +45,20 @@ class CoOccurredWordDropdown extends Component {
       console.log("wordByCategory: ", wordByCategory)
       coOccurredWordDropdown =
         <Fragment>
-          {/* <ButtonToolbar>
-            {['up', 'down', 'left', 'right'].map(direction => (
-              <SplitButton
-                drop={direction}
-                variant="secondary"
-                title={`Drop ${direction}`}
-                id={`dropdown-button-drop-${direction}`}
-                key={direction}
-              >
-                <Dropdown.Item eventKey="1">Action</Dropdown.Item>
-                <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
-                <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
-                <Dropdown.Divider />
-                <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
-              </SplitButton>
-            ))}
-          </ButtonToolbar> */}
+          <ButtonToolbar>
+            <SplitButton
+              drop={"right"}
+              variant="secondary"
+              title={"select category"}
+              id={`dropdown-button-drop-${"right"}`}
+              key={"right"}
+            >
+              {categoryList.map(category => (
+                <Dropdown.Item eventKey={`inline-${type}-${category}`}>{categoryMap[category]}</Dropdown.Item>
+              ))}
+            </SplitButton>
+            
+          </ButtonToolbar>
         {coOccurredWordDropdownItems}
         </Fragment>
     }
