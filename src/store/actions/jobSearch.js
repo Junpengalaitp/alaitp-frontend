@@ -1,6 +1,7 @@
 import Axios from "axios";
 
 import * as actionTypes from './actionTypes'
+import { serverUrl } from "../../config";
 
 export const setJobs = (jobMap, jobSearchId) => {
   return {
@@ -16,7 +17,7 @@ export const searchJobs = searchInput => {
     const uuidv4 = require('uuid/v4')
     const requestId = uuidv4()
     console.log("requestId: " + requestId)
-    Axios.get(`http://127.0.0.1:8888/job-description-api/job-list/${searchInput}/${requestId}`)
+    Axios.get(`https://${serverUrl}/job-description-api/job-list/${searchInput}/${requestId}`)
       .then(response => {
         dispatch(setJobs(response.data, requestId))
       })

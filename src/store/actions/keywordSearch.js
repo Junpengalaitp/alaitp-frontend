@@ -1,6 +1,7 @@
 import Axios from "axios"
 
 import * as actionTypes from './actionTypes'
+import { serverUrl } from "../../config"
 
 export const setKeywords = keywords => {
   return {
@@ -23,7 +24,7 @@ export const setKeywordOnCacheFail = () => {
  */
 export const getJobKeyword = requestId => {
   return dispatch => {
-    Axios.get(`http://localhost:8888/job-keyword/keywords/${requestId}`)
+    Axios.get(`https://${serverUrl}/job-keyword/keywords/${requestId}`)
       .then(response => {
         console.log("getJobKeyword response", response)
         if (response.data.error === true) {
@@ -47,7 +48,7 @@ export const getJobKeyword = requestId => {
 export const postJobKeyword = jobDescription => {
   if (jobDescription === '' || jobDescription === undefined) jobDescription = {desc: 'description'}
   return dispatch => {
-    Axios.post(`http://localhost:8888/job-keyword/keywords`, jobDescription)
+    Axios.post(`https://${serverUrl}/job-keyword/keywords`, jobDescription)
       .then(response => {
         console.log("postJobKeyword response", response)
         dispatch(setKeywords(response.data))
