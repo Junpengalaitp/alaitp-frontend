@@ -34,7 +34,7 @@ const app = (
       <App />
     </BrowserRouter>
   </Provider>
-);
+)
 
 ReactDOM.render(app, document.getElementById("root"));
 

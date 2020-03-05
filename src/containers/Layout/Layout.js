@@ -5,14 +5,14 @@ import SearchBar from "../../components/Search/SearchBar";
 import SearchResults from "../../components/Search/SearchResults"
 import NavBar from '../../components/UI/NavigationBar'
 
-const Layout = props => {
+const Layout = () => {
 
   
   return (
     <Fragment>
       <Route path='/alaitp-frontend' exact component={SearchBar} />
       <Route path='/alaitp-frontend/keywords' component={NavBar} />
-      <Route path='/alaitp-frontend/keywords' render={() => <SearchResults show={props.loading || props.searchComplete} />} />
+      <Route path='/alaitp-frontend/keywords' render={() => <SearchResults />} />
     </Fragment>
   )
 }

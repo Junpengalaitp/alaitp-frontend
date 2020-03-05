@@ -35,7 +35,7 @@ class JobDescription extends React.Component {
           </Card.Subtitle>
           <Collapse in={this.state.open}>
             <div id="job-collapse-text mx-1">
-              <JobDescriptionText jobDescriptionText={this.props.jobDescriptionText} jobId={this.props.jobId} opened={this.state.opened}></JobDescriptionText>
+              <JobDescriptionText jobDescriptionText={this.props.jobDescriptionText} jobId={this.props.jobId} opened={this.state.opened}/>
             </div>
           </Collapse>
         </Card.Body>

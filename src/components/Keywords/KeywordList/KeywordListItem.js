@@ -2,13 +2,16 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { ListGroup } from 'react-bootstrap'
 import { searchCoCoOccurrence } from '../../../store/actions/coOccurrence'
-import { Dropdown } from 'react-bootstrap';
-import { CustomToggle, CustomMenu } from '../CoOccurredWord/CoOccurredWords'
 import * as actionTypes from '../../../store/actions/actionTypes'
-import CoOccurredWordDropdown from '../CoOccurredWord/CoOccurredWordDropdown';
+import { CoOccurrencePopover } from '../CoOccurredWord/CoOccurrencePopover';
+import { OverlayTrigger } from 'react-bootstrap';
 
 
 class KeywordListItem extends React.Component {
+
+  state = {
+    modalShow: false
+  }
 
   render() {
     if (this.props.keywords === null) return null
@@ -16,16 +19,12 @@ class KeywordListItem extends React.Component {
     
     if (keywordInCategory === null || keywordInCategory === undefined) return null
 
+
     const keywordListItem = keywordInCategory.slice(0, 8).map((keyword, index) => (
       <ListGroup.Item variant="light" key={index} action>
-        <Dropdown>
-          <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
-            {keyword}
-          </Dropdown.Toggle>
-          <Dropdown.Menu as={CustomMenu}>
-            <CoOccurredWordDropdown keyword={keyword}/>
-          </Dropdown.Menu>
-        </Dropdown>
+        <OverlayTrigger trigger="click" placement="right" overlay={<CoOccurrencePopover>{keyword}</CoOccurrencePopover>} rootClose={true} >
+          <p>{keyword}</p>
+        </OverlayTrigger>
       </ListGroup.Item>
     ))
     return keywordListItem

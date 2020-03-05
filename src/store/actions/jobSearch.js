@@ -17,7 +17,7 @@ export const searchJobs = searchInput => {
     const uuidv4 = require('uuid/v4')
     const requestId = uuidv4()
     console.log("requestId: " + requestId)
-    Axios.get(`https://${serverUrl}/job-description-api/job-list/${searchInput}/${requestId}`)
+    Axios.get(`${serverUrl}/job-description-api/job-list/${searchInput}/${requestId}`)
       .then(response => {
         dispatch(setJobs(response.data, requestId))
       })

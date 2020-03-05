@@ -24,11 +24,11 @@ export const setKeywordOnCacheFail = () => {
  */
 export const getJobKeyword = requestId => {
   return dispatch => {
-    Axios.get(`https://${serverUrl}/job-keyword/keywords/${requestId}`)
+    Axios.get(`${serverUrl}/job-keyword/keywords/${requestId}`)
       .then(response => {
         console.log("getJobKeyword response", response)
         if (response.data.error === true) {
-          console.log("requestId cache failed, tring to post jobs", response)
+          console.log("requestId cache failed, trying to post jobs", response)
           dispatch(setKeywordOnCacheFail())
         } else {
           dispatch(setKeywords(response.data))
@@ -48,7 +48,7 @@ export const getJobKeyword = requestId => {
 export const postJobKeyword = jobDescription => {
   if (jobDescription === '' || jobDescription === undefined) jobDescription = {desc: 'description'}
   return dispatch => {
-    Axios.post(`https://${serverUrl}/job-keyword/keywords`, jobDescription)
+    Axios.post(`${serverUrl}/job-keyword/keywords`, jobDescription)
       .then(response => {
         console.log("postJobKeyword response", response)
         dispatch(setKeywords(response.data))

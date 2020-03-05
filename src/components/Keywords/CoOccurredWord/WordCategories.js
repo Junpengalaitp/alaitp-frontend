@@ -20,7 +20,9 @@ class WordCategories extends Component {
         key={"right"}
       >
         {categoryList.map(category => (
-          <Dropdown.Item eventKey={`inline-${type}-${category}`} key={`inline-${type}-${category}`}>{categoryMap[category]}</Dropdown.Item>
+          <Dropdown.Item eventKey={`inline-${type}-${category}`} key={`inline-${type}-${category}`} onClick={this.props.selectCategory}>
+            {categoryMap[category]}
+          </Dropdown.Item>
         ))}
       </SplitButton>
     </ButtonToolbar>
