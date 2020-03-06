@@ -6,14 +6,13 @@ import { serverUrl } from './../../../config'
 class CoOccurredWords extends React.Component {
   state = {
     category: "all",
-    count: 10,
-    coOccurredWords: null
+    coOccurredWords: []
   }
 
   requestCoOccurrence() {
     const word = this.props.keyword.replace('#', '%23')
     console.log("requesting with: ", word, this.state.category)
-    Axios.get(`${serverUrl}/co_occurrence_matrix/most-correlated-words/${word}/${this.state.count}/${this.state.category}`)
+    Axios.get(`${serverUrl}/co_occurrence_matrix/most-correlated-words/${word}/10/${this.state.category}`)
     .then(res => {
       // console.log(res)
       this.setState({coOccurredWords: res.data.words})
@@ -24,11 +23,16 @@ class CoOccurredWords extends React.Component {
     this.requestCoOccurrence()
   }
 
-  selectCategory = () => {
-    console.log("state before: ", this.state.category)
-    this.setState({category: "pl"})
-    console.log("state after: ", this.state.category)
-    this.requestCoOccurrence()
+  requestCategoryCoOccurrence(category) {
+    const word = this.props.keyword.replace('#', '%23')
+    Axios.get(`${serverUrl}/co_occurrence_matrix/most-correlated-words/${word}/10/${category}`)
+      .then(res => {
+        console.log("words: ", res.data.words)
+        this.setState({
+          category: category,
+          coOccurredWords: res.data.words,
+        })
+      })
   }
 
   render() {
@@ -38,7 +42,7 @@ class CoOccurredWords extends React.Component {
         <CoOccurrenceWordCloud 
           keyword={this.props.keyword} 
           coOccurredWords={this.state.coOccurredWords} 
-          selectCategory={() => this.selectCategory()} />
+          selectCategory={(category) => this.requestCategoryCoOccurrence(category)} />
       </Fragment>
     )
   }

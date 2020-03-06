@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { TagCloud } from 'react-tagcloud'
 import Spinner from './../../UI/Spinner/Spinner'
 import { Container } from 'react-bootstrap'
@@ -25,15 +25,22 @@ import { Container } from 'react-bootstrap'
 // ]
 
 const CoOccurrenceWordCloud = props => {
-  const [rendered, setRendered] = useState(false)
   const [minSize, setMinSize] = useState(12)
   const [maxSize, setMaxSize] = useState(35)
   const [cloudValues, setCloudValues] = useState([])
   const [randomColor, setRandomColor] = useState(true)
   const [shuffle, setShuffle] = useState(true)
 
-  const setCategoryWords = () => {
-    props.selectCategory()
+  useEffect(() => {
+    const values = []
+    for (let [key, value] of Object.entries(props.coOccurredWords)) {
+      values.push({value: key, count: value.count})
+    }
+    setCloudValues(values.slice(0, -1))
+  }, [props.coOccurredWords]);
+
+  const setCategoryWords = category => {
+    props.selectCategory(category)
     const values = []
     for (let [key, value] of Object.entries(props.coOccurredWords)) {
       values.push({value: key, count: value.count})
@@ -41,23 +48,11 @@ const CoOccurrenceWordCloud = props => {
     setCloudValues(values.slice(0, -1))
   }
 
-  let CoOccurrenceWordCloud = <Spinner />
-  if (props.coOccurredWords !== null) {
-    // console.log("coOccurredWords of: ", props.keyword, props.coOccurredWords)
-    const values = []
-    for (let [key, value] of Object.entries(props.coOccurredWords)) {
-      values.push({value: key, count: value.count})
-    }
-    if (!rendered) {
-      setCloudValues(values.slice(0, -1))
-      setRendered(true)
-    }
-    
-    CoOccurrenceWordCloud = (
+  const CoOccurrenceWordCloud = (
       <div>
         <div>
           {/* <button onClick={() => setCloudValues(cloudValues.slice(0, -1))}>Pop</button> */}
-          <button onClick={() => setCategoryWords()}>Pop</button>
+          <button onClick={() => setCategoryWords("lb")}>Pop</button>
         </div>
         <TagCloud
           minSize={12}
@@ -84,8 +79,7 @@ const CoOccurrenceWordCloud = props => {
         />
       </div>
     )
-  }
-  return <Container>{CoOccurrenceWordCloud}</Container> 
+  return <Container>{CoOccurrenceWordCloud}</Container>
 }
 
 export default CoOccurrenceWordCloud
