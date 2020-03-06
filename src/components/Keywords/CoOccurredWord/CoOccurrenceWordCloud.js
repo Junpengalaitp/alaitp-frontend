@@ -1,28 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { TagCloud } from 'react-tagcloud'
-import Spinner from './../../UI/Spinner/Spinner'
-import { Container } from 'react-bootstrap'
+import { Container, ButtonGroup, DropdownButton, Dropdown } from 'react-bootstrap'
 
-// const defaultData = [
-//   { value: 'jQuery', count: 25 },
-//   { value: 'MongoDB', count: 18 },
-//   { value: 'JavaScript', count: 38 },
-//   { value: 'React', count: 30 },
-//   { value: 'Nodejs', count: 28 },
-//   { value: 'Express.js', count: 25 },
-//   { value: 'HTML5', count: 33 },
-//   { value: 'CSS3', count: 20 },
-//   { value: 'Webpack', count: 22 },
-//   { value: 'Babel.js', count: 7 },
-//   { value: 'ECMAScript', count: 25 },
-//   { value: 'Jest', count: 15 },
-//   { value: 'Mocha', count: 17 },
-//   { value: 'React Native', count: 27 },
-//   { value: 'Angular.js', count: 30 },
-//   { value: 'TypeScript', count: 15 },
-//   { value: 'Flow', count: 30 },
-//   { value: 'NPM', count: 11 },
-// ]
+const categoryMap = {pl: "programming language", ol: "other language", lb: "library", fw: "framework", cs: "computer science", ai: "artificial intelligence", pt: "protocol",
+                         ds: "data storage", dt: "data transmission", dv: "division", ps: "position", we: "work experience", os_: "operating system", sv: "server", ap: "approach", 
+                         se: "software engineering", pf: "platform", ge: "general", sf: "soft skills", tl: "tool", at: "architect", pd: "product", ql: "quality", of: "offer", tm: "team", cp: "company"}
+
 
 const CoOccurrenceWordCloud = props => {
   const [minSize, setMinSize] = useState(12)
@@ -48,11 +31,19 @@ const CoOccurrenceWordCloud = props => {
     setCloudValues(values.slice(0, -1))
   }
 
+  const categoryButtons = Object.keys(categoryMap).map((key, idx) => (
+    <Dropdown.Item eventKey={idx} key={idx} onClick={() => setCategoryWords(key)}>{categoryMap[key]}</Dropdown.Item>
+    // <button onClick={() => setCategoryWords(key)} key={idx}>{categoryMap[key]}</button>
+  ))
+
   const CoOccurrenceWordCloud = (
       <div>
         <div>
-          {/* <button onClick={() => setCloudValues(cloudValues.slice(0, -1))}>Pop</button> */}
-          <button onClick={() => setCategoryWords("lb")}>Pop</button>
+          <ButtonGroup vertical={false}>
+            <DropdownButton as={ButtonGroup} title="select category" variant="light" drop="right" id="bg-nested-dropdown">
+              {categoryButtons}
+            </DropdownButton>
+          </ButtonGroup>
         </div>
         <TagCloud
           minSize={12}

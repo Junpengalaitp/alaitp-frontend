@@ -12,7 +12,7 @@ class CoOccurredWords extends React.Component {
   requestCoOccurrence() {
     const word = this.props.keyword.replace('#', '%23')
     console.log("requesting with: ", word, this.state.category)
-    Axios.get(`${serverUrl}/co_occurrence_matrix/most-correlated-words/${word}/10/${this.state.category}`)
+    Axios.get(`${serverUrl}/co_occurrence_matrix/most-correlated-words/${word}/20/${this.state.category}`)
     .then(res => {
       // console.log(res)
       this.setState({coOccurredWords: res.data.words})
@@ -25,7 +25,7 @@ class CoOccurredWords extends React.Component {
 
   requestCategoryCoOccurrence(category) {
     const word = this.props.keyword.replace('#', '%23')
-    Axios.get(`${serverUrl}/co_occurrence_matrix/most-correlated-words/${word}/10/${category}`)
+    Axios.get(`${serverUrl}/co_occurrence_matrix/most-correlated-words/${word}/20/${category}`)
       .then(res => {
         console.log("words: ", res.data.words)
         this.setState({
