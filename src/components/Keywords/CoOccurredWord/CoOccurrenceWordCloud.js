@@ -8,11 +8,7 @@ const categoryMap = {pl: "programming language", ol: "other language", lb: "libr
 
 
 const CoOccurrenceWordCloud = props => {
-  const [minSize, setMinSize] = useState(12)
-  const [maxSize, setMaxSize] = useState(35)
   const [cloudValues, setCloudValues] = useState([])
-  const [randomColor, setRandomColor] = useState(true)
-  const [shuffle, setShuffle] = useState(true)
 
   useEffect(() => {
     const values = []
@@ -50,8 +46,6 @@ const CoOccurrenceWordCloud = props => {
           maxSize={35}
           tags={cloudValues}
           style={{ width: 250 }}
-          shuffle={shuffle}
-          disableRandomColor={!randomColor}
           className="simple-cloud"
           // onClick={tag => {
           //   const value = prompt('Edit tag value', tag.value)

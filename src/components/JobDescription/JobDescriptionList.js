@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 
 import JobDescription from "./JobDescription";
@@ -6,35 +6,51 @@ import Spinner from "./../UI/Spinner/Spinner";
 
 import * as actionTypes from "../../store/actions/actionTypes"
 import { getJobKeyword, postJobKeyword } from "../../store/actions/keywordSearch";
+import { JobPagination } from "./JobPagination";
 
-class JobDescriptionList extends React.Component {
+const JobDescriptionList = props => {
 
-  render() {
-    let searchResult = <Spinner />;
-    if (!this.props.loading) {
+  const [currentPage, setCurrentPage] = useState(1)
+  const jobPerPage = 15
+  let totalJobs = 0
+  let paginationShow = false
 
-      this.props.onKeywordSearchStart()
-      this.props.onJobSearchSuccess(this.props.jobSearchId)
+  let searchResult = <Spinner />;
+  if (!props.loading) {
+    totalJobs = Object.keys(props.jobMap).length
 
-      if (this.props.cacheError === true) {
-        this.props.onJobCacheFail(this.props.jobMap)
-      }
+    props.onKeywordSearchStart()
+    props.onJobSearchSuccess(props.jobSearchId)
 
-      searchResult = Object.keys(this.props.jobMap)
-        .map((jobId) => (
-          <JobDescription
-            jobId={jobId}
-            key={jobId}
-            title={this.props.jobMap[jobId].jobTitle}
-            company={this.props.jobMap[jobId].company}
-            tags={this.props.jobMap[jobId].tags}
-            jobDescriptionText={this.props.jobMap[jobId].jobDescriptionText}
-          />
-        ));
+    if (props.cacheError === true) {
+      props.onJobCacheFail(props.jobMap)
     }
 
-    return <React.Fragment>{searchResult}</React.Fragment>;
+    const lastJobIdx = currentPage * jobPerPage
+    const firstJobIdx = lastJobIdx - jobPerPage
+    const currentJobs = Object.keys(props.jobMap).slice(firstJobIdx, lastJobIdx)
+
+    searchResult = currentJobs.map((jobId) => (
+        <JobDescription
+          jobId={jobId}
+          key={jobId}
+          title={props.jobMap[jobId].jobTitle}
+          company={props.jobMap[jobId].company}
+          tags={props.jobMap[jobId].tags}
+          jobDescriptionText={props.jobMap[jobId].jobDescriptionText}
+        />
+      ))
+    
+    paginationShow = true
   }
+  const paginate = pageNumber => {
+    setCurrentPage(pageNumber)
+  }
+  return (
+    <React.Fragment>
+      {searchResult}
+      <JobPagination jobsPerPage={jobPerPage} totalJobs={totalJobs} paginate={paginate} paginationShow={paginationShow} />
+    </React.Fragment>)
 }
 
 const mapStateToProps = state => {
