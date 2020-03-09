@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 
 import JobDescription from "./JobDescription";
@@ -15,20 +15,23 @@ const JobDescriptionList = props => {
   const jobPerPage = 15
   let totalJobs = 0
   let paginationShow = false
+  
+  // for searching after previous search complete
+  useEffect(() => {
+    setRendered(false)
+  }, [props.jobMap])
 
   let searchResult = <Spinner />
   if (!props.loading && props.searchComplete) {
     totalJobs = Object.keys(props.jobMap).length
 
     if (!rendered) {
-      if (!paginationShow) {
         props.onKeywordSearchStart()
         props.onJobSearchSuccess(props.jobSearchId)
   
         if (props.cacheError === true) {
           props.onJobCacheFail(props.jobMap)
         }
-      }
       setRendered(true)
     }
     
