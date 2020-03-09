@@ -11,21 +11,27 @@ import { JobPagination } from "./JobPagination";
 const JobDescriptionList = props => {
 
   const [currentPage, setCurrentPage] = useState(1)
+  const [rendered, setRendered] = useState(false)
   const jobPerPage = 15
   let totalJobs = 0
   let paginationShow = false
 
-  let searchResult = <Spinner />;
-  if (!props.loading) {
+  let searchResult = <Spinner />
+  if (!props.loading && props.searchComplete) {
     totalJobs = Object.keys(props.jobMap).length
 
-    props.onKeywordSearchStart()
-    props.onJobSearchSuccess(props.jobSearchId)
-
-    if (props.cacheError === true) {
-      props.onJobCacheFail(props.jobMap)
+    if (!rendered) {
+      if (!paginationShow) {
+        props.onKeywordSearchStart()
+        props.onJobSearchSuccess(props.jobSearchId)
+  
+        if (props.cacheError === true) {
+          props.onJobCacheFail(props.jobMap)
+        }
+      }
+      setRendered(true)
     }
-
+    
     const lastJobIdx = currentPage * jobPerPage
     const firstJobIdx = lastJobIdx - jobPerPage
     const currentJobs = Object.keys(props.jobMap).slice(firstJobIdx, lastJobIdx)
@@ -40,7 +46,6 @@ const JobDescriptionList = props => {
           jobDescriptionText={props.jobMap[jobId].jobDescriptionText}
         />
       ))
-    
     paginationShow = true
   }
   const paginate = pageNumber => {
@@ -58,6 +63,7 @@ const mapStateToProps = state => {
     jobSearchId: state.jobDescription.jobSearchId,
     jobMap: state.jobDescription.jobMap,
     loading: state.jobDescription.loading,
+    searchComplete: state.jobDescription.searchComplete,
     cacheError: state.keyword.cacheError
   };
 }
