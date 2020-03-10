@@ -12,7 +12,7 @@ const JobDescriptionList = props => {
 
   const [currentPage, setCurrentPage] = useState(1)
   const [rendered, setRendered] = useState(false)
-  const jobPerPage = 15
+  const jobsPerPage = 15
   let totalJobs = 0
   let paginationShow = false
   
@@ -35,8 +35,8 @@ const JobDescriptionList = props => {
       setRendered(true)
     }
     
-    const lastJobIdx = currentPage * jobPerPage
-    const firstJobIdx = lastJobIdx - jobPerPage
+    const lastJobIdx = currentPage * jobsPerPage
+    const firstJobIdx = lastJobIdx - jobsPerPage
     const currentJobs = Object.keys(props.jobMap).slice(firstJobIdx, lastJobIdx)
 
     searchResult = currentJobs.map((jobId) => (
@@ -51,13 +51,21 @@ const JobDescriptionList = props => {
       ))
     paginationShow = true
   }
-  const paginate = pageNumber => {
-    setCurrentPage(pageNumber)
+  const paginate = (pageNumber, direction) => {
+    if (direction === null) {
+      setCurrentPage(pageNumber)
+    } else {
+      const pageToGo = currentPage + direction
+      if (pageToGo < 1 || pageToGo > Math.ceil(totalJobs / jobsPerPage)) {
+        return 
+      }
+      setCurrentPage(pageToGo)
+    }
   }
   return (
     <React.Fragment>
       {searchResult}
-      <JobPagination jobsPerPage={jobPerPage} totalJobs={totalJobs} paginate={paginate} paginationShow={paginationShow} />
+      <JobPagination jobsPerPage={jobsPerPage} totalJobs={totalJobs} paginate={paginate} paginationShow={paginationShow} />
     </React.Fragment>)
 }
 

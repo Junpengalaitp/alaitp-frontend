@@ -11,15 +11,15 @@ export const JobPagination = ({ jobsPerPage, totalJobs, paginate, paginationShow
     }
     pagination = (
       <Pagination>
-        <Pagination.First />
-        <Pagination.Prev />
+        <Pagination.First onClick={() => paginate(1, null)}/>
+        <Pagination.Prev onClick={() => paginate(null, -1)}/>
           {pageNumbers.map((number) => (
-            <Pagination.Item key={number} onClick={() => paginate(number)}>
+            <Pagination.Item key={number} onClick={() => paginate(number, null)}>
               {number}
             </Pagination.Item>
           ))}
-        <Pagination.Next />
-        <Pagination.Last />
+        <Pagination.Next onClick={() => paginate(null, 1)}/>
+        <Pagination.Last onClick={() => paginate(Math.ceil(totalJobs / jobsPerPage), null)}/>
       </Pagination>)
   }
   
