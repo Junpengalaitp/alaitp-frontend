@@ -65,7 +65,7 @@ const JobDescriptionList = props => {
   return (
     <React.Fragment>
       {searchResult}
-      <JobPagination jobsPerPage={jobsPerPage} totalJobs={totalJobs} paginate={paginate} paginationShow={paginationShow} />
+      <JobPagination currentPage={currentPage} jobsPerPage={jobsPerPage} totalJobs={totalJobs} paginate={paginate} paginationShow={paginationShow} />
     </React.Fragment>)
 }
 
