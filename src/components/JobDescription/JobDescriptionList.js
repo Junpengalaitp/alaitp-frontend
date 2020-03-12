@@ -19,6 +19,7 @@ const JobDescriptionList = props => {
   // for searching after previous search complete
   useEffect(() => {
     setRendered(false)
+    setCurrentPage(1)
   }, [props.jobMap])
 
   let searchResult = <Spinner />
@@ -61,9 +62,11 @@ const JobDescriptionList = props => {
       }
       setCurrentPage(pageToGo)
     }
+    window.scroll(0, 0)
   }
   return (
     <React.Fragment>
+      <JobPagination currentPage={currentPage} jobsPerPage={jobsPerPage} totalJobs={totalJobs} paginate={paginate} paginationShow={paginationShow} />
       {searchResult}
       <JobPagination currentPage={currentPage} jobsPerPage={jobsPerPage} totalJobs={totalJobs} paginate={paginate} paginationShow={paginationShow} />
     </React.Fragment>)
