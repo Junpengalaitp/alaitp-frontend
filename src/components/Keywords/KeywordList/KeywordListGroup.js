@@ -1,8 +1,7 @@
 import React from 'react'
-import { Row } from 'react-bootstrap';
-import KeywordList from './KeywordList';
-import { connect } from 'react-redux';
-import Spinner from '../../UI/Spinner/Spinner';
+import KeywordList from './KeywordList'
+import { connect } from 'react-redux'
+import Spinner from '../../UI/Spinner/Spinner'
 
 
 const KeywordListGroup = props => {
@@ -34,13 +33,13 @@ const KeywordListGroup = props => {
   ]
 
   const KeywordListRows = categories.map((category, index) => (
-    <Row key={index}>
+    <div className="row" key={index}>
       <KeywordList
         categoryTitle={category.categoryTitle}
         keywordType={category.keywordType}
         keywordListCSS={category.keywordListCSS}
       />
-    </Row>
+    </div>
   ))
 
   const keywordListGroup = props.keywordsLoading ? <Spinner /> : KeywordListRows;

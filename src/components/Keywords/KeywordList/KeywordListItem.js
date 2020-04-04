@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { ListGroup } from 'react-bootstrap'
 import { searchCoCoOccurrence } from '../../../store/actions/coOccurrence'
 import * as actionTypes from '../../../store/actions/actionTypes'
 import { CoOccurrencePopover } from '../CoOccurredWord/CoOccurrencePopover';
@@ -21,11 +20,11 @@ class KeywordListItem extends React.Component {
 
 
     const keywordListItem = keywordInCategory.slice(0, 8).map((keyword, index) => (
-      <ListGroup.Item variant="light" key={index} action>
+      <li className="list-group-item list-group-item-light" key={index} action>
         <OverlayTrigger trigger="click" placement="right" overlay={<CoOccurrencePopover>{keyword}</CoOccurrencePopover>} rootClose={true} >
           <p>{keyword}</p>
         </OverlayTrigger>
-      </ListGroup.Item>
+      </li>
     ))
     return keywordListItem
   }

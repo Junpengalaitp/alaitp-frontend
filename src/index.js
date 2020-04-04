@@ -1,5 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from "react-router-dom";
