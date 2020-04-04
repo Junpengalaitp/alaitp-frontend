@@ -1,0 +1,19 @@
+// low level stylings, html, body elements
+
+/* universal selector */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;  /* force inherit */
+}
+
+/* reference value for rem, which is always relative to root font-size */
+html {
+  /* font-size: 10px; */
+  font-size: 62.5%; /* 62.5% of 16px(default) is 10px, avoiding user change font size */
+}
+body { 
+  box-sizing: border-box;  /* boarders and paddings not added to the elements height and weight */
+}
