@@ -1,0 +1,21 @@
+.list-group {
+  &--heading {
+    height: 5rem;
+    float: left;
+    width: 137px;
+    text-align: center;
+    text-size-adjust: auto;
+  }
+
+  &--item {
+    width: 90px;
+    height: 5rem;
+
+    &--text {
+      text-size-adjust: 80%;
+      text-align: center;
+      margin-left: 0;
+      padding: 0;
+    }
+  }
+}

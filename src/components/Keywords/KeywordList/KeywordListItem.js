@@ -5,10 +5,6 @@ import * as actionTypes from '../../../store/actions/actionTypes'
 import { CoOccurrencePopover } from '../CoOccurredWord/CoOccurrencePopover';
 import { OverlayTrigger } from 'react-bootstrap';
 
-const style = {
-  width: "120px",
-  height: "80px"
-}
 
 class KeywordListItem extends React.Component {
 
@@ -23,9 +19,9 @@ class KeywordListItem extends React.Component {
     if (keywordInCategory === null || keywordInCategory === undefined) return null
 
     const keywordListItem = keywordInCategory.slice(0, 8).map((keyword, index) => (
-      <li className="list-group-item list-group-item-light" style={style} key={index} action>
+      <li className="list-group--item list-group-item list-group-item-light" key={index} action>
         <OverlayTrigger trigger="click" placement="right" overlay={<CoOccurrencePopover>{keyword}</CoOccurrencePopover>} rootClose={true} >
-          <p>{keyword}</p>
+          <p className="list-group--item--text">{keyword}</p>
         </OverlayTrigger>
       </li>
     ))
