@@ -4,6 +4,7 @@ import { searchCoCoOccurrence } from '../../../store/actions/coOccurrence'
 import * as actionTypes from '../../../store/actions/actionTypes'
 import { CoOccurrencePopover } from '../CoOccurredWord/CoOccurrencePopover';
 import { OverlayTrigger } from 'react-bootstrap';
+import { stringLengthToFontSize } from '../../../shared/utility';
 
 
 class KeywordListItem extends React.Component {
@@ -17,11 +18,10 @@ class KeywordListItem extends React.Component {
     const keywordInCategory = this.props.keywords[this.props.keywordType]
     
     if (keywordInCategory === null || keywordInCategory === undefined) return null
-
     const keywordListItem = keywordInCategory.slice(0, 8).map((keyword, index) => (
       <li className="list-group--item list-group-item list-group-item-light" key={index} action>
         <OverlayTrigger trigger="click" placement="right" overlay={<CoOccurrencePopover>{keyword}</CoOccurrencePopover>} rootClose={true} >
-          <p className="list-group--item--text">{keyword}</p>
+          <p className="list-group--item--text" style={{"font-size": stringLengthToFontSize(keyword) + "rem"}}>{keyword}</p>
         </OverlayTrigger>
       </li>
     ))

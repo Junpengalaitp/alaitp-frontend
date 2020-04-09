@@ -29,3 +29,17 @@ export const checkValidity = ( value, rules ) => {
     }
     return isValid
 }
+
+export const stringLengthToFontSize = string => {
+    const len = string.length;
+    if (len <= 6) {
+        return 1.2
+    }
+    if (len < 12) {
+        return 1
+    }
+    if (len < 18) {
+        return 0.9
+    }
+    return 0.8
+}

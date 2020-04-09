@@ -8,14 +8,12 @@
   }
 
   &--item {
-    width: 90px;
+    width: 5.5rem;
     height: 5rem;
+    padding-left: auto;
+    padding-right: auto;
 
     &--text {
-      text-size-adjust: 80%;
-      text-align: center;
-      margin-left: 0;
-      padding: 0;
     }
   }
 }
