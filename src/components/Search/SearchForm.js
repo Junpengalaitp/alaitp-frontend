@@ -42,9 +42,9 @@ const SearchForm = props => {
   }
 
   const onSearchBar = (
-    <Form onSubmit={handleSubmit}>
-      <Row>
-        <Col xs={9}>
+    <form className="main-page--searchBar" onSubmit={handleSubmit}>
+      <div className="row">
+        <div className="col-4-of-5">
           <Input
             className={props.inputCSS}
             elementType={searchForm.elementType}
@@ -55,15 +55,15 @@ const SearchForm = props => {
             touched={searchForm.touched}
             changed={event => inputChangedHandler(event)}
           />
-        </Col>
-        <Col xs={3}>
+        </div>
+        <div className="col-1-of-5">
           <Button type="submit" className={props.buttonCSS}>
             Search
           </Button>
-        </Col>
-      </Row>
-    </Form>
-    )
+        </div>
+      </div>
+    </form>
+  )
 
   const onNavBar = (
     <Form onSubmit={handleSubmit} inline>

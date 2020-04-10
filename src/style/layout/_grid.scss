@@ -1,5 +1,5 @@
 .row {
-  max-width: 214rem; // the size when having enough space, 100% when not enough
+  // max-width: 114rem; // the size when having enough space, 100% when not enough
 
   &:not(:last-child) { // everything except the last child
     margin-bottom: $gutter-vertical;
@@ -8,8 +8,7 @@
   @include clearfix;
 
   [class^="col-"] {
-    // background-color: orangered;
-    // float: left;
+    float: left;
 
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
@@ -26,6 +25,14 @@
 
   .col-1-of-4 {
     width: calc((100% - #{$gutter-horizontal} * 3) / 4);
+  }
+
+  .col-1-of-5 {
+    width: calc((100% - #{$gutter-horizontal} * 4) / 5);
+  }
+
+  .col-4-of-5 {
+    width: calc((100% - #{$gutter-horizontal}) * 4 / 5 + #{$gutter-horizontal} / 2);
   }
 
   .col-2-of-4 {
