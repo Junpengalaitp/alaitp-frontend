@@ -1,7 +1,24 @@
 .main-page {
-  text-align: center;
+  position: relative;
 
-  &--searchBar {
-    display: inline-block;
+  &--search {
+    position: absolute;
+    width: 100rem;
+    height: 20rem;
+    padding: 20rem;
+    top: 50%;
+    left: 50%;
+    margin: -10rem 0 0 -45rem;
+
+    &_heading {
+      margin-left: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    &_searchBar {
+      width: 80%;
+      margin-left: 5%;
+      margin-top: 4rem;
+    }
   }
 }

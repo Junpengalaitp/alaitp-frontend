@@ -42,7 +42,7 @@ const SearchForm = props => {
   }
 
   const onSearchBar = (
-    <form className="main-page--searchBar" onSubmit={handleSubmit}>
+    <form className="main-page--search_searchBar" onSubmit={handleSubmit}>
       <div className="row">
         <div className="col-4-of-5">
           <Input
