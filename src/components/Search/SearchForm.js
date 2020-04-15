@@ -5,11 +5,7 @@ import Input from "../UI/Input/Input";
 import { updateObject } from "../../shared/utility";
 
 import * as actionTypes from "../../store/actions/actionTypes";
-import Button from "../UI/Button";
 import { searchJobs } from "../../store/actions/jobSearch";
-import { Form, FormControl } from 'react-bootstrap';
-import { Row } from 'react-bootstrap';
-import { Col } from 'react-bootstrap';
 
 const SearchForm = props => {
   const [searchForm, setSearchForm] = useState({
@@ -46,7 +42,7 @@ const SearchForm = props => {
       <div className="row">
         <div className="col-4-of-5">
           <Input
-            className={props.inputCSS}
+            className="form-control form-control-lg"
             elementType={searchForm.elementType}
             elementConfig={searchForm.elementConfig}
             value={searchForm.value}
@@ -57,27 +53,22 @@ const SearchForm = props => {
           />
         </div>
         <div className="col-1-of-5">
-          <Button type="submit" className={props.buttonCSS}>
-            Search
-          </Button>
+        <button type="submit" class="btn btn-outline-primary btn-lg">Search</button>
         </div>
       </div>
     </form>
   )
 
   const onNavBar = (
-    <Form onSubmit={handleSubmit} inline>
-      <FormControl
-        className={props.inputCSS}
+    <form onSubmit={handleSubmit} className="form-inline my-lg-0">
+      <input className="form-control mr-sm-2"
         type={searchForm.elementConfig.type}
         value={searchForm.value}
         onChange={event => inputChangedHandler(event)}
         placeholder={searchForm.elementConfig.placeholder}
       />
-      <Button type="submit" className={props.buttonCSS}>
-        Search
-      </Button>
-    </Form>
+      <button type="submit" class="btn btn-outline-primary">Search</button>
+    </form>
   )
 
   return props.show ? onNavBar: onSearchBar
