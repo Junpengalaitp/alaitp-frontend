@@ -53,7 +53,7 @@ const SearchForm = props => {
           />
         </div>
         <div className="col-1-of-5">
-        <button type="submit" class="btn btn-outline-primary btn-lg">Search</button>
+        <button type="submit" className="btn btn-outline-primary btn-lg">Search</button>
         </div>
       </div>
     </form>
