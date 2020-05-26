@@ -67,7 +67,7 @@ const SearchForm = props => {
         onChange={event => inputChangedHandler(event)}
         placeholder={searchForm.elementConfig.placeholder}
       />
-      <button type="submit" class="btn btn-outline-primary">Search</button>
+      <button type="submit" className="btn btn-outline-primary">Search</button>
     </form>
   )
 

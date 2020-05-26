@@ -19,9 +19,9 @@ class KeywordListItem extends React.Component {
     
     if (keywordInCategory === null || keywordInCategory === undefined) return null
     const keywordListItem = keywordInCategory.slice(0, 8).map((keyword, index) => (
-      <li className="list-group--item list-group-item list-group-item-light" key={index} action>
+      <li className="list-group--item list-group-item list-group-item-light" key={index} action="true">
         <OverlayTrigger trigger="click" placement="right" overlay={<CoOccurrencePopover>{keyword}</CoOccurrencePopover>} rootClose={true} >
-          <p className="list-group--item--text" style={{"font-size": stringLengthToFontSize(keyword) + "rem"}}>{keyword}</p>
+          <p className="list-group--item--text" style={{"fontSize": stringLengthToFontSize(keyword) + "rem"}}>{keyword}</p>
         </OverlayTrigger>
       </li>
     ))
