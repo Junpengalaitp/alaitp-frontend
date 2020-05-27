@@ -8,12 +8,12 @@ const initialState = {
   orderedKeywordByCategory: {},
   keywordIndexByJob: null,
   cacheError: false,
-  error: false
+  error: false,
+  programmingLanguage: []
 }
 
 const setKeywords = (state, payload) => {
   const allKeywordsByCategory = payload.keywords.orderedKeywordByCategory
-
   return updateObject(state, {
     orderedKeywordByCategory: {
       programmingLanguage: allKeywordsByCategory.PROGRAMMING_LANGUAGE,
@@ -47,7 +47,19 @@ const setKeywords = (state, payload) => {
     loading: false,
     searchComplete: true
   })
+}
 
+const updateKeywords = (state, payload) => {
+  const keywordList = payload.jobKeywords.keywordList
+  const keywords = []
+  for (const keywordObj of keywordList) {
+    if (keywordObj.category === "PROGRAMMING_LANGUAGE") {
+      keywords.push(keywordObj.keyword)
+    }
+  }
+  return updateObject(state, {
+    programmingLanguage: state.programmingLanguage.concat(keywords)
+  })
 }
 
 const reducer = (state = initialState, action) => {
@@ -79,8 +91,7 @@ const reducer = (state = initialState, action) => {
           searchComplete: false
         }
     case actionTypes.WS_MESSAGE:
-      console.log("reached redux!")
-      return state
+      return updateKeywords(state, action)
 
     default:
       return state

@@ -17,13 +17,20 @@ class WebSocket extends React.Component {
             onDisconnect={() => {console.log("websocket disconnected")}}
             onMessage={msg => {
                console.log(msg)
-               this.props.onReceivedJobKeyword()
+               this.props.onReceivedJobKeyword(msg)
               }}
             ref={client => { this.clientRef = client }} />
       </div>
     );
   }
 }
+
+const updateWsKeywords = jobKeywords => {
+    return {
+      type: actionTypes.WS_MESSAGE,
+      jobKeywords: jobKeywords
+    }
+  }
 
 const mapStateToProps = state => {
   return {
@@ -33,7 +40,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onReceivedJobKeyword: () => dispatch({ type: actionTypes.WS_MESSAGE }),
+    onReceivedJobKeyword: msg => dispatch(updateWsKeywords(msg)),
   }
 }
 

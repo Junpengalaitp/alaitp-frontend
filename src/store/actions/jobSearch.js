@@ -14,8 +14,8 @@ export const setJobs = (jobMap, jobSearchId) => {
 export const searchJobs = searchInput => {
   if (searchInput === '') searchInput = 'Software Engineer'
   return dispatch => {
-    const uuidv4 = require('uuid/v4')
-    const requestId = uuidv4()
+    const uuid = require('uuid/v4')
+    const requestId = uuid()
     console.log("requestId: " + requestId)
     Axios.get(`${serverUrl}/job-description-api/job-list/${searchInput}/${requestId}`)
       .then(response => {
