@@ -30,7 +30,7 @@ class KeywordListItem extends React.Component {
 }
 
 const mapStateToProps = state => {
-    return {
+  return {
       keywords: state.keyword.orderedKeywordByCategory,
   }
 }

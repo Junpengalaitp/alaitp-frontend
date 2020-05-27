@@ -78,7 +78,10 @@ const reducer = (state = initialState, action) => {
           loading: false,
           searchComplete: false
         }
-  
+    case actionTypes.WS_MESSAGE:
+      console.log("reached redux!")
+      return state
+
     default:
       return state
   }
