@@ -9,7 +9,6 @@ const initialState = {
   keywordIndexByJob: null,
   cacheError: false,
   error: false,
-  programmingLanguage: []
 }
 
 const setKeywords = (state, payload) => {
@@ -49,19 +48,6 @@ const setKeywords = (state, payload) => {
   })
 }
 
-const updateKeywords = (state, payload) => {
-  const keywordList = payload.jobKeywords.keywordList
-  const keywords = []
-  for (const keywordObj of keywordList) {
-    if (keywordObj.category === "PROGRAMMING_LANGUAGE") {
-      keywords.push(keywordObj.keyword)
-    }
-  }
-  return updateObject(state, {
-    programmingLanguage: state.programmingLanguage.concat(keywords)
-  })
-}
-
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.KEYWORD_SEARCH_START:
@@ -90,8 +76,6 @@ const reducer = (state = initialState, action) => {
           loading: false,
           searchComplete: false
         }
-    case actionTypes.WS_MESSAGE:
-      return updateKeywords(state, action)
 
     default:
       return state

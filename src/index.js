@@ -13,6 +13,7 @@ import * as serviceWorker from "./serviceWorker";
 import keywordReducer from './store/reducers/keywordSearch'
 import jobReducer from './store/reducers/jobSearch'
 import coOccurrenceReducer from './store/reducers/coOccurrence'
+import wsKeywordReducer from './store/reducers/wsKeyword'
 import thunk from "redux-thunk";
 
 
@@ -21,7 +22,8 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const rootReducer = combineReducers({
   keyword: keywordReducer,
   jobDescription: jobReducer,
-  coOccurrence: coOccurrenceReducer
+  coOccurrence: coOccurrenceReducer,
+  wsKeyword: wsKeywordReducer
 })
 
 const store = createStore(rootReducer, composeEnhancers(
