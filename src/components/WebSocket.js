@@ -25,12 +25,11 @@ class WebSocket extends React.Component {
   }
 }
 
-const updateWsKeywords = jobKeywords => {
-    return {
-      type: actionTypes.WS_MESSAGE,
-      jobKeywords: jobKeywords
-    }
+const updateWsKeywords = () => {
+  return {
+    type: actionTypes.WS_MESSAGE
   }
+}
 
 const mapStateToProps = state => {
   return {
@@ -40,7 +39,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onReceivedJobKeyword: msg => dispatch(updateWsKeywords(msg)),
+    onReceivedJobKeyword: () => dispatch(updateWsKeywords()),
   }
 }
 
