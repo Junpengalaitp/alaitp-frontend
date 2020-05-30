@@ -27,7 +27,7 @@ class WebSocket extends React.Component {
 
 const updateWsKeywords = () => {
   return {
-    type: actionTypes.WS_MESSAGE
+    type: actionTypes.CHART_UPDATE_START
   }
 }
 

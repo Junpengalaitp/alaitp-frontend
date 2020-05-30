@@ -1,59 +1,43 @@
 import React from 'react';
 import ReactEcharts from 'echarts-for-react';
 import { connect } from "react-redux"
-
 import * as actionTypes from "../store/actions/actionTypes"
- 
  
 class KeywordChart extends React.Component {
   constructor(props) {
     super(props)
     this.echartsReact = React.createRef()
-}
-
-  getOption = () => {
-    return this.props.chartOption
   }
-
-  onChartover() {
-    this.echartsReact.getEchartsInstance().setOption(this.echartsReact.props.option)
-        console.log(this.echartsReact.getEchartsInstance())
-
-    }
 
   render () {
-    const onEvents = {
-      'mouseover': this.onChartover.bind(this)
-  }
+    if (this.props.update) {
+      this.props.chartUpdateSuccess()
+      console.log("after chartUpdateSuccess")
+      this.echartsReact.getEchartsInstance().setOption(this.props.chartOption)
+    }
+    
     return (
       <div>
           <ReactEcharts
             ref={(e) => { this.echartsReact = e }}
-            onEvents={onEvents}
-            option={this.getOption()} >
+            option={this.props.chartOption} >
           </ReactEcharts>
       </div>
     )
   }
-
 }
-
-// const updateWsKeywords = () => {
-//   return {
-//     type: actionTypes.WS_MESSAGE
-//   }
-// }
 
 const mapStateToProps = state => {
   return {
-    chartOption: state.chartOption.option,
+    chartOption: state.chartOption,
+    update: state.update
   }
 }
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     onReceivedJobKeyword: () => dispatch(updateWsKeywords()),
-//   }
-// }
+const mapDispatchToProps = dispatch => {
+  return {
+    chartUpdateSuccess: () => dispatch({ type: actionTypes.CHART_UPDATE_SUCCESS} ),
+  }
+}
 
-export default connect(mapStateToProps)(KeywordChart)
+export default connect(mapStateToProps, mapDispatchToProps)(KeywordChart)
