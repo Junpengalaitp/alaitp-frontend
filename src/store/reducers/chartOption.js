@@ -23,7 +23,7 @@ const initialState = {
   },
   yAxis: {
       type: 'category',
-      data: ['Python', 'Java', 'JavaScript', 'Ruby', 'C#']
+      data: []
   },
   series: [
       {
@@ -33,19 +33,26 @@ const initialState = {
   ]
 }
 
+const updateChart = (state, payload) => {
+  console.log("payload: ", payload)
+  return updateObject(state, {
+    yAxis: {
+      type: 'category',
+      data: payload.keyword
+    },
+    series: [
+        {
+            type: 'bar',
+            data: payload.count
+        }
+    ]
+  })
+}
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.CHART_UPDATE_START:
-      return {
-        ...state,
-        update: true,
-        series: [
-          {
-              type: 'bar',
-              data: [1820 + Math.random() * 10, 2348 + Math.random() * 10, 2903 + Math.random() * 10, 10497 + Math.random() * 10, 13174 + Math.random() * 10]
-          }
-        ],
-      }
+      return updateChart(state, action)
 
     case actionTypes.CHART_UPDATE_SUCCESS:
       console.log("reducer: CHART_UPDATE_SUCCESS")
