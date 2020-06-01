@@ -19,6 +19,14 @@ class SearchResult extends React.Component {
         </div>
         <KeywordChart category={"PROGRAMMING_LANGUAGE"} />
         <KeywordChart category={"OTHER_LANGUAGE"} />
+        <KeywordChart category={"LIBRARY"} />
+        <KeywordChart category={"FRAMEWORK"} />
+        <KeywordChart category={"DATA_STORAGE"} />
+        <KeywordChart category={"DATA_TRANSMISSION"} />
+        <KeywordChart category={"PLATFORM"} />
+        <KeywordChart category={"DIVISION"} />
+        <KeywordChart category={"APPROACH"} />
+        <KeywordChart category={"SOFTWARE_ENGINEERING"} />
       </div>
       
 
