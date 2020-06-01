@@ -28,6 +28,7 @@ class WebSocket extends React.Component {
 const updateWsKeywords = msg => {
   return {
     type: actionTypes.CHART_UPDATE_START,
+    category: msg.category,
     keyword: msg.keyword,
     count: msg.count
   }

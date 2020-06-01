@@ -2,50 +2,27 @@ import * as actionTypes from '../actions/actionTypes'
 import { updateObject } from '../../shared/utility'
 
 const initialState = {
-  title: {
-    text: 'Programming Language',
-  },
-  tooltip: {
-      trigger: 'axis',
-      axisPointer: {
-          type: 'shadow'
-      }
-  },
-  grid: {
-      left: '3%',
-      right: '4%',
-      bottom: '3%',
-      containLabel: true
-  },
-  xAxis: {
-      type: 'value',
-      boundaryGap: [0, 0.05]
-  },
-  yAxis: {
-      type: 'category',
-      data: []
-  },
-  series: [
-      {
-          type: 'bar',
-          data: []
-      }
-  ]
+  PROGRAMMING_LANGUAGE: {}
+  // yAxis: {
+  //     type: 'category',
+  //     data: []
+  // },
+  // series: [
+  //     {
+  //       type: 'bar',
+  //       data: []
+  //     }
+  // ]
 }
 
 const updateChart = (state, payload) => {
-  console.log("payload: ", payload)
+  console.log("payload: ", payload.category, payload.keyword, payload.count)
   return updateObject(state, {
-    yAxis: {
-      type: 'category',
-      data: payload.keyword
-    },
-    series: [
-        {
-            type: 'bar',
-            data: payload.count
-        }
-    ]
+    ...state,
+    [payload.category]: {
+      yAxisData: payload.keyword,
+      xAxisData: payload.count
+    }
   })
 }
 

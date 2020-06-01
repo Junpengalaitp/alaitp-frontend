@@ -17,7 +17,7 @@ class SearchResult extends React.Component {
             <JobDescriptionList />
           </div>    
         </div>
-        <KeywordChart />
+        <KeywordChart category={"PROGRAMMING_LANGUAGE"} />
       </div>
       
 
