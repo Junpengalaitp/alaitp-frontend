@@ -25,8 +25,18 @@ class KeywordChart extends React.Component {
       },
       xAxis: {
         type: 'value',
-        boundaryGap: [0, 0.05]
+        boundaryGap: [0, 0.05],
       },
+      yAxis: {
+        type: 'category',
+        data: []
+      },
+      series: [
+        {
+          type: 'bar',
+          data: []
+        }
+      ]
     }
   }
 
@@ -49,7 +59,7 @@ class KeywordChart extends React.Component {
   getChartOption = () => {
     const XYData = {
       yAxis: {
-        type: 'category',
+        ...this.state.yAxis,
         data: this.getYAxisData()
       },
       series: [

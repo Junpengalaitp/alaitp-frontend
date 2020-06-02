@@ -16,7 +16,6 @@ class WebSocket extends React.Component {
             onConnect={() => {console.log("websocket connected")}}
             onDisconnect={() => {console.log("websocket disconnected")}}
             onMessage={msg => {
-               console.log(msg)
                this.props.onReceivedJobKeyword(msg)
               }}
             ref={client => { this.clientRef = client }} />
@@ -26,11 +25,12 @@ class WebSocket extends React.Component {
 }
 
 const updateWsKeywords = msg => {
+  console.log(msg)
   return {
     type: actionTypes.CHART_UPDATE_START,
-    category: msg.category,
-    keyword: msg.keyword,
-    count: msg.count
+    category: msg.chartOption.category,
+    keyword: msg.chartOption.keyword,
+    count: msg.chartOption.count
   }
 }
 
