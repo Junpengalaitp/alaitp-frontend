@@ -13,7 +13,7 @@ import * as serviceWorker from "./serviceWorker";
 import keywordReducer from './store/reducers/keywordSearch'
 import jobReducer from './store/reducers/jobSearch'
 import coOccurrenceReducer from './store/reducers/coOccurrence'
-import chartReducer from './store/reducers/chartOption'
+import jobKeywordReducer from './store/reducers/jobKeyword'
 import thunk from "redux-thunk";
 
 
@@ -23,7 +23,7 @@ const rootReducer = combineReducers({
   keyword: keywordReducer,
   jobDescription: jobReducer,
   coOccurrence: coOccurrenceReducer,
-  chartOption: chartReducer
+  jobKeyword: jobKeywordReducer
 })
 
 const store = createStore(rootReducer, composeEnhancers(

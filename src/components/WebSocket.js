@@ -13,8 +13,8 @@ class WebSocket extends React.Component {
     return (
       <div>
         <SockJsClient url='http://localhost:8816/keyword-ws' topics={['/topic/keyword']}
-            onConnect={() => {console.log("websocket connected")}}
-            onDisconnect={() => {console.log("websocket disconnected")}}
+            onConnect={() => { console.log("websocket connected") }}
+            onDisconnect={() => { console.log("websocket disconnected") }}
             onMessage={msg => {
                this.props.onReceivedJobKeyword(msg)
               }}
@@ -28,9 +28,11 @@ const updateWsKeywords = msg => {
   console.log(msg)
   return {
     type: actionTypes.CHART_UPDATE_START,
-    category: msg.chartOption.category,
-    keyword: msg.chartOption.keyword,
-    count: msg.chartOption.count
+    // category: msg.chartOption.category,
+    // keyword: msg.chartOption.keyword,
+    // count: msg.chartOption.count,
+    chartOptions: msg.chartOptions,
+    jobKeyword: msg.jobKeyword
   }
 }
 

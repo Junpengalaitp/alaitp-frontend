@@ -11,7 +11,7 @@ import { Badge, OverlayTrigger, Tooltip } from "react-bootstrap"
 class JobDescriptionText extends React.Component {
   render() {
     let jobDescriptionText = this.props.jobDescriptionText
-    if (!this.props.keywordSearchComplete || !this.props.opened) {
+    if (!this.props.opened) {
       return <React.Fragment>{jobDescriptionText}</React.Fragment>
     }
 
@@ -100,7 +100,7 @@ class JobDescriptionText extends React.Component {
 const mapStateToProps = state => {
   return {
     keywordSearchComplete: state.keyword.searchComplete,
-    keywordIndex: state.keyword.keywordIndexByJob
+    keywordIndex: state.jobKeyword.keywordIdxByJob
   }
 }
 

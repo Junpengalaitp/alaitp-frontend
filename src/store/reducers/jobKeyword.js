@@ -2,26 +2,27 @@ import * as actionTypes from '../actions/actionTypes'
 import { updateObject } from '../../shared/utility'
 
 const initialState = {
-  PROGRAMMING_LANGUAGE: {}
-  // yAxis: {
-  //     type: 'category',
-  //     data: []
-  // },
-  // series: [
-  //     {
-  //       type: 'bar',
-  //       data: []
-  //     }
-  // ]
+  chartData: {},
+  keywordIdxByJob: {}
 }
 
 const updateChart = (state, payload) => {
-  console.log("payload: ", payload.category, payload.keyword, payload.count)
+  const chartOptions = {}
+  for (const chartOption of payload.chartOptions) {
+    chartOptions[chartOption.category] = {
+      yAxisData: chartOption.keyword,
+      xAxisData: chartOption.count
+    }
+  }
   return updateObject(state, {
     ...state,
-    [payload.category]: {
-      yAxisData: payload.keyword,
-      xAxisData: payload.count
+    chartData: {
+      ...state.chartData,
+      ...chartOptions
+    },
+    keywordIdxByJob: {
+      ...state.keywordIdxByJob,
+      [payload.jobKeyword.jobId]: payload.jobKeyword.keywordList
     }
   })
 }

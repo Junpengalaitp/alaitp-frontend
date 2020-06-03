@@ -92,7 +92,7 @@ class KeywordChart extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    chartOption: state.chartOption
+    chartOption: state.jobKeyword.chartData
   }
 }
 
