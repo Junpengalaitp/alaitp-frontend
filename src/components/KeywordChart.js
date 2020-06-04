@@ -29,12 +29,7 @@ const MyVerticallyCenteredModal = props => {
 }
 
 const staticChartOptions = {
-  tooltip: {
-      trigger: 'axis',
-      axisPointer: {
-          type: 'shadow'
-      }
-  },
+  color: ['#3398DB'],
   grid: {
       left: '3%',
       right: '4%',
@@ -43,7 +38,7 @@ const staticChartOptions = {
   },
   xAxis: {
     type: 'value',
-    boundaryGap: [0, 0.05],
+    boundaryGap: [0, 0.1],
   },
 }
 
@@ -80,11 +75,30 @@ class KeywordChart extends React.Component {
     const XYData = {
       yAxis: {
         ...this.state.yAxis,
+        axisLabel: {
+          inside: true,
+          textStyle: {
+              color: '#fff'
+          }
+        },
+        axisTick: {
+          show: false
+        },
+        axisLine: {
+            show: false
+        },
+        z: 10,
         data: this.getYAxisData()
       },
       series: [
         {
           type: 'bar',
+          label: {
+            normal: {
+                position: 'right',
+                show: true
+            }
+          },
           data: this.getXAxisData()
         }
       ]

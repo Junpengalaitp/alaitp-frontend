@@ -32,7 +32,7 @@ const CoOccurrenceWordCloud = props => {
   ))
 
   const CoOccurrenceWordCloud = (
-      <div>
+      <div className="container">
         <div>
           <ButtonGroup vertical={false}>
             <DropdownButton as={ButtonGroup} title="select category" variant="light" drop="right" id="bg-nested-dropdown">
