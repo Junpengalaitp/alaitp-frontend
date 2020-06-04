@@ -29,7 +29,6 @@ const CoOccurrenceWordCloud = props => {
 
   const categoryButtons = Object.keys(categoryMap).map((key, idx) => (
     <Dropdown.Item eventKey={idx} key={idx} onClick={() => setCategoryWords(key)}>{categoryMap[key]}</Dropdown.Item>
-    // <button onClick={() => setCategoryWords(key)} key={idx}>{categoryMap[key]}</button>
   ))
 
   const CoOccurrenceWordCloud = (
@@ -42,25 +41,11 @@ const CoOccurrenceWordCloud = props => {
           </ButtonGroup>
         </div>
         <TagCloud
-          minSize={12}
-          maxSize={35}
+          minSize={15} // min word size in cloud
+          maxSize={60} // max word size in cloud
           tags={cloudValues}
-          style={{ width: 250 }}
+          style={{ width: 600 }}
           className="simple-cloud"
-          // onClick={tag => {
-          //   const value = prompt('Edit tag value', tag.value)
-          //   if (value == null) {
-          //     return
-          //   }
-          //   const newTag = { value, count: tag.count }
-          //   const newData = cloudValues.map(t => {
-          //     if (t.value === tag.value) {
-          //       return newTag
-          //     }
-          //     return t
-          //   })
-          //   cloudValues = newData
-          // }}
         />
       </div>
     )

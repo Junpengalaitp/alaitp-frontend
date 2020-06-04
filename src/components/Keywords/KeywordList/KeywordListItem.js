@@ -1,7 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { searchCoCoOccurrence } from '../../../store/actions/coOccurrence'
-import * as actionTypes from '../../../store/actions/actionTypes'
 import { CoOccurrencePopover } from '../CoOccurredWord/CoOccurrencePopover';
 import { OverlayTrigger } from 'react-bootstrap';
 import { stringLengthToFontSize } from '../../../shared/utility';
@@ -31,16 +29,9 @@ class KeywordListItem extends React.Component {
 
 const mapStateToProps = state => {
   return {
-      keywords: state.keyword.orderedKeywordByCategory,
+    keywords: state.keyword.orderedKeywordByCategory,
   }
 }
-
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     onCoOccurrenceSearchStart: () => dispatch({ type: actionTypes.COOCCURRENCE_SEARCH_START }),
-//     onCoOccurrenceSearchSuccess: searchInput => dispatch(searchCoCoOccurrence(searchInput))
-//   }
-// }
 
 export default connect(mapStateToProps, null)(KeywordListItem);
 

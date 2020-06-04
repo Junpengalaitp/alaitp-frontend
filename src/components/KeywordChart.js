@@ -2,9 +2,10 @@ import React from 'react';
 import ReactEcharts from 'echarts-for-react';
 import { connect } from "react-redux"
 import * as actionTypes from "../store/actions/actionTypes"
-import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap'
+import CoOccurredWords from './Keywords/CoOccurredWord/CoOccurredWords';
 
-const MyVerticallyCenteredModal = (props) => {
+const MyVerticallyCenteredModal = props => {
   return (
     <Modal
       {...props}
@@ -14,16 +15,11 @@ const MyVerticallyCenteredModal = (props) => {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Modal heading
+          Most correlated technologies with {props.keyword}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h4>Centered Modal</h4>
-        <p>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-          consectetur ac, vestibulum at eros.
-        </p>
+          <CoOccurredWords keyword={props.keyword}/>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
@@ -32,38 +28,33 @@ const MyVerticallyCenteredModal = (props) => {
   );
 }
 
+const staticChartOptions = {
+  tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+          type: 'shadow'
+      }
+  },
+  grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
+  },
+  xAxis: {
+    type: 'value',
+    boundaryGap: [0, 0.05],
+  },
+}
+
 class KeywordChart extends React.Component {
   state = {
-    title: {
-      text: this.props.category,
-    },
-    tooltip: {
-        trigger: 'axis',
-        axisPointer: {
-            type: 'shadow'
-        }
-    },
-    grid: {
-        left: '3%',
-        right: '4%',
-        bottom: '3%',
-        containLabel: true
-    },
-    xAxis: {
-      type: 'value',
-      boundaryGap: [0, 0.05],
-    },
-    yAxis: {
-      type: 'category',
-      data: []
-    },
-    series: [
-      {
-        type: 'bar',
-        data: []
-      }
-    ],
-    modalShow: false
+    title: {text: this.props.category},
+    yAxis: {type: 'category', data: []},
+    series: [{type: 'bar', data: []}],
+    ...staticChartOptions,
+    modalShow: false,
+    keyword: "",
   }
 
   echartsReact = React.createRef()
@@ -114,16 +105,11 @@ class KeywordChart extends React.Component {
   }
   clickKeywordBar(e) {
     console.log(e)
+    this.setState({keyword: e.name})
     this.openModal()
   }
 
   render() {
-    // if (this.props.update) {
-    //   this.props.chartUpdateSuccess()
-    //   console.log("after chartUpdateSuccess")
-    //   this.echartsReact.getEchartsInstance().setOption(this.props.chartOption)
-    // }
-    
     return (
       <div>
           <ReactEcharts
@@ -133,7 +119,8 @@ class KeywordChart extends React.Component {
           </ReactEcharts>
           <MyVerticallyCenteredModal 
             show={this.state.modalShow}
-            onHide={() => this.closeModal(false)}/>
+            onHide={() => this.closeModal(false)}
+            keyword={this.state.keyword} />
       </div>
     )
   }
