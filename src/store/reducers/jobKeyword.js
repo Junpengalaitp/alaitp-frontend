@@ -9,6 +9,10 @@ const initialState = {
 const updateChart = (state, payload) => {
   const chartOptions = {}
   for (const chartOption of payload.chartOptions) {
+    if (chartOption === null) {
+      // chartOption null meaning the category has less than 5 keywords, do not update that category chart 
+      continue
+    }
     chartOptions[chartOption.category] = {
       yAxisData: chartOption.keyword,
       xAxisData: chartOption.count

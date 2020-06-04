@@ -9,9 +9,9 @@ import { stringLengthToFontSize } from '../../../shared/utility';
 
 class KeywordListItem extends React.Component {
 
-  state = {
-    modalShow: false
-  }
+  // state = {
+  //   modalShow: false
+  // }
 
   render() {
     if (this.props.keywords === null) return null
@@ -35,12 +35,12 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onCoOccurrenceSearchStart: () => dispatch({ type: actionTypes.COOCCURRENCE_SEARCH_START }),
-    onCoOccurrenceSearchSuccess: searchInput => dispatch(searchCoCoOccurrence(searchInput))
-  }
-}
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     onCoOccurrenceSearchStart: () => dispatch({ type: actionTypes.COOCCURRENCE_SEARCH_START }),
+//     onCoOccurrenceSearchSuccess: searchInput => dispatch(searchCoCoOccurrence(searchInput))
+//   }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(KeywordListItem);
+export default connect(mapStateToProps, null)(KeywordListItem);
 
