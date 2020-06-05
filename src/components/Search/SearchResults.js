@@ -1,7 +1,7 @@
 import React from "react"
 import JobDescriptionList from '../JobDescription/JobDescriptionList'
 import KeywordChart from "../KeywordChart"
-import { availableCategories } from "../../config"
+import { combinedCategories } from "../../config"
 
 
 class SearchResult extends React.Component {
@@ -10,7 +10,7 @@ class SearchResult extends React.Component {
       <div>
         <div className="row justify-content-center">
           <div className="col-sm-5">
-            {availableCategories.split(",").map((category, index) => (
+            {combinedCategories.split(",").map((category, index) => (
               <KeywordChart category={category} key={index}/>
             ))}
           </div>

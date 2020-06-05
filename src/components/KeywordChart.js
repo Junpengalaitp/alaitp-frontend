@@ -54,7 +54,6 @@ class KeywordChart extends React.Component {
 
   echartsReact = React.createRef()
   
-
   getYAxisData = () => {
     if (this.props.chartOption[this.props.category]) {
       return this.props.chartOption[this.props.category].yAxisData
