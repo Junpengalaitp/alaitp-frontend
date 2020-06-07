@@ -22,7 +22,6 @@ class SearchResult extends React.Component {
     )
     return searchResult
   }
-  
 }
 
 export default SearchResult;
