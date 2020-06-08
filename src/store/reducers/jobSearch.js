@@ -23,10 +23,10 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.JOB_SEARCH_START:
       console.log("job search start")
-      return {
-        ...state,
-        loading: true
-      }
+      return updateObject(state, {
+        loading: true,
+        jobMap: {}
+      })
 
     case actionTypes.JOB_SEARCH_SUCCESS:
         console.log("job search complete")
