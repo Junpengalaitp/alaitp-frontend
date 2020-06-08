@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { connect } from 'react-redux';
 import { Route } from 'react-router'
-import SearchResults from "../../components/Search/SearchResults"
+import SearchResults from "./SearchResults"
 import NavBar from '../../components/UI/NavigationBar'
 import { MainPage } from "./MainPage";
 
