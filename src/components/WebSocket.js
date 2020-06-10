@@ -28,9 +28,6 @@ const updateWsKeywords = msg => {
   console.log(msg)
   return {
     type: actionTypes.CHART_UPDATE_START,
-    // category: msg.chartOption.category,
-    // keyword: msg.chartOption.keyword,
-    // count: msg.chartOption.count,
     chartOptions: msg.chartOptions,
     jobKeyword: msg.jobKeyword
   }

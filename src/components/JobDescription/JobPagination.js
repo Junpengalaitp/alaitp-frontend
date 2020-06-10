@@ -2,17 +2,17 @@ import React from 'react'
 import { Pagination } from 'react-bootstrap'
 
 export const JobPagination = ({ currentPage, jobsPerPage, totalJobs, paginate, paginationShow }) => {
-  let pagination = null
-  const pageAmountAtOnce = 5
+  let pagination = null;
+  const pageAmountAtOnce = 5;
   if (paginationShow) {
-    const pageNumbers = []
-    let paginationHead
-    let showingPageNumbers
-    let paginationTail
+    const pageNumbers = [];
+    let paginationHead;
+    let showingPageNumbers;
+    let paginationTail;
     for (let i = 1; i <= Math.ceil(totalJobs / jobsPerPage); i++) {
       pageNumbers.push(i)
     }
-    const lastPage = pageNumbers.length
+    const lastPage = pageNumbers.length;
 
     // do not paginate for only one page
     if (lastPage <= 1) {
@@ -33,17 +33,17 @@ export const JobPagination = ({ currentPage, jobsPerPage, totalJobs, paginate, p
             <Pagination.Item active={currentPage === 1} key={1} onClick={() => paginate(1, null)}>{1}</Pagination.Item>
             <Pagination.Ellipsis />
           </React.Fragment>
-        )
+        );
       // show ellipsis before lastPage - pageAmountAtOnce
       paginationTail = currentPage > lastPage - pageAmountAtOnce ? null : (
         <React.Fragment>
           <Pagination.Ellipsis />
           <Pagination.Item active={currentPage === lastPage} key={lastPage} onClick={() => paginate(lastPage, null)}>{lastPage}</Pagination.Item>
         </React.Fragment>
-        )
+        );
 
-      const startIdx = Math.min(currentPage - 1, lastPage - pageAmountAtOnce)
-      const endIdx = Math.min(currentPage + pageAmountAtOnce - 1, lastPage)
+      const startIdx = Math.min(currentPage - 1, lastPage - pageAmountAtOnce);
+      const endIdx = Math.min(currentPage + pageAmountAtOnce - 1, lastPage);
       showingPageNumbers = (
         <React.Fragment>
           {paginationHead}
@@ -64,4 +64,4 @@ export const JobPagination = ({ currentPage, jobsPerPage, totalJobs, paginate, p
     )
   }
   return pagination
-}
+};

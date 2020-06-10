@@ -1,32 +1,7 @@
 import React from 'react';
 import ReactEcharts from 'echarts-for-react';
-import { connect } from "react-redux"
-import * as actionTypes from "../store/actions/actionTypes"
-import { Modal, Button } from 'react-bootstrap'
-import CoOccurredWords from './Keywords/CoOccurredWord/CoOccurredWords';
-
-const MyVerticallyCenteredModal = props => {
-  return (
-    <Modal
-      {...props}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Most correlated technologies with {props.keyword}
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-          <CoOccurredWords keyword={props.keyword}/>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
-    </Modal>
-  );
-}
+import {connect} from "react-redux"
+import {MyVerticallyCenteredModal} from "../UI/Modal";
 
 const staticChartOptions = {
   color: ['#3398DB'],
@@ -40,7 +15,7 @@ const staticChartOptions = {
     type: 'value',
     boundaryGap: [0, 0.1],
   },
-}
+};
 
 class KeywordChart extends React.Component {
   state = {
@@ -50,9 +25,9 @@ class KeywordChart extends React.Component {
     ...staticChartOptions,
     modalShow: false,
     keyword: "",
-  }
+  };
 
-  echartsReact = React.createRef()
+  echartsReact = React.createRef();
   
   getYAxisData = () => {
     if (this.props.chartOption[this.props.category]) {
@@ -60,7 +35,7 @@ class KeywordChart extends React.Component {
     } else {
       return []
     }
-  }
+  };
 
   getXAxisData = () => {
     if (this.props.chartOption[this.props.category]) {
@@ -68,7 +43,7 @@ class KeywordChart extends React.Component {
     } else {
       return []
     }
-  }
+  };
 
   getChartOption = () => {
     const XYData = {
@@ -101,24 +76,24 @@ class KeywordChart extends React.Component {
           data: this.getXAxisData()
         }
       ]
-    }
+    };
     return {...this.state, ...XYData}
-  }
+  };
 
   closeModal = () => {
     this.setState({modalShow: false})
-  }
+  };
 
   openModal = () => {
     this.setState({modalShow: true})
-  }
+  };
 
   onclick = {
     'click': this.clickKeywordBar.bind(this)
-  }
+  };
   clickKeywordBar(e) {
-    console.log(e)
-    this.setState({keyword: e.name})
+    console.log(e);
+    this.setState({keyword: e.name});
     this.openModal()
   }
 
@@ -143,12 +118,6 @@ const mapStateToProps = state => {
   return {
     chartOption: state.jobKeyword.chartData
   }
-}
+};
 
-const mapDispatchToProps = dispatch => {
-  return {
-    chartUpdateSuccess: () => dispatch({ type: actionTypes.CHART_UPDATE_SUCCESS} ),
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(KeywordChart)
+export default connect(mapStateToProps)(KeywordChart)

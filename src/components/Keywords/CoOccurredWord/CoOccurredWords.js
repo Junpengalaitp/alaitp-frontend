@@ -4,17 +4,17 @@ import Axios from 'axios'
 import { serverUrl } from './../../../config'
 
 // max total number of keywords in cloud
-const wordNum = 30
+const wordNum = 30;
 
 class CoOccurredWords extends React.Component {
   state = {
     category: "all",
     coOccurredWords: []
-  }
+  };
 
   requestCoOccurrence() {
-    const word = this.props.keyword.replace('#', '%23')
-    console.log("requesting with: ", word, this.state.category)
+    const word = this.props.keyword.replace('#', '%23');
+    console.log("requesting with: ", word, this.state.category);
     Axios.get(`${serverUrl}/co_occurrence_matrix/most-correlated-words/${word}/${wordNum}/${this.state.category}`)
     .then(res => {
       // console.log(res)
@@ -27,10 +27,10 @@ class CoOccurredWords extends React.Component {
   }
 
   requestCategoryCoOccurrence(category) {
-    const word = this.props.keyword.replace('#', '%23')
+    const word = this.props.keyword.replace('#', '%23');
     Axios.get(`${serverUrl}/co_occurrence_matrix/most-correlated-words/${word}/${wordNum}/${category}`)
       .then(res => {
-        console.log("words: ", res.data.words)
+        console.log("words: ", res.data.words);
         this.setState({
           category: category,
           coOccurredWords: res.data.words,
