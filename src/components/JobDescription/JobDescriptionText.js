@@ -1,6 +1,6 @@
 import React from "react"
 import {connect} from "react-redux"
-import {Badge, OverlayTrigger, Tooltip} from "react-bootstrap"
+import HighlightKeyword from "./HighlightKeyword";
 
 /**
  * props:
@@ -8,13 +8,15 @@ import {Badge, OverlayTrigger, Tooltip} from "react-bootstrap"
  * jobId
  * opened: do not render keywords if the text hasn't been opened
  */
-function JobDescriptionText(props) {
+const JobDescriptionText = props => {
   let jobDescriptionText = props.jobDescriptionText;
+
   if (!props.opened) {
     return <React.Fragment>{jobDescriptionText}</React.Fragment>
   }
 
   const jobId = props.jobId;
+  // store all keyword objects 
   const keywordIndices = [];
   let keywordList;
   try {
@@ -27,67 +29,32 @@ function JobDescriptionText(props) {
     return <React.Fragment>{jobDescriptionText}</React.Fragment>
   }
 
-  // sort the keyword indices so it can break and combine job text with keywords in order
+  // sort the keyword by start index so it can break and combine job text with keywords in order
   keywordIndices.sort((a, b) => a[0] - b[0]);
 
-  if (keywordIndices[0] === null || keywordIndices[0] === undefined) // no keywords
+  if (keywordIndices.length === 0) // no keywords, return plain text
     return <React.Fragment>{jobDescriptionText}</React.Fragment>;
 
-  // init with the start to first keyword
-  let jobTextWithKeywordsArray = [props.jobDescriptionText.substring(0, keywordIndices[0][0])];
-  const categoryColorMap = {
-    "PROGRAMMING_LANGUAGE": "primary",
-    "OTHER_LANGUAGE": "primary",
-    "LIBRARY": "info",
-    "FRAMEWORK": "info",
-    "DATA_STORAGE": "warning",
-    "DATA_TRANSMISSION": "warning",
-    "PLATFORM": "success",
-    "SERVER": "success",
-    "OS": "success",
-    "APPROACH": "secondary",
-    "SOFTWARE_ENGINEERING": "secondary",
-    "POSITION": "danger",
-    "DIVISION": "danger",
-    "WORK_EXPERIENCE": "danger"
-  };
+  // store combined job text (plain text + highlighted words)
+  const jobTextWithKeywordsArray = [];
+  // the first element in array is the plain text before the first keyword
+  jobTextWithKeywordsArray.push(props.jobDescriptionText.substring(0, keywordIndices[0][0]))
+  // add the rest
   for (let i = 0; i < keywordIndices.length - 1; i++) {
-    if (keywordIndices[i][3] !== null) {
-      let badgeColor = categoryColorMap[keywordIndices[i][3]];
-      if (badgeColor === undefined) {
-        badgeColor = "dark"
-      }
-      const keywordBadge = (
-        <OverlayTrigger
-          key={keywordIndices[i][0]}
-          placement={"top"}
-          overlay={
-            <Tooltip id={'tooltip-top'}>
-              <strong>{keywordIndices[i][3]}</strong>.
-            </Tooltip>
-          }
-        >
-          <Badge variant={badgeColor} key={keywordIndices[i][0]}>
-            {props.jobDescriptionText.substring(keywordIndices[i][0], keywordIndices[i][1])}
-          </Badge>
-          {/*<MyVerticallyCenteredModal*/}
-          {/*  show={this.state.modalShow}*/}
-          {/*  onHide={() => this.setState({modalShow: false})}*/}
-          {/*  keyword={this.props.jobDescriptionText.substring(keywordIndices[i][0], keywordIndices[i][1])} />*/}
-        </OverlayTrigger>
-      );
-      const textBetweenBadges = props.jobDescriptionText.substring(
-        keywordIndices[i][1],
-        keywordIndices[i + 1][0]
-      );
-      jobTextWithKeywordsArray.push(keywordBadge);
-      jobTextWithKeywordsArray.push(textBetweenBadges);
-    }
+    const startIdx = keywordIndices[i][0];
+    const endIdx = keywordIndices[i][1]
+    const keyword = keywordIndices[i][2];
+    const category = keywordIndices[i][3];
+    const nextStartIdx = keywordIndices[i + 1][0];
+
+    const keywordBadge = <HighlightKeyword startIdx={startIdx} endIdx={endIdx} keyword={keyword} category={category} jobDescriptionText={jobDescriptionText} />
+    const textBetweenBadges = props.jobDescriptionText.substring(endIdx, nextStartIdx);
+    jobTextWithKeywordsArray.push(keywordBadge);
+    jobTextWithKeywordsArray.push(textBetweenBadges);
   }
   // add text after the last
   jobTextWithKeywordsArray.push(
-    props.jobDescriptionText.substring(
-      keywordIndices[keywordIndices.length - 1][0]
+    jobDescriptionText.substring(keywordIndices[keywordIndices.length - 1][0]
     )
   );
   jobDescriptionText = <p>{jobTextWithKeywordsArray}</p>;
