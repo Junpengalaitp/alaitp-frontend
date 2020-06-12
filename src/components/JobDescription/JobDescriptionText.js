@@ -32,8 +32,9 @@ const JobDescriptionText = props => {
   // sort the keyword by start index so it can break and combine job text with keywords in order
   keywordIndices.sort((a, b) => a[0] - b[0]);
 
-  if (keywordIndices.length === 0) // no keywords, return plain text
+  if (keywordIndices.length === 0) { // no keywords, return plain text
     return <React.Fragment>{jobDescriptionText}</React.Fragment>;
+  }
 
   // store combined job text (plain text + highlighted words)
   const jobTextWithKeywordsArray = [];
@@ -47,7 +48,7 @@ const JobDescriptionText = props => {
     const category = keywordIndices[i][3];
     const nextStartIdx = keywordIndices[i + 1][0];
 
-    const keywordBadge = <HighlightKeyword startIdx={startIdx} endIdx={endIdx} keyword={keyword} category={category} jobDescriptionText={jobDescriptionText} />
+    const keywordBadge = <HighlightKeyword startIdx={startIdx} endIdx={endIdx} keyword={keyword} category={category} jobDescriptionText={jobDescriptionText} key={startIdx}/>
     const textBetweenBadges = props.jobDescriptionText.substring(endIdx, nextStartIdx);
     jobTextWithKeywordsArray.push(keywordBadge);
     jobTextWithKeywordsArray.push(textBetweenBadges);
@@ -58,7 +59,9 @@ const JobDescriptionText = props => {
     )
   );
   jobDescriptionText = <p>{jobTextWithKeywordsArray}</p>;
-  return <React.Fragment>{jobDescriptionText}</React.Fragment>
+  return <React.Fragment>
+          {jobDescriptionText}
+        </React.Fragment>
 }
 
 const mapStateToProps = state => {

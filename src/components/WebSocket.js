@@ -25,7 +25,7 @@ class WebSocket extends React.Component {
 }
 
 const updateWsKeywords = msg => {
-  console.log(msg)
+  // console.log(msg)
   return {
     type: actionTypes.CHART_UPDATE_START,
     chartOptions: msg.chartOptions,

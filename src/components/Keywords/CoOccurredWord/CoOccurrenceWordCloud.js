@@ -12,10 +12,12 @@ const CoOccurrenceWordCloud = props => {
 
   useEffect(() => {
     const values = [];
-    for (let [key, value] of Object.entries(props.coOccurredWords)) {
-      values.push({value: key, count: value.count})
+    if (props.coOccurredWords) {
+      for (let [key, value] of Object.entries(props.coOccurredWords)) {
+        values.push({value: key, count: value.count})
+      }
     }
-    setCloudValues(values.slice(0, -1))
+      setCloudValues(values)
   }, [props.coOccurredWords]);
 
   const setCategoryWords = category => {
@@ -41,7 +43,7 @@ const CoOccurrenceWordCloud = props => {
           </ButtonGroup>
         </div>
         <TagCloud
-          minSize={15} // min word size in cloud
+          minSize={20} // min word size in cloud
           maxSize={60} // max word size in cloud
           tags={cloudValues}
           style={{ width: 600 }}

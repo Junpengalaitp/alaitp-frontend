@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import Badge from "react-bootstrap/Badge";
+import {MyVerticallyCenteredModal} from "../UI/Modal";
 
 const categoryColorMap = {
   "PROGRAMMING_LANGUAGE": "primary",
@@ -21,28 +22,38 @@ const categoryColorMap = {
 };
 
 const HighlightKeyword = props => {
+  const [modalShow, setModalShow] = useState(false);
+
   let badgeColor = categoryColorMap[props.category];
   if (badgeColor === undefined) {
     badgeColor = "dark"
   }
+
+  const handleClick = () => {
+    if (!modalShow) {
+      setModalShow(true);
+    }
+  }
   return (
-    <OverlayTrigger
-      key={props.startIdx}
-      placement={"top"}
-      overlay={
-        <Tooltip id={'tooltip-top'}>
-          <strong>{props.keyword}</strong>.
-        </Tooltip>
-      }
-    >
-      <Badge variant={badgeColor} key={props.startIdx}>
-        {props.jobDescriptionText.substring(props.startIdx, props.endIdx)}
-      </Badge>
-      {/*<MyVerticallyCenteredModal*/}
-      {/*  show={this.state.modalShow}*/}
-      {/*  onHide={() => this.setState({modalShow: false})}*/}
-      {/*  keyword={this.props.jobDescriptionText.substring(keywordIndices[i][0], keywordIndices[i][1])} />*/}
-    </OverlayTrigger>
+    <React.Fragment>
+      <OverlayTrigger
+        key={props.startIdx}
+        placement={"top"}
+        overlay={
+          <Tooltip id={'tooltip-top'} onClick={() => handleClick()}>
+            <strong>click to see correlated words</strong>.
+          </Tooltip>
+        }
+      >
+        <Badge variant={badgeColor} key={props.startIdx} onClick={() => handleClick()}>
+          {props.jobDescriptionText.substring(props.startIdx, props.endIdx)}
+        </Badge>
+      </OverlayTrigger>
+      <MyVerticallyCenteredModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        keyword={props.keyword} />
+    </React.Fragment>
   );
 }
 

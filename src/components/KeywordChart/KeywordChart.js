@@ -4,6 +4,16 @@ import {connect} from "react-redux"
 import {MyVerticallyCenteredModal} from "../UI/Modal";
 
 const staticChartOptions = {
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow'
+    },
+    formatter: params => {
+      const keyword = params[0].axisValue;
+      return "click to see correlated words with " + keyword;
+    }
+  },
   color: ['#3398DB'],
   grid: {
       left: '3%',
