@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { TagCloud } from 'react-tagcloud'
-import { Container, ButtonGroup, DropdownButton, Dropdown } from 'react-bootstrap'
+import React, {useEffect, useState} from 'react'
+import {TagCloud} from 'react-tagcloud'
+import {ButtonGroup, Dropdown, DropdownButton} from 'react-bootstrap'
 
 const categoryMap = {pl: "programming language", ol: "other language", lb: "library", fw: "framework", cs: "computer science", ai: "artificial intelligence", pt: "protocol",
                      ds: "data storage", dt: "data transmission", dv: "division", ps: "position", we: "work experience", os_: "operating system", sv: "server", ap: "approach", 
@@ -33,25 +33,24 @@ const CoOccurrenceWordCloud = props => {
     <Dropdown.Item eventKey={idx} key={idx} onClick={() => setCategoryWords(key)}>{categoryMap[key]}</Dropdown.Item>
   ));
 
-  const CoOccurrenceWordCloud = (
-      <div className="container">
-        <div>
-          <ButtonGroup vertical={false}>
-            <DropdownButton as={ButtonGroup} title="select category" variant="light" drop="right" id="bg-nested-dropdown">
-              {categoryButtons}
-            </DropdownButton>
-          </ButtonGroup>
-        </div>
-        <TagCloud
-          minSize={20} // min word size in cloud
-          maxSize={60} // max word size in cloud
-          tags={cloudValues}
-          style={{ width: 600 }}
-          className="simple-cloud"
-        />
+  return (
+    <div className="container">
+      <div>
+        <ButtonGroup vertical={false}>
+          <DropdownButton as={ButtonGroup} title="select category" variant="light" drop="right" id="bg-nested-dropdown">
+            {categoryButtons}
+          </DropdownButton>
+        </ButtonGroup>
       </div>
-    );
-  return <Container>{CoOccurrenceWordCloud}</Container>
+      <TagCloud
+        minSize={20} // min word size in cloud
+        maxSize={60} // max word size in cloud
+        tags={cloudValues}
+        style={{width: 600}}
+        className="simple-cloud"
+      />
+    </div>
+  );
 };
 
 export default CoOccurrenceWordCloud

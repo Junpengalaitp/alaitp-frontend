@@ -15,4 +15,4 @@ export const CoOccurrencePopover = React.forwardRef(
       </div>
     )
   }
-)
+);

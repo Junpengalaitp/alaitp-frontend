@@ -39,21 +39,21 @@ const JobDescriptionText = props => {
   // store combined job text (plain text + highlighted words)
   const jobTextWithKeywordsArray = [];
   // the first element in array is the plain text before the first keyword
-  jobTextWithKeywordsArray.push(props.jobDescriptionText.substring(0, keywordIndices[0][0]))
-  // add the rest
+  jobTextWithKeywordsArray.push(props.jobDescriptionText.substring(0, keywordIndices[0][0]));
+  // add the rest keywords and plain text
   for (let i = 0; i < keywordIndices.length - 1; i++) {
     const startIdx = keywordIndices[i][0];
-    const endIdx = keywordIndices[i][1]
+    const endIdx = keywordIndices[i][1];
     const keyword = keywordIndices[i][2];
     const category = keywordIndices[i][3];
     const nextStartIdx = keywordIndices[i + 1][0];
 
-    const keywordBadge = <HighlightKeyword startIdx={startIdx} endIdx={endIdx} keyword={keyword} category={category} jobDescriptionText={jobDescriptionText} key={startIdx}/>
+    const keywordBadge = <HighlightKeyword keyword={keyword} category={category} key={startIdx} />;
     const textBetweenBadges = props.jobDescriptionText.substring(endIdx, nextStartIdx);
     jobTextWithKeywordsArray.push(keywordBadge);
     jobTextWithKeywordsArray.push(textBetweenBadges);
   }
-  // add text after the last
+  // add the plain text after the last keyword
   jobTextWithKeywordsArray.push(
     jobDescriptionText.substring(keywordIndices[keywordIndices.length - 1][0]
     )
@@ -61,8 +61,8 @@ const JobDescriptionText = props => {
   jobDescriptionText = <p>{jobTextWithKeywordsArray}</p>;
   return <React.Fragment>
           {jobDescriptionText}
-        </React.Fragment>
-}
+         </React.Fragment>
+};
 
 const mapStateToProps = state => {
   return {

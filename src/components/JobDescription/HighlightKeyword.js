@@ -33,20 +33,21 @@ const HighlightKeyword = props => {
     if (!modalShow) {
       setModalShow(true);
     }
-  }
+  };
   return (
     <React.Fragment>
       <OverlayTrigger
-        key={props.startIdx}
+        key={props.key}
         placement={"top"}
         overlay={
           <Tooltip id={'tooltip-top'} onClick={() => handleClick()}>
+            <p>word category: <strong>{props.category}</strong></p>
             <strong>click to see correlated words</strong>.
           </Tooltip>
         }
       >
-        <Badge variant={badgeColor} key={props.startIdx} onClick={() => handleClick()}>
-          {props.jobDescriptionText.substring(props.startIdx, props.endIdx)}
+        <Badge variant={badgeColor} key={props.key} onClick={() => handleClick()}>
+          {props.keyword}
         </Badge>
       </OverlayTrigger>
       <MyVerticallyCenteredModal
@@ -55,6 +56,6 @@ const HighlightKeyword = props => {
         keyword={props.keyword} />
     </React.Fragment>
   );
-}
+};
 
 export default HighlightKeyword;

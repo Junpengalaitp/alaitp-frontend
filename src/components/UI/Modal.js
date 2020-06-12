@@ -12,7 +12,7 @@ export const MyVerticallyCenteredModal = props => {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Most correlated technologies with {props.keyword}
+          Most correlated technologies with <strong>{props.keyword}</strong>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
