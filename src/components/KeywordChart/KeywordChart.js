@@ -83,7 +83,7 @@ class KeywordChart extends React.Component {
                 show: true
             }
           },
-          data: this.getXAxisData()
+          data: this.getXAxisData(),
         }
       ]
     };

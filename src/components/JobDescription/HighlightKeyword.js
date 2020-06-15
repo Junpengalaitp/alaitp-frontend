@@ -37,7 +37,7 @@ const HighlightKeyword = props => {
   return (
     <React.Fragment>
       <OverlayTrigger
-        key={props.key}
+        key={props.startIdx}
         placement={"top"}
         overlay={
           <Tooltip id={'tooltip-top'} onClick={() => handleClick()}>
@@ -46,7 +46,7 @@ const HighlightKeyword = props => {
           </Tooltip>
         }
       >
-        <Badge variant={badgeColor} key={props.key} onClick={() => handleClick()}>
+        <Badge variant={badgeColor} key={props.startIdx} onClick={() => handleClick()}>
           {props.keyword}
         </Badge>
       </OverlayTrigger>
