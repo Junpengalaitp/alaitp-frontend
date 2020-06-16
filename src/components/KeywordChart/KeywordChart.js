@@ -84,6 +84,7 @@ class KeywordChart extends React.Component {
             }
           },
           data: this.getXAxisData(),
+          barMinHeight: 100
         }
       ]
     };
