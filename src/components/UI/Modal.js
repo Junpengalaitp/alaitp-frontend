@@ -12,7 +12,7 @@ export const MyVerticallyCenteredModal = props => {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Most correlated technologies with <strong>{props.keyword}</strong>
+          Employer who hires skilled people with <strong>{props.keyword}</strong> are also looking for these skills:
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
