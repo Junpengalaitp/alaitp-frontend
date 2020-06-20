@@ -16,6 +16,12 @@ class JobDescription extends React.Component {
         opened: true
       })
     }
+    const handleNoKeywords = () => {
+      console.log("no keyword, set state opened to false")
+      this.setState({
+        opened: false
+      })
+    }
     return (
       <Card style={{ width: '49rem' }}>
         <Card.Body>
@@ -35,7 +41,7 @@ class JobDescription extends React.Component {
           </Card.Subtitle>
           <Collapse in={this.state.open}>
             <div id="job-collapse-text mx-1">
-              <JobDescriptionText jobDescriptionText={this.props.jobDescriptionText} jobId={this.props.jobId} opened={this.state.opened} />
+              <JobDescriptionText jobDescriptionText={this.props.jobDescriptionText} jobId={this.props.jobId} opened={this.state.opened} onNoKeyword={() => handleNoKeywords()} />
             </div>
           </Collapse>
         </Card.Body>

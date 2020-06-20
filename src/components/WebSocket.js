@@ -3,7 +3,7 @@ import SockJsClient from 'react-stomp';
 import { connect } from "react-redux";
 import * as actionTypes from "../store/actions/actionTypes"
 import {serverUrl} from "../config";
- 
+
 class WebSocket extends React.Component {
 
   sendMessage = msg => {
@@ -28,16 +28,17 @@ class WebSocket extends React.Component {
 
 const updateWsKeywords = msg => {
   // console.log(msg)
-  return {
-    type: actionTypes.CHART_UPDATE_START,
-    chartOptions: msg.chartOptions,
-    jobKeyword: msg.jobKeyword
-  }
-};
-
-const mapStateToProps = state => {
-  return {
-      keywords: state.keyword.orderedKeywordByCategory,
+  if (msg.msgType === "jobKeyword") {
+    return {
+      type: actionTypes.JOB_KEYWORD_UPDATE,
+      // chartOptions: msg.chartOptions,
+      jobKeyword: msg
+    }
+  } else {
+    return {
+      type: actionTypes.CHART_UPDATE,
+      chartOptions: msg,
+    }
   }
 };
 
@@ -47,4 +48,4 @@ const mapDispatchToProps = dispatch => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(WebSocket);
+export default connect(null, mapDispatchToProps)(WebSocket);

@@ -16,18 +16,28 @@ const JobDescriptionText = props => {
   }
 
   const jobId = props.jobId;
-  // store all keyword objects 
+  // store all keyword objects
   const keywordIndices = [];
-  let keywordList;
-  try {
-    keywordList = props.keywordIndex[jobId];
+  const keywordList = props.keywordIndex[jobId];
+  if (keywordList !== undefined && keywordList !== null) {
     for (const keywordObj of keywordList) {
       keywordIndices.push([keywordObj.startIdx, keywordObj.endIdx, keywordObj.keyword, keywordObj.category])
     }
-  } catch (error) {
-    console.log("error, job id: ", jobId, "keyword list: ", keywordList, error);
+  } else {
+    console.log("error, job id: ", jobId, "keyword list: ", keywordList);
+    props.onNoKeyword()
     return <React.Fragment>{jobDescriptionText}</React.Fragment>
   }
+  // try {
+  //   keywordList = props.keywordIndex[jobId];
+  //
+  //   for (const keywordObj of keywordList) {
+  //     keywordIndices.push([keywordObj.startIdx, keywordObj.endIdx, keywordObj.keyword, keywordObj.category])
+  //   }
+  // } catch (error) {
+  //   console.log("error, job id: ", jobId, "keyword list: ", keywordList, error);
+  //   return <React.Fragment>{jobDescriptionText}</React.Fragment>
+  // }
 
   // sort the keyword by start index so it can break and combine job text with keywords in order
   keywordIndices.sort((a, b) => a[0] - b[0]);
@@ -66,7 +76,6 @@ const JobDescriptionText = props => {
 
 const mapStateToProps = state => {
   return {
-    keywordSearchComplete: state.keyword.searchComplete,
     keywordIndex: state.jobKeyword.keywordIdxByJob
   }
 };

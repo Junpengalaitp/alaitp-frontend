@@ -5,7 +5,6 @@ import JobDescription from "./JobDescription";
 import Spinner from "./../UI/Spinner/Spinner";
 
 import * as actionTypes from "../../store/actions/actionTypes"
-import { getJobKeyword, postJobKeyword } from "../../store/actions/keywordSearch";
 import { JobPagination } from "./JobPagination";
 
 const JobDescriptionList = props => {
@@ -28,12 +27,7 @@ const JobDescriptionList = props => {
 
     if (!rendered) {
         props.onKeywordSearchStart()
-        props.onJobSearchSuccess(props.jobSearchId)
-  
-        if (props.cacheError === true) {
-          props.onJobCacheFail(props.jobMap)
-        }
-      setRendered(true)
+        setRendered(true)
     }
     
     const lastJobIdx = currentPage * jobsPerPage
@@ -78,15 +72,12 @@ const mapStateToProps = state => {
     jobMap: state.jobDescription.jobMap,
     loading: state.jobDescription.loading,
     searchComplete: state.jobDescription.searchComplete,
-    cacheError: state.keyword.cacheError
   };
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     onKeywordSearchStart: () => dispatch({ type: actionTypes.KEYWORD_SEARCH_START }),
-    onJobSearchSuccess: jobSearchId => dispatch(getJobKeyword(jobSearchId)),
-    onJobCacheFail: jobMap => dispatch(postJobKeyword(jobMap)),
   };
 };
 
