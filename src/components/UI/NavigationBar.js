@@ -25,6 +25,6 @@ const NavBar = () => {
       </Col>
     </Row>
   )
-}
+};
 
 export default NavBar

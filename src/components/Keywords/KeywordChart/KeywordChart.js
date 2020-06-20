@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactEcharts from 'echarts-for-react';
 import {connect} from "react-redux"
-import {MyVerticallyCenteredModal} from "../UI/Modal";
+import {MyVerticallyCenteredModal} from "../../UI/Modal";
 
 const staticChartOptions = {
   tooltip: {

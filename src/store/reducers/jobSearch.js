@@ -8,7 +8,7 @@ const initialState = {
   jobSearchId: null,
   jobMap: {},
   error: false,
-}
+};
 
 const setJobMap = (state, payload) => {
   return updateObject(state, {
@@ -17,31 +17,31 @@ const setJobMap = (state, payload) => {
     loading: false,
     searchComplete: true
   })
-}
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.JOB_SEARCH_START:
-      console.log("job search start")
+      console.log("job search start");
       return updateObject(state, {
         loading: true,
         jobMap: {}
-      })
+      });
 
     case actionTypes.JOB_SEARCH_SUCCESS:
-        console.log("job search complete")
-        return setJobMap(state, action)
+        console.log("job search complete");
+        return setJobMap(state, action);
 
     case actionTypes.JOB_SEARCH_FAIL:
         return {
           ...state,
           loading: false,
           searchComplete: true
-        }
+        };
   
     default:
       return state
   }
-}
+};
 
 export default reducer

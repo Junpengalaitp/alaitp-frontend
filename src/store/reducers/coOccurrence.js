@@ -6,7 +6,7 @@ const initialState = {
   searchComplete: false,
   coOccurredWords: {},
   error: false
-}
+};
 
 const updateCoCoOccurredWords = (state, payload) => {
   return updateObject(state, {
@@ -14,31 +14,31 @@ const updateCoCoOccurredWords = (state, payload) => {
     loading: false,
     searchComplete: true
   })
-}
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.COOCCURRENCE_SEARCH_START:
-      console.log("co-occurrence search start")
+    case actionTypes.CO_OCCURRENCE_SEARCH_START:
+      console.log("co-occurrence search start");
       return {
         ...state,
         loading: true
-      }
+      };
 
-    case actionTypes.COOCCURRENCE_SEARCH_SUCCESS:
-        console.log("co-occurrence search complete")
-        return updateCoCoOccurredWords(state, action)
+    case actionTypes.CO_OCCURRENCE_SEARCH_SUCCESS:
+        console.log("co-occurrence search complete");
+        return updateCoCoOccurredWords(state, action);
 
-    case actionTypes.COOCCURRENCE_SEARCH_FAIL:
+    case actionTypes.CO_OCCURRENCE_SEARCH_FAIL:
         return {
           ...state,
           loading: false,
           searchComplete: true
-        }
+        };
   
     default:
       return state
   }
-}
+};
 
 export default reducer

@@ -9,30 +9,30 @@ import { JobPagination } from "./JobPagination";
 
 const JobDescriptionList = props => {
 
-  const [currentPage, setCurrentPage] = useState(1)
-  const [rendered, setRendered] = useState(false)
-  const jobsPerPage = 15
-  let totalJobs = 0
-  let paginationShow = false
+  const [currentPage, setCurrentPage] = useState(1);
+  const [rendered, setRendered] = useState(false);
+  const jobsPerPage = 10;
+  let totalJobs = 0;
+  let paginationShow = false;
   
   // for searching after previous search complete
   useEffect(() => {
-    setRendered(false)
+    setRendered(false);
     setCurrentPage(1)
-  }, [props.jobMap])
+  }, [props.jobMap]);
 
-  let searchResult = <Spinner />
+  let searchResult = <Spinner />;
   if (!props.loading && props.searchComplete) {
-    totalJobs = Object.keys(props.jobMap).length
+    totalJobs = Object.keys(props.jobMap).length;
 
     if (!rendered) {
-        props.onKeywordSearchStart()
+        props.onKeywordSearchStart();
         setRendered(true)
     }
     
-    const lastJobIdx = currentPage * jobsPerPage
-    const firstJobIdx = lastJobIdx - jobsPerPage
-    const currentJobs = Object.keys(props.jobMap).slice(firstJobIdx, lastJobIdx)
+    const lastJobIdx = currentPage * jobsPerPage;
+    const firstJobIdx = lastJobIdx - jobsPerPage;
+    const currentJobs = Object.keys(props.jobMap).slice(firstJobIdx, lastJobIdx);
 
     searchResult = currentJobs.map((jobId) => (
         <JobDescription
@@ -43,28 +43,28 @@ const JobDescriptionList = props => {
           tags={props.jobMap[jobId].tags}
           jobDescriptionText={props.jobMap[jobId].jobDescriptionText}
         />
-      ))
+      ));
     paginationShow = true
   }
   const paginate = (pageNumber, direction) => {
     if (direction === null) {
       setCurrentPage(pageNumber)
     } else {
-      const pageToGo = currentPage + direction
+      const pageToGo = currentPage + direction;
       if (pageToGo < 1 || pageToGo > Math.ceil(totalJobs / jobsPerPage)) {
         return 
       }
       setCurrentPage(pageToGo)
     }
     window.scroll(0, 0)
-  }
+  };
   return (
     <React.Fragment>
       <JobPagination currentPage={currentPage} jobsPerPage={jobsPerPage} totalJobs={totalJobs} paginate={paginate} paginationShow={paginationShow} />
         {searchResult}
       <JobPagination currentPage={currentPage} jobsPerPage={jobsPerPage} totalJobs={totalJobs} paginate={paginate} paginationShow={paginationShow} />
     </React.Fragment>)
-}
+};
 
 const mapStateToProps = state => {
   return {
@@ -73,7 +73,7 @@ const mapStateToProps = state => {
     loading: state.jobDescription.loading,
     searchComplete: state.jobDescription.searchComplete,
   };
-}
+};
 
 const mapDispatchToProps = dispatch => {
   return {

@@ -26,15 +26,14 @@ class WebSocket extends React.Component {
   }
 }
 
-const updateWsKeywords = msg => {
-  // console.log(msg)
+const updateOnWsMsg = msg => {
+  // job keyword is send one by one
   if (msg.msgType === "jobKeyword") {
     return {
       type: actionTypes.JOB_KEYWORD_UPDATE,
-      // chartOptions: msg.chartOptions,
       jobKeyword: msg
     }
-  } else {
+  } else { // chart options is send by time interval
     return {
       type: actionTypes.CHART_UPDATE,
       chartOptions: msg,
@@ -44,7 +43,7 @@ const updateWsKeywords = msg => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onReceivedJobKeyword: msg => dispatch(updateWsKeywords(msg)),
+    onReceivedJobKeyword: msg => dispatch(updateOnWsMsg(msg)),
   }
 };
 

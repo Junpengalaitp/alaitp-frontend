@@ -28,14 +28,14 @@ const SearchForm = props => {
       touched: true
     });
     setSearchForm(updatedSearchForm)
-  }
+  };
 
   const handleSubmit = event => {
-    event.preventDefault()
-    props.onJobSearchStart()
-    props.history.push(`/alaitp-frontend/keywords/${searchForm.value}`)
+    event.preventDefault();
+    props.onJobSearchStart();
+    props.history.push(`/alaitp-frontend/keywords/${searchForm.value}`);
     props.onJobSearchSuccess(searchForm.value)
-  }
+  };
 
   const onSearchBar = (
     <form className="main-page--search_searchBar" onSubmit={handleSubmit}>
@@ -57,7 +57,7 @@ const SearchForm = props => {
         </div>
       </div>
     </form>
-  )
+  );
 
   const onNavBar = (
     <form onSubmit={handleSubmit} className="form-inline my-lg-0">
@@ -69,7 +69,7 @@ const SearchForm = props => {
       />
       <button type="submit" className="btn btn-outline-primary">Search</button>
     </form>
-  )
+  );
 
   return props.show ? onNavBar: onSearchBar
 };
@@ -79,6 +79,6 @@ const mapDispatchToProps = dispatch => {
     onJobSearchStart: () => dispatch({ type: actionTypes.JOB_SEARCH_START }),
     onJobSearchSuccess: searchInput => dispatch(searchJobs(searchInput))
   }
-}
+};
 
 export default connect(null, mapDispatchToProps)(SearchForm);

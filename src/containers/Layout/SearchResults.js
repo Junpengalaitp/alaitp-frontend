@@ -1,6 +1,6 @@
 import React from "react"
 import JobDescriptionList from '../../components/JobDescription/JobDescriptionList'
-import KeywordCharts from "../../components/KeywordChart/KeywordCharts";
+import KeywordCharts from "../../components/Keywords/KeywordChart/KeywordCharts";
 
 
 const SearchResult = () => {

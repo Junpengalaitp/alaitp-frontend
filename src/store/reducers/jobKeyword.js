@@ -4,10 +4,10 @@ import { updateObject } from '../../shared/utility'
 const initialState = {
   chartData: {},
   keywordIdxByJob: {}
-}
+};
 
 const updateChart = (state, payload) => {
-  let chartOptions = {}
+  let chartOptions = {};
   if (payload.chartOptions.length === 0) {
     chartOptions = state.chartData.chartOptions
   } else {
@@ -30,7 +30,7 @@ const updateChart = (state, payload) => {
       ...chartOptions
     },
   })
-}
+};
 
 const updateJobKeyword = (state, payload) => {
   return updateObject(state, {
@@ -40,19 +40,19 @@ const updateJobKeyword = (state, payload) => {
       [payload.jobKeyword.jobId]: payload.jobKeyword.keywordList
     }
   })
-}
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.CHART_UPDATE:
-      return updateChart(state, action)
+      return updateChart(state, action);
 
     case actionTypes.JOB_KEYWORD_UPDATE:
-      return updateJobKeyword(state, action)
+      return updateJobKeyword(state, action);
 
     default:
       return state
   }
-}
+};
 
 export default reducer

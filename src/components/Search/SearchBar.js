@@ -6,6 +6,6 @@ const SearchBar = () => {
   return (
     <Route path='/alaitp-frontend' exact render={props => <SearchForm {...props} show={false} />} />
   )
-}
+};
 
 export default SearchBar

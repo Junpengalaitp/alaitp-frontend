@@ -7,7 +7,7 @@ class JobDescription extends React.Component {
   state = {
     open: false,
     opened: false
-  }
+  };
   
   render() {
     const handleOpen = () => {
@@ -15,13 +15,13 @@ class JobDescription extends React.Component {
         open: !this.state.open,
         opened: true
       })
-    }
+    };
     const handleNoKeywords = () => {
-      console.log("no keyword, set state opened to false")
+      console.log("no keyword, set state opened to false");
       this.setState({
         opened: false
       })
-    }
+    };
     return (
       <Card style={{ width: '49rem' }}>
         <Card.Body>
@@ -35,8 +35,9 @@ class JobDescription extends React.Component {
               variant="outline-info btn-sm"
               onClick={() => handleOpen()}
               aria-controls="job-collapse-text"
-              aria-expanded={this.state.open}
-            >See Job Text</Button>
+              aria-expanded={this.state.open}>
+              See Job Text
+            </Button>
             <p className="card-text float-right">{this.props.tags}</p>
           </Card.Subtitle>
           <Collapse in={this.state.open}>

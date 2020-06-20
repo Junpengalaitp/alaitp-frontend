@@ -1,5 +1,5 @@
 import React from 'react';
-import {combinedCategories} from "../../config";
+import {combinedCategories} from "../../../config";
 import KeywordChart from "./KeywordChart";
 
 const KeywordCharts = () => {
