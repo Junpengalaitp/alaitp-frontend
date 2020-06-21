@@ -12,6 +12,7 @@ class WebSocket extends React.Component {
  
   render() {
     const wsUrl = `${serverUrl}/keyword-websocket/keyword-ws`;
+    // const wsUrl = `http://localhost:8816/keyword-ws`;
     return (
       <div>
         <SockJsClient url={wsUrl} topics={['/topic/keyword']}
