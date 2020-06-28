@@ -44,6 +44,12 @@ const updateJobKeyword = (state, payload) => {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case actionTypes.CHART_CLEAR:
+      return updateObject(state, {
+        chartData: {},
+        keywordIdxByJob: {}
+      })
+
     case actionTypes.CHART_UPDATE:
       return updateChart(state, action);
 
