@@ -3,11 +3,13 @@ import SockJsClient from 'react-stomp';
 import { connect } from "react-redux";
 import * as actionTypes from "../store/actions/actionTypes"
 import {serverUrl} from "../config";
+import SearchResult from "../containers/Layout/SearchResults";
+import SearchForm from "./Search/SearchForm";
 
 class WebSocket extends React.Component {
 
   sendMessage = msg => {
-      this.clientRef.sendMessage('/keyword', msg);
+      this.clientRef.sendMessage('/app/keyword', msg);
   };
  
   render() {
@@ -15,10 +17,14 @@ class WebSocket extends React.Component {
     const wsUrl = `http://localhost:8816/keyword-ws`;
     return (
       <div>
-        <SockJsClient url={wsUrl} topics={['/topic/keyword']}
-            onConnect={() => { console.log("websocket connected") }}
+        <SockJsClient url={wsUrl} topics={["/topic/keyword", "/user/topic/hello"]}
+            onConnect={() => {
+              console.log("websocket connected")
+              this.sendMessage("client websocket connected")}
+            }
             onDisconnect={() => { console.log("websocket disconnected") }}
             onMessage={msg => {
+              console.log(msg)
                this.props.onReceivedJobKeyword(msg)
               }}
             ref={client => { this.clientRef = client }} />
