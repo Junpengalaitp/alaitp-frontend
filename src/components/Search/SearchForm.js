@@ -72,7 +72,7 @@ const SearchForm = props => {
     </form>
   );
 
-  return props.show ? onNavBar: onSearchBar
+  return props.show ? onNavBar : onSearchBar
 };
 
 const mapDispatchToProps = dispatch => {
