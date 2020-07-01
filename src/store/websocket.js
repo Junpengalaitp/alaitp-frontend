@@ -24,7 +24,7 @@ const JWT_TOKEN = 'exr_token';
 
 const ROLE_ADMIN = 'ROLE_ADMIN';
 
-export const wsMiddleware = store => next => action => {
+const wsMiddleware = store => next => action => {
   const onSingleMessage = (message) => {
     // Parse the JSON message received on the websocket
     store.dispatch(socketActions.socketsMessageReceiving(message.body));
@@ -43,6 +43,7 @@ export const wsMiddleware = store => next => action => {
   switch (action.type) {
 
     case actionTypes.SOCKETS_CONNECT:
+      console.log("connecting to stomp websocket")
       if (socket !== null) {
         store.dispatch(socketActions.socketsDisconnecting());
         socket.close();
@@ -79,3 +80,5 @@ export const wsMiddleware = store => next => action => {
       return next(action);
   }
 };
+
+export default wsMiddleware;

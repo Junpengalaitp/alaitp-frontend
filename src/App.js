@@ -1,16 +1,26 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './App.scss'
 
 import Layout from './containers/Layout/Layout'
-import WebSocket from './components/WebSocket'
+import * as actionTypes from "./store/actions/actionTypes";
+import {connect} from "react-redux";
 
-const App = () => {
+const App = props => {
+  useEffect(() => {
+    props.connectWebsocket();
+  }, [])
+
   return (
     <div>
       <Layout />
-      <WebSocket />
     </div>
   )
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {
+    connectWebsocket: () => dispatch({ type: actionTypes.SOCKETS_CONNECT }),
+  }
+};
+
+export default connect(null, mapDispatchToProps)(App);
