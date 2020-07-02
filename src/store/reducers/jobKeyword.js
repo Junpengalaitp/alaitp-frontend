@@ -1,5 +1,8 @@
 import * as actionTypes from '../actions/actionTypes'
 import { updateObject } from '../../shared/utility'
+import SockJS from "sockjs-client";
+import {Stomp} from "@stomp/stompjs/esm5/compatibility/stomp";
+import store from "../../store";
 
 const initialState = {
   chartData: {},
@@ -42,8 +45,35 @@ const updateJobKeyword = (state, payload) => {
   })
 };
 
+let socket;
+let stompClient;
+
+const onReceive = msg => {
+  const payload = JSON.parse(msg.body);
+  if (payload.msgType === "jobKeyword") {
+    store.dispatch({ type: actionTypes.JOB_KEYWORD_UPDATE, jobKeyword: payload})
+  } else {
+    store.dispatch({type: actionTypes.CHART_UPDATE, chartOptions: payload})
+  }
+}
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case actionTypes.SOCKETS_CONNECT:
+      socket = new SockJS("http://localhost:8816/keyword-ws");
+      stompClient = Stomp.over(socket);
+      stompClient.connect({}, () => {
+        stompClient.subscribe('/topic/keyword', onReceive);
+        stompClient.subscribe('/user/topic/keyword', onReceive);
+      });
+      return state;
+
+    case actionTypes.SOCKETS_MESSAGE_SEND:
+      stompClient.send("/app/keyword", {}, "Hello, STOMP");
+      return state;
+    case actionTypes.SOCKETS_MESSAGE_RECEIVE:
+      return state;
+
     case actionTypes.CHART_CLEAR:
       return updateObject(state, {
         chartData: {},
