@@ -52,9 +52,15 @@ const onReceive = msg => {
   const payload = JSON.parse(msg.body);
   if (payload.msgType === "jobKeyword") {
     store.dispatch({ type: actionTypes.JOB_KEYWORD_UPDATE, jobKeyword: payload})
+  } else if (payload.msgType === "res") {
+
   } else {
     store.dispatch({type: actionTypes.CHART_UPDATE, chartOptions: payload})
   }
+}
+
+const onReceiveUser = msg => {
+  console.log(msg)
 }
 
 const reducer = (state = initialState, action) => {
@@ -64,12 +70,12 @@ const reducer = (state = initialState, action) => {
       stompClient = Stomp.over(socket);
       stompClient.connect({}, () => {
         stompClient.subscribe('/topic/keyword', onReceive);
-        stompClient.subscribe('/user/topic/keyword', onReceive);
+        stompClient.subscribe('/user/topic/keyword', onReceiveUser);
       });
       return state;
 
     case actionTypes.SOCKETS_MESSAGE_SEND:
-      stompClient.send("/app/keyword", {}, "Hello, STOMP");
+      stompClient.send("/app/keyword", {}, "get keywords");
       return state;
     case actionTypes.SOCKETS_MESSAGE_RECEIVE:
       return state;

@@ -33,6 +33,7 @@ const SearchForm = props => {
   const handleSubmit = event => {
     event.preventDefault();
     props.onJobSearchStart();
+    props.sendWsMsg();
     props.clearChart();
     props.history.push(`/alaitp-frontend/keywords/${searchForm.value}`);
     props.onJobSearchSuccess(searchForm.value)
@@ -78,6 +79,7 @@ const SearchForm = props => {
 const mapDispatchToProps = dispatch => {
   return {
     onJobSearchStart: () => dispatch({ type: actionTypes.JOB_SEARCH_START }),
+    sendWsMsg: () => dispatch({type: actionTypes.SOCKETS_MESSAGE_SEND}),
     clearChart: () => dispatch({ type: actionTypes.CHART_CLEAR }),
     onJobSearchSuccess: searchInput => dispatch(searchJobs(searchInput))
   }

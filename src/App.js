@@ -8,7 +8,7 @@ import {connect} from "react-redux";
 const App = props => {
   useEffect(() => {
     props.connectWebsocket();
-  }, [])
+  }, [props])
 
   return (
     <div>
