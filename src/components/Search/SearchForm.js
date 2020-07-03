@@ -34,10 +34,9 @@ const SearchForm = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
-
     const requestId = uuid();
-    props.onJobSearchStart();
     props.sendWsMsg(requestId);
+    props.onJobSearchStart();
     props.clearChart();
     props.history.push(`/alaitp-frontend/keywords/${searchForm.value}`);
     props.onJobSearchSuccess(searchForm.value, requestId)

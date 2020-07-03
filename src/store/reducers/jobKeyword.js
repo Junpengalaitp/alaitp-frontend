@@ -54,6 +54,10 @@ const userKeywordTopic = "/user/queue/keyword";
 const sendingTopic = "/app/keyword";
 
 const onReceive = msg => {
+  if (msg.body === "session end") {
+    store.dispatch({type: actionTypes.SOCKETS_DISCONNECT})
+    return;
+  }
   const payload = JSON.parse(msg.body);
   if (payload.msgType === "jobKeyword") {
     store.dispatch({ type: actionTypes.JOB_KEYWORD_UPDATE, jobKeyword: payload})
@@ -70,16 +74,18 @@ const reducer = (state = initialState, action) => {
       socket = new SockJS(wsUrl);
       stompClient = Stomp.over(socket);
       stompClient.connect({}, () => {
-        stompClient.subscribe(userKeywordTopic, onReceive);
         stompClient.send(sendingTopic, {}, action.requestId);
+        stompClient.subscribe(userKeywordTopic, onReceive);
       });
       return state;
 
     case actionTypes.SOCKETS_MESSAGE_SEND:
       stompClient.send(sendingTopic, {}, "get keywords");
       return state;
-    case actionTypes.SOCKETS_MESSAGE_RECEIVE:
-      return state;
+    case actionTypes.SOCKETS_DISCONNECT:
+      stompClient.disconnect()
+      console.log("web socket disconnected")
+      return state
 
     case actionTypes.CHART_CLEAR:
       return updateObject(state, {
