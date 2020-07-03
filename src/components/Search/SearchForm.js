@@ -7,6 +7,8 @@ import { updateObject } from "../../shared/utility";
 import * as actionTypes from "../../store/actions/actionTypes";
 import { searchJobs } from "../../store/actions/jobSearch";
 
+const uuid = require('uuid/v4');
+
 const SearchForm = props => {
   const [searchForm, setSearchForm] = useState({
     elementType: "input",
@@ -32,11 +34,13 @@ const SearchForm = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
+
+    const requestId = uuid();
     props.onJobSearchStart();
-    props.sendWsMsg();
+    props.sendWsMsg(requestId);
     props.clearChart();
     props.history.push(`/alaitp-frontend/keywords/${searchForm.value}`);
-    props.onJobSearchSuccess(searchForm.value)
+    props.onJobSearchSuccess(searchForm.value, requestId)
   };
 
   const onSearchBar = (
@@ -79,9 +83,9 @@ const SearchForm = props => {
 const mapDispatchToProps = dispatch => {
   return {
     onJobSearchStart: () => dispatch({ type: actionTypes.JOB_SEARCH_START }),
-    sendWsMsg: () => dispatch({type: actionTypes.SOCKETS_MESSAGE_SEND}),
+    sendWsMsg: requestId => dispatch({type: actionTypes.SOCKETS_CONNECT, requestId: requestId}),
     clearChart: () => dispatch({ type: actionTypes.CHART_CLEAR }),
-    onJobSearchSuccess: searchInput => dispatch(searchJobs(searchInput))
+    onJobSearchSuccess: (searchInput, requestId) => dispatch(searchJobs(searchInput, requestId))
   }
 };
 

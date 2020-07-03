@@ -11,11 +11,9 @@ export const setJobs = (jobMap, jobSearchId) => {
   };
 };
 
-export const searchJobs = searchInput => {
+export const searchJobs = (searchInput, requestId) => {
   if (searchInput === '') searchInput = 'Software Engineer';
   return dispatch => {
-    const uuid = require('uuid/v4');
-    const requestId = uuid();
     console.log("requestId: " + requestId);
     Axios.get(`${serverUrl}/job-description-api/job-list/${searchInput}/${requestId}`)
       .then(response => {

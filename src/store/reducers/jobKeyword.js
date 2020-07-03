@@ -45,8 +45,13 @@ const updateJobKeyword = (state, payload) => {
   })
 };
 
+const wsUrl = "http://localhost:8816/keyword-ws";
+
 let socket;
 let stompClient;
+
+const userKeywordTopic = "/user/queue/keyword";
+const sendingTopic = "/app/keyword";
 
 const onReceive = msg => {
   const payload = JSON.parse(msg.body);
@@ -59,23 +64,19 @@ const onReceive = msg => {
   }
 }
 
-const onReceiveUser = msg => {
-  console.log(msg)
-}
-
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SOCKETS_CONNECT:
-      socket = new SockJS("http://localhost:8816/keyword-ws");
+      socket = new SockJS(wsUrl);
       stompClient = Stomp.over(socket);
       stompClient.connect({}, () => {
-        stompClient.subscribe('/topic/keyword', onReceive);
-        stompClient.subscribe('/user/topic/keyword', onReceiveUser);
+        stompClient.subscribe(userKeywordTopic, onReceive);
+        stompClient.send(sendingTopic, {}, action.requestId);
       });
       return state;
 
     case actionTypes.SOCKETS_MESSAGE_SEND:
-      stompClient.send("/app/keyword", {}, "get keywords");
+      stompClient.send(sendingTopic, {}, "get keywords");
       return state;
     case actionTypes.SOCKETS_MESSAGE_RECEIVE:
       return state;
