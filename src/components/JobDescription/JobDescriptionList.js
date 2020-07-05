@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
+import React, {useEffect, useState} from "react";
+import {connect} from "react-redux";
 
 import JobDescription from "./JobDescription";
 import Spinner from "./../UI/Spinner/Spinner";
 
 import * as actionTypes from "../../store/actions/actionTypes"
-import { JobPagination } from "./JobPagination";
+import {JobPagination} from "./JobPagination";
 
 const JobDescriptionList = props => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [rendered, setRendered] = useState(false);
-  const jobsPerPage = 10;
   let totalJobs = 0;
   let paginationShow = false;
   
@@ -26,22 +25,22 @@ const JobDescriptionList = props => {
     totalJobs = Object.keys(props.jobMap).length;
 
     if (!rendered) {
-        props.onKeywordSearchStart();
-        setRendered(true)
+      props.onKeywordSearchStart();
+      setRendered(true)
     }
-    
-    const lastJobIdx = currentPage * jobsPerPage;
-    const firstJobIdx = lastJobIdx - jobsPerPage;
+
+    const lastJobIdx = currentPage * props.jobsPerPage;
+    const firstJobIdx = lastJobIdx - props.jobsPerPage;
     const currentJobs = Object.keys(props.jobMap).slice(firstJobIdx, lastJobIdx);
 
     searchResult = currentJobs.map((jobId) => (
-        <JobDescription
-          jobId={jobId}
-          key={jobId}
-          title={props.jobMap[jobId].jobTitle}
-          company={props.jobMap[jobId].company}
-          tags={props.jobMap[jobId].tags}
-          jobDescriptionText={props.jobMap[jobId].jobDescriptionText}
+      <JobDescription
+        jobId={jobId}
+        key={jobId}
+        title={props.jobMap[jobId].jobTitle}
+        company={props.jobMap[jobId].company}
+        tags={props.jobMap[jobId].tags}
+        jobDescriptionText={props.jobMap[jobId].jobDescriptionText}
         />
       ));
     paginationShow = true
@@ -51,8 +50,8 @@ const JobDescriptionList = props => {
       setCurrentPage(pageNumber)
     } else {
       const pageToGo = currentPage + direction;
-      if (pageToGo < 1 || pageToGo > Math.ceil(totalJobs / jobsPerPage)) {
-        return 
+      if (pageToGo < 1 || pageToGo > Math.ceil(totalJobs / props.jobsPerPage)) {
+        return
       }
       setCurrentPage(pageToGo)
     }
@@ -60,9 +59,11 @@ const JobDescriptionList = props => {
   };
   return (
     <React.Fragment>
-      <JobPagination currentPage={currentPage} jobsPerPage={jobsPerPage} totalJobs={totalJobs} paginate={paginate} paginationShow={paginationShow} />
+      <JobPagination currentPage={currentPage} jobsPerPage={props.jobsPerPage} totalJobs={totalJobs} paginate={paginate}
+                     paginationShow={paginationShow}/>
         {searchResult}
-      <JobPagination currentPage={currentPage} jobsPerPage={jobsPerPage} totalJobs={totalJobs} paginate={paginate} paginationShow={paginationShow} />
+      <JobPagination currentPage={currentPage} jobsPerPage={props.jobsPerPage} totalJobs={totalJobs} paginate={paginate}
+                     paginationShow={paginationShow}/>
     </React.Fragment>)
 };
 
@@ -72,6 +73,7 @@ const mapStateToProps = state => {
     jobMap: state.jobDescription.jobMap,
     loading: state.jobDescription.loading,
     searchComplete: state.jobDescription.searchComplete,
+    jobsPerPage: state.globalParam.jobsPerPage
   };
 };
 
