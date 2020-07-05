@@ -1,5 +1,5 @@
 import * as actionTypes from '../actions/actionTypes'
-import { updateObject } from '../../shared/utility'
+import {updateObject} from '../../shared/utility'
 import SockJS from "sockjs-client";
 import {Stomp} from "@stomp/stompjs/esm5/compatibility/stomp";
 import store from "../../store";
@@ -45,28 +45,29 @@ const updateJobKeyword = (state, payload) => {
   })
 };
 
+const onReceiveJobKeyword = msg => {
+  const payload = JSON.parse(msg.body);
+  if (payload.msgType === "jobKeyword") {
+    store.dispatch({type: actionTypes.JOB_KEYWORD_UPDATE, jobKeyword: payload})
+  }
+}
+
 const wsUrl = "http://localhost:8816/keyword-ws";
-
-let socket;
-let stompClient;
-
 const userKeywordTopic = "/user/queue/keyword";
+const userChartTopic = "/user/queue/chart";
 const sendingTopic = "/app/keyword";
 
-const onReceive = msg => {
+const onReceiveChartOption = msg => {
   if (msg.body === "session end") {
     store.dispatch({type: actionTypes.SOCKETS_DISCONNECT})
     return;
   }
   const payload = JSON.parse(msg.body);
-  if (payload.msgType === "jobKeyword") {
-    store.dispatch({ type: actionTypes.JOB_KEYWORD_UPDATE, jobKeyword: payload})
-  } else if (payload.msgType === "res") {
-
-  } else {
-    store.dispatch({type: actionTypes.CHART_UPDATE, chartOptions: payload})
-  }
+  store.dispatch({type: actionTypes.CHART_UPDATE, chartOptions: payload})
 }
+
+let socket;
+let stompClient;
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -75,13 +76,11 @@ const reducer = (state = initialState, action) => {
       stompClient = Stomp.over(socket);
       stompClient.connect({}, () => {
         stompClient.send(sendingTopic, {}, action.requestId);
-        stompClient.subscribe(userKeywordTopic, onReceive);
+        stompClient.subscribe(userKeywordTopic, onReceiveJobKeyword);
+        stompClient.subscribe(userChartTopic, onReceiveChartOption)
       });
       return state;
 
-    case actionTypes.SOCKETS_MESSAGE_SEND:
-      stompClient.send(sendingTopic, {}, "get keywords");
-      return state;
     case actionTypes.SOCKETS_DISCONNECT:
       stompClient.disconnect()
       console.log("web socket disconnected")
