@@ -1,5 +1,5 @@
 import * as actionTypes from '../actions/actionTypes'
-import {updateObject} from '../../shared/utility'
+import {updateObject} from '../../util/utility'
 import SockJS from "sockjs-client";
 import {Stomp} from "@stomp/stompjs/esm5/compatibility/stomp";
 import store from "../../store";

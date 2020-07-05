@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
+import React, {useState} from "react";
+import {connect} from "react-redux";
 
 import Input from "../UI/Input/Input";
-import { updateObject } from "../../shared/utility";
+import {updateObject} from "../../util/utility";
 
 import * as actionTypes from "../../store/actions/actionTypes";
-import { searchJobs } from "../../store/actions/jobSearch";
+import {searchJobs} from "../../store/actions/jobSearch";
 
 const uuid = require('uuid/v4');
 
@@ -35,7 +35,7 @@ const SearchForm = props => {
   const handleSubmit = event => {
     event.preventDefault();
     const requestId = uuid();
-    props.sendWsMsg(requestId);
+    props.connectWs(requestId);
     props.onJobSearchStart();
     props.clearChart();
     props.history.push(`/alaitp-frontend/keywords/${searchForm.value}`);
@@ -81,9 +81,9 @@ const SearchForm = props => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onJobSearchStart: () => dispatch({ type: actionTypes.JOB_SEARCH_START }),
-    sendWsMsg: requestId => dispatch({type: actionTypes.SOCKETS_CONNECT, requestId: requestId}),
-    clearChart: () => dispatch({ type: actionTypes.CHART_CLEAR }),
+    onJobSearchStart: () => dispatch({type: actionTypes.JOB_SEARCH_START}),
+    connectWs: requestId => dispatch({type: actionTypes.SOCKETS_CONNECT, requestId: requestId}),
+    clearChart: () => dispatch({type: actionTypes.CHART_CLEAR}),
     onJobSearchSuccess: (searchInput, requestId) => dispatch(searchJobs(searchInput, requestId))
   }
 };
