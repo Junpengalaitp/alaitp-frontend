@@ -72,8 +72,15 @@ let stompClient;
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SOCKETS_CONNECT:
+      if (stompClient !== undefined && stompClient.connected) {
+        console.log("socket is already connected")
+        stompClient.send(sendingTopic, {}, action.requestId);
+        return state;
+      }
       socket = new SockJS(wsUrl);
       stompClient = Stomp.over(socket);
+      stompClient.debug = () => {
+      };
       stompClient.connect({}, () => {
         stompClient.send(sendingTopic, {}, action.requestId);
         stompClient.subscribe(userKeywordTopic, onReceiveJobKeyword);
