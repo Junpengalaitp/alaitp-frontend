@@ -1,5 +1,6 @@
 import * as actionTypes from '../actions/actionTypes'
 import {updateObject} from '../../util/utility'
+import {setJobMap} from "../actions/jobSearch";
 
 const initialState = {
   searchComplete: false,
@@ -8,15 +9,6 @@ const initialState = {
   jobSearchId: null,
   jobMap: {},
   error: false,
-};
-
-const setJobMap = (state, payload) => {
-  return updateObject(state, {
-    jobMap: payload.jobMap,
-    jobSearchId: payload.jobSearchId,
-    loading: false,
-    searchComplete: true
-  })
 };
 
 const reducer = (state = initialState, action) => {

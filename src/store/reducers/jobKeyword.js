@@ -2,69 +2,17 @@ import * as actionTypes from '../actions/actionTypes'
 import {updateObject} from '../../util/utility'
 import SockJS from "sockjs-client";
 import {Stomp} from "@stomp/stompjs/esm5/compatibility/stomp";
-import store from "../../store";
+import {onReceiveChartOption, onReceiveJobKeyword, updateChart, updateJobKeyword} from "../actions/jobKeyword";
 
 const initialState = {
   chartData: {},
   keywordIdxByJob: {}
 };
 
-const updateChart = (state, payload) => {
-  let chartOptions = {};
-  if (payload.chartOptions.length === 0) {
-    chartOptions = state.chartData.chartOptions
-  } else {
-    for (const chartOption of payload.chartOptions) {
-      if (chartOption === null) {
-        // chartOption null meaning the category has less than 10 keywords, do not update that category chart
-        continue
-      }
-      chartOptions[chartOption.category] = {
-        yAxisData: chartOption.keyword,
-        xAxisData: chartOption.count
-      }
-    }
-  }
-
-  return updateObject(state, {
-    ...state,
-    chartData: {
-      ...state.chartData,
-      ...chartOptions
-    },
-  })
-};
-
-const updateJobKeyword = (state, payload) => {
-  return updateObject(state, {
-    ...state,
-    keywordIdxByJob: {
-      ...state.keywordIdxByJob,
-      [payload.jobKeyword.jobId]: payload.jobKeyword.keywordList
-    }
-  })
-};
-
-const onReceiveJobKeyword = msg => {
-  const payload = JSON.parse(msg.body);
-  if (payload.msgType === "jobKeyword") {
-    store.dispatch({type: actionTypes.JOB_KEYWORD_UPDATE, jobKeyword: payload})
-  }
-}
-
 const wsUrl = "http://localhost:8816/keyword-ws";
 const userKeywordTopic = "/user/queue/keyword";
 const userChartTopic = "/user/queue/chart";
 const sendingTopic = "/app/keyword";
-
-const onReceiveChartOption = msg => {
-  if (msg.body === "session end") {
-    store.dispatch({type: actionTypes.SOCKETS_DISCONNECT})
-    return;
-  }
-  const payload = JSON.parse(msg.body);
-  store.dispatch({type: actionTypes.CHART_UPDATE, chartOptions: payload})
-}
 
 let socket;
 let stompClient;

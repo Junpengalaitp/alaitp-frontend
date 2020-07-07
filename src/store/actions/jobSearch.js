@@ -1,7 +1,8 @@
 import Axios from "axios";
 
 import * as actionTypes from './actionTypes'
-import { serverUrl } from "../../config";
+import {serverUrl} from "../../config";
+import {updateObject} from "../../util/utility";
 
 export const setJobs = (jobMap, jobSearchId) => {
   return {
@@ -23,4 +24,12 @@ export const searchJobs = (searchInput, requestId) => {
         console.log('error happened during searching keywords' + error)
       })
   };
+};
+export const setJobMap = (state, payload) => {
+  return updateObject(state, {
+    jobMap: payload.jobMap,
+    jobSearchId: payload.jobSearchId,
+    loading: false,
+    searchComplete: true
+  })
 };
