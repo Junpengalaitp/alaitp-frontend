@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import CoOccurrenceWordCloud from './CoOccurrenceWordCloud'
 import Axios from 'axios'
 import { serverUrl } from './../../../config'
+import Spinner from "../../UI/Spinner/Spinner";
 
 // max total number of keywords in cloud
 const wordNum = 30;
@@ -31,15 +32,20 @@ class CoOccurredWords extends React.Component {
   componentDidMount() {
     this.requestCoOccurrence()
   }
+
   render() {
-    return (
-      <Fragment>
-        <CoOccurrenceWordCloud 
-          keyword={this.props.keyword} 
-          coOccurredWords={this.state.coOccurredWords}
-          selectCategory={category => this.requestCoOccurrence(category)} />
-      </Fragment>
-    )
+    let cloud = <Spinner />
+    if (this.state.coOccurredWords.length !== 0) {
+      cloud = (
+        <Fragment>
+          <CoOccurrenceWordCloud
+            keyword={this.props.keyword}
+            coOccurredWords={this.state.coOccurredWords}
+            selectCategory={category => this.requestCoOccurrence(category)} />
+        </Fragment>
+      )
+    }
+    return cloud;
   }
 }
 
