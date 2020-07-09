@@ -19,9 +19,8 @@ let stompClient;
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.SOCKETS_CONNECT:
+    case actionTypes.SOCKETS_CONNECT_AND_SEND:
       if (stompClient !== undefined && stompClient.connected) {
-        console.log("socket is already connected")
         stompClient.send(sendingTopic, {}, action.requestId);
         return state;
       }

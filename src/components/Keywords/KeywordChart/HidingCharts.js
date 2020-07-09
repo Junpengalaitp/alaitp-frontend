@@ -2,6 +2,9 @@ import React from 'react';
 import KeywordChart from "./KeywordChart";
 import {combinedCategories} from "../../../config";
 
+/**
+ * the charts that not showing if the 'see more' button is not clicked
+ */
 const HidingCharts = props => {
   const categoryList = combinedCategories.split(",");
   if (!props.hiding) {
@@ -13,7 +16,7 @@ const HidingCharts = props => {
       </div>
     );
   } else {
-    return <div></div>
+    return <div/>
   }
 }
 

@@ -82,7 +82,7 @@ const SearchForm = props => {
 const mapDispatchToProps = dispatch => {
   return {
     onJobSearchStart: () => dispatch({type: actionTypes.JOB_SEARCH_START}),
-    connectWs: requestId => dispatch({type: actionTypes.SOCKETS_CONNECT, requestId: requestId}),
+    connectWs: requestId => dispatch({type: actionTypes.SOCKETS_CONNECT_AND_SEND, requestId: requestId}),
     clearChart: () => dispatch({type: actionTypes.CHART_CLEAR}),
     onJobSearchSuccess: (searchInput, requestId) => dispatch(searchJobs(searchInput, requestId))
   }

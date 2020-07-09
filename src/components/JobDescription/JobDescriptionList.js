@@ -7,6 +7,9 @@ import Spinner from "./../UI/Spinner/Spinner";
 import * as actionTypes from "../../store/actions/actionTypes"
 import {JobPagination} from "./JobPagination";
 
+/**
+ * contains job description, paginated
+ */
 const JobDescriptionList = props => {
 
   const [currentPage, setCurrentPage] = useState(1);

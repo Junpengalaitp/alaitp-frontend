@@ -1,6 +1,9 @@
 import React from 'react'
 import { Pagination } from 'react-bootstrap'
 
+/**
+ * handling job list pagination
+ */
 export const JobPagination = ({ currentPage, jobsPerPage, totalJobs, paginate, paginationShow }) => {
   let pagination = null;
   const pageAmountAtOnce = 5;
@@ -58,7 +61,7 @@ export const JobPagination = ({ currentPage, jobsPerPage, totalJobs, paginate, p
     pagination = (
       <Pagination>
         <Pagination.Prev disabled={currentPage === 1} onClick={() => paginate(null, -1)}/>
-        {showingPageNumbers}
+          {showingPageNumbers}
         <Pagination.Next disabled={currentPage === lastPage} onClick={() => paginate(null, 1)}/>
       </Pagination>
     )

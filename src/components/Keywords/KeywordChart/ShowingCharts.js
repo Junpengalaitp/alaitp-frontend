@@ -2,6 +2,9 @@ import React from 'react';
 import KeywordChart from "./KeywordChart";
 import {combinedCategories} from "../../../config";
 
+/**
+ * the charts that is showing when 'see more' button is not clicked
+ */
 const ShowingCharts = () => {
   const categoryList = combinedCategories.split(",");
   return (

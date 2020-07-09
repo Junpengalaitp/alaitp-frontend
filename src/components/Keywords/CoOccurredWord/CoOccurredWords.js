@@ -6,6 +6,9 @@ import { serverUrl } from './../../../config'
 // max total number of keywords in cloud
 const wordNum = 30;
 
+/**
+ * contains word could, handling request for correlated words
+ */
 class CoOccurredWords extends React.Component {
   state = {
     category: "all",
