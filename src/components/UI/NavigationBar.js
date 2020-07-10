@@ -3,6 +3,9 @@ import {Route} from 'react-router';
 import SearchForm from '../Search/SearchForm';
 import {Col, Nav, Navbar, Row} from 'react-bootstrap';
 
+/**
+ * Navbar on top, wraps bootstrap Navbar
+ */
 const NavBar = () => {
   return (
     <Row className="justify-content-md-center">

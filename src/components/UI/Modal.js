@@ -2,6 +2,9 @@ import CoOccurredWords from "../Keywords/CoOccurredWord/CoOccurredWords";
 import React from "react";
 import {Button, Modal} from "react-bootstrap";
 
+/**
+ * bootstrap modal, contains CoOccurredWords
+ */
 export const MyVerticallyCenteredModal = props => {
   return (
     <Modal

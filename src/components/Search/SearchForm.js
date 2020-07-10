@@ -9,6 +9,9 @@ import {searchJobs} from "../../store/actions/jobSearch";
 
 const uuid = require('uuid/v4');
 
+/**
+ * handing search input and submit, on main page and navbar
+ */
 const SearchForm = props => {
   const [searchForm, setSearchForm] = useState({
     elementType: "input",
