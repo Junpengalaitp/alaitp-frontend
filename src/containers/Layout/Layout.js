@@ -1,18 +1,19 @@
-import React, { Fragment } from "react";
-import { Route } from 'react-router'
+import React, {Fragment} from "react";
+import {Route} from 'react-router'
 import SearchResults from "./SearchResults"
 import NavBar from '../../components/UI/NavigationBar'
-import { MainPage } from "./MainPage";
+import {MainPage} from "./MainPage";
 import PersonalPage from "./PersonalPage";
+import {mainPageUrl, personalPageUrl, searchResUrl} from "../../constant/url";
 
 const Layout = () => {
 
   return (
     <Fragment>
-      <Route path='/alaitp-frontend' exact component={MainPage} />
-      <Route path='/alaitp-frontend/keywords' component={NavBar} />
-      <Route path='/alaitp-frontend/keywords' render={() => <SearchResults />} />
-      <Route path='/alaitp-frontend/personal-page' component={PersonalPage} />
+      <Route path={mainPageUrl} exact component={MainPage}/>
+      <Route path={searchResUrl} component={NavBar}/>
+      <Route path={searchResUrl} render={() => <SearchResults/>}/>
+      <Route path={personalPageUrl} component={PersonalPage}/>
     </Fragment>
   )
 }
