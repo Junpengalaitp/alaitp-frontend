@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react'
+import React, {Fragment} from 'react'
 import CoOccurrenceWordCloud from './CoOccurrenceWordCloud'
 import Axios from 'axios'
-import { serverUrl } from './../../../config'
+import {serverUrl} from '../../../config'
 import Spinner from "../../UI/Spinner/Spinner";
 
 // max total number of keywords in cloud

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactEcharts from 'echarts-for-react';
 import {connect} from "react-redux"
 import {MyVerticallyCenteredModal} from "../../UI/Modal";
-import {categoryMinBarHeight, showingCategory} from "../../../constant/constant"
+import {categoryMinBarLength, categoryText} from "../../../constant/constant"
 
 const staticChartOptions = {
   tooltip: {
@@ -30,7 +30,7 @@ const staticChartOptions = {
 
 class KeywordChart extends React.Component {
   state = {
-    title: {text: showingCategory[this.props.category]},
+    title: {text: categoryText[this.props.category]},
     yAxis: {type: 'category', data: []},
     series: [{type: 'bar', data: []}],
     ...staticChartOptions,
@@ -85,7 +85,7 @@ class KeywordChart extends React.Component {
             }
           },
           data: this.getXAxisData(),
-          barMinHeight: categoryMinBarHeight[this.props.category]
+          barMinHeight: categoryMinBarLength[this.props.category]
         }
       ]
     };

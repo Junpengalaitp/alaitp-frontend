@@ -3,23 +3,7 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import Badge from "react-bootstrap/Badge";
 import {MyVerticallyCenteredModal} from "../UI/Modal";
-
-const categoryColorMap = {
-  "PROGRAMMING_LANGUAGE": "primary",
-  "OTHER_LANGUAGE": "primary",
-  "LIBRARY": "info",
-  "FRAMEWORK": "info",
-  "DATA_STORAGE": "warning",
-  "DATA_TRANSMISSION": "warning",
-  "PLATFORM": "success",
-  "SERVER": "success",
-  "OS": "success",
-  "APPROACH": "secondary",
-  "SOFTWARE_ENGINEERING": "secondary",
-  "POSITION": "danger",
-  "DIVISION": "danger",
-  "WORK_EXPERIENCE": "danger"
-};
+import {categoryColorMap} from "../../constant/constant";
 
 /**
  * Highlighted jon keyword in job description text

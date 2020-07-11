@@ -1,4 +1,7 @@
-export const showingCategory = {
+/**
+ * map showing category text to categories
+ */
+export const categoryText = {
   languages: "Programing Language",
   libraryFramework: "Library/Framework",
   data: "Data Store/Transmission",
@@ -11,7 +14,30 @@ export const showingCategory = {
   computerScience: "Computer Science"
 }
 
-export const categoryMinBarHeight = {
+/**
+ * map colors to categories
+ */
+export const categoryColorMap = {
+  "PROGRAMMING_LANGUAGE": "primary",
+  "OTHER_LANGUAGE": "primary",
+  "LIBRARY": "info",
+  "FRAMEWORK": "info",
+  "DATA_STORAGE": "warning",
+  "DATA_TRANSMISSION": "warning",
+  "PLATFORM": "success",
+  "SERVER": "success",
+  "OS": "success",
+  "APPROACH": "secondary",
+  "SOFTWARE_ENGINEERING": "secondary",
+  "POSITION": "danger",
+  "DIVISION": "danger",
+  "WORK_EXPERIENCE": "danger"
+};
+
+/**
+ * map min bar length to categories
+ */
+export const categoryMinBarLength = {
   languages: 60,
   libraryFramework: 100,
   data: 80,

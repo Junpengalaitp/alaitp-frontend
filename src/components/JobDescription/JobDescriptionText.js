@@ -4,9 +4,9 @@ import HighlightKeyword from "./HighlightKeyword";
 
 /**
  * props:
- * jobDescriptionText: pain text at beginning, if keyword has been analysed, update the keyword with high lighted keywords
- * jobId
- * opened: do not render keywords if the text hasn't been opened
+ * jobDescriptionText(str): pain text at beginning, if receives analysed keywords, update the job text with highlighted keywords.
+ * jobId(str): the job id.
+ * opened(bool): do not render keywords if the text hasn't been opened(mainly for performance improvement).
  */
 const JobDescriptionText = props => {
   let jobDescriptionText = props.jobDescriptionText;
@@ -28,16 +28,6 @@ const JobDescriptionText = props => {
     props.onNoKeyword()
     return <React.Fragment>{jobDescriptionText}</React.Fragment>
   }
-  // try {
-  //   keywordList = props.keywordIndex[jobId];
-  //
-  //   for (const keywordObj of keywordList) {
-  //     keywordIndices.push([keywordObj.startIdx, keywordObj.endIdx, keywordObj.keyword, keywordObj.category])
-  //   }
-  // } catch (error) {
-  //   console.log("error, job id: ", jobId, "keyword list: ", keywordList, error);
-  //   return <React.Fragment>{jobDescriptionText}</React.Fragment>
-  // }
 
   // sort the keyword by start index so it can break and combine job text with keywords in order
   keywordIndices.sort((a, b) => a[0] - b[0]);
