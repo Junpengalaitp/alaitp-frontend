@@ -21,6 +21,9 @@ const categoryColorMap = {
   "WORK_EXPERIENCE": "danger"
 };
 
+/**
+ * Highlighted jon keyword in job description text
+ */
 const HighlightKeyword = props => {
   const [modalShow, setModalShow] = useState(false);
 

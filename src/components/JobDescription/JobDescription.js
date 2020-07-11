@@ -2,6 +2,9 @@ import React from 'react';
 import { Button, Collapse, Card } from 'react-bootstrap';
 import JobDescriptionText from './JobDescriptionText';
 
+/**
+ * wrapper of job description text, on click button will show job description text
+ */
 class JobDescription extends React.Component {
 
   state = {
