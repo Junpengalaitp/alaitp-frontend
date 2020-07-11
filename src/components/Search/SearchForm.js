@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import {connect} from "react-redux";
 
-import Input from "../UI/Input/Input";
 import {updateObject} from "../../util/utility";
 
 import * as actionTypes from "../../store/actions/actionTypes";
@@ -14,20 +13,15 @@ const SearchForm = props => {
     elementType: "input",
     elementConfig: {
       type: "text",
-      placeholder: "Software Engineer"
+      placeholder: "Type job title or skill, eg: Software Engineer/Java",
+      placeholderNavBar: "Software Engineer",
     },
     value: "",
-    validation: {
-      required: true
-    },
-    valid: true,
-    touched: false
   });
 
   const inputChangedHandler = event => {
     const updatedSearchForm = updateObject(searchForm, {
-      value: event.target.value,
-      touched: true
+      value: event.target.value
     });
     setSearchForm(updatedSearchForm)
   };
@@ -46,15 +40,12 @@ const SearchForm = props => {
     <form className="main-page--search_searchBar" onSubmit={handleSubmit}>
       <div className="row">
         <div className="col-4-of-5">
-          <Input
+          <input
             className="form-control form-control-lg"
-            elementType={searchForm.elementType}
-            elementConfig={searchForm.elementConfig}
+            type={searchForm.elementType.type}
             value={searchForm.value}
-            invalid={!searchForm.valid}
-            shouldValidate={searchForm.validation}
-            touched={searchForm.touched}
-            changed={event => inputChangedHandler(event)}
+            placeholder={searchForm.elementConfig.placeholder}
+            onChange={event => inputChangedHandler(event)}
           />
         </div>
         <div className="col-1-of-5">
@@ -66,11 +57,11 @@ const SearchForm = props => {
 
   const onNavBar = (
     <form onSubmit={handleSubmit} className="form-inline my-lg-0">
-      <input className="form-control mr-sm-2"
-        type={searchForm.elementConfig.type}
-        value={searchForm.value}
-        onChange={event => inputChangedHandler(event)}
-        placeholder={searchForm.elementConfig.placeholder}
+      <input className="form-control mr-md-4"
+             type={searchForm.elementConfig.type}
+             value={searchForm.value}
+             onChange={event => inputChangedHandler(event)}
+             placeholder={searchForm.elementConfig.placeholderNavBar}
       />
       <button type="submit" className="btn btn-outline-primary">Search</button>
     </form>

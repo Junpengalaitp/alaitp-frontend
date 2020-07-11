@@ -1,4 +1,4 @@
-// low level stylings, html, body elements
+// low level styling, html, body elements
 
 /* universal selector */
 *,
@@ -14,6 +14,6 @@ html {
   /* font-size: 10px; */
   font-size: 62.5%; /* 62.5% of 16px(default) is 10px, avoiding user change font size */
 }
-body { 
-  box-sizing: border-box;  /* boarders and paddings not added to the elements height and weight */
+body {
+  box-sizing: border-box; /* boarders and padding not added to the elements height and weight */
 }

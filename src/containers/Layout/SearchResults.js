@@ -4,11 +4,11 @@ import KeywordCharts from "../../components/Keywords/KeywordChart/KeywordCharts"
 
 
 const SearchResult = () => {
-  const searchResult = (
+  return (
     <div>
       <div className="row justify-content-center">
         <div className="col-sm-5">
-          <KeywordCharts />
+          <KeywordCharts/>
         </div>
         <div className="col-sm-5">
           <JobDescriptionList/>
@@ -16,7 +16,6 @@ const SearchResult = () => {
       </div>
     </div>
   )
-  return searchResult
 }
 
 export default SearchResult;
