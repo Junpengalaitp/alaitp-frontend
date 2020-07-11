@@ -3,8 +3,8 @@ import ReactDOM from "react-dom";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { Provider } from 'react-redux';
-import { BrowserRouter } from "react-router-dom";
+import {Provider} from 'react-redux';
+import {BrowserRouter} from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import store from "./store";
@@ -13,7 +13,7 @@ import * as serviceWorker from "./serviceWorker";
 const app = (
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <App/>
     </BrowserRouter>
   </Provider>
 )

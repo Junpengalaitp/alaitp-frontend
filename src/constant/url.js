@@ -3,4 +3,6 @@ export const correlateWordReqUrl = serverUrl + "/co_occurrence_matrix/most-corre
 export const mainPageUrl = "/alaitp-frontend";
 export const searchResUrl = mainPageUrl + "/keywords";
 export const personalPageUrl = mainPageUrl + "/personal-page";
+export const personalPageUrlMain = personalPageUrl + "#main"
+export const personalPageUrlTime = personalPageUrl + "#time"
 export const contactUrl = "";

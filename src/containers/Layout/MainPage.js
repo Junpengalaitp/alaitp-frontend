@@ -1,6 +1,6 @@
 import React from 'react'
 import SearchBar from '../../components/Search/SearchBar'
-import { Intro } from './Intro'
+import {Intro} from './Intro'
 
 export const MainPage = () => {
   return (

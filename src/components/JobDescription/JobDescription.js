@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Collapse, Card } from 'react-bootstrap';
+import {Button, Card, Collapse} from 'react-bootstrap';
 import JobDescriptionText from './JobDescriptionText';
 
 /**
