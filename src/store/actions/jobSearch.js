@@ -1,8 +1,8 @@
 import Axios from "axios";
 
 import * as actionTypes from './actionTypes'
-import {serverUrl} from "../../config";
 import {updateObject} from "../../util/utility";
+import {serverUrl} from "../../constant/url";
 
 export const setJobs = (jobMap, jobSearchId) => {
   return {

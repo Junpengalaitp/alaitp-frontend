@@ -1,8 +1,8 @@
 import React, {Fragment} from 'react'
 import CoOccurrenceWordCloud from './CoOccurrenceWordCloud'
 import Axios from 'axios'
-import {serverUrl} from '../../../config'
 import Spinner from "../../UI/Spinner/Spinner";
+import {correlateWordReqUrl} from "../../../constant/url";
 
 // max total number of keywords in cloud
 const wordNum = 30;
@@ -22,7 +22,7 @@ class CoOccurredWords extends React.Component {
       category = this.state.category;
     }
     console.log("requesting with: ", word, "category: ", category);
-    Axios.get(`${serverUrl}/co_occurrence_matrix/most-correlated-words/${word}/${wordNum}/${category}`)
+    Axios.get(`${correlateWordReqUrl}/${word}/${wordNum}/${category}`)
     .then(res => {
       console.log("requesting res: ", res);
       this.setState({coOccurredWords: res.data.words})

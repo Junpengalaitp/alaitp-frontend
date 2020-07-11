@@ -1,6 +1,6 @@
 import React from 'react';
 import KeywordChart from "./KeywordChart";
-import {combinedCategories} from "../../../config";
+import {combinedCategories} from "../../../constant/constant";
 
 /**
  * the charts that is showing when 'see more' button is not clicked

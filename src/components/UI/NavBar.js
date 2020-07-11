@@ -3,6 +3,7 @@ import {Route} from 'react-router';
 import SearchForm from '../Search/SearchForm';
 import {Col, Nav, Navbar, Row} from 'react-bootstrap';
 import {contactUrl, mainPageUrl, personalPageUrl, searchResUrl} from "../../constant/url";
+import ClickNoticeLink from "./ClickNoticeLink";
 
 /**
  * Navbar on top, wraps bootstrap Navbar
@@ -20,7 +21,11 @@ const NavBar = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
               <Nav.Link href={mainPageUrl}>Home</Nav.Link>
-              <Nav.Link href={personalPageUrl}>About Me</Nav.Link>
+              <Route path={searchResUrl} render={props => <Nav.Link href={personalPageUrl}><ClickNoticeLink {...props}
+                                                                                                            show={true}/></Nav.Link>}/>
+              <Route path={personalPageUrl}
+                     render={props => <Nav.Link href={personalPageUrl}><ClickNoticeLink {...props}
+                                                                                        show={false}/></Nav.Link>}/>
               <Nav.Link href={contactUrl}>Contact Me</Nav.Link>
             </Nav>
           </Navbar.Collapse>

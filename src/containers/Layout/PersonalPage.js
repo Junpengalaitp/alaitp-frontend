@@ -4,7 +4,7 @@ import img2 from "./abstract02.jpg";
 import img3 from "./abstract03.jpg";
 import img4 from "./abstract04.jpg";
 import {Carousel} from 'react-bootstrap';
-import NavBar from "../../components/UI/NavigationBar";
+import NavBar from "../../components/UI/NavBar";
 
 class PersonalPage extends React.Component {
   render() {

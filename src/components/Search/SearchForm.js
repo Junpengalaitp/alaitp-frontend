@@ -5,6 +5,7 @@ import {updateObject} from "../../util/utility";
 
 import * as actionTypes from "../../store/actions/actionTypes";
 import {searchJobs} from "../../store/actions/jobSearch";
+import {searchResUrl} from "../../constant/url";
 
 const uuid = require('uuid/v4');
 
@@ -35,7 +36,7 @@ const SearchForm = props => {
     props.connectWs(requestId);
     props.onJobSearchStart();
     props.clearChart();
-    props.history.push(`/alaitp-frontend/keywords/${searchForm.value}`);
+    props.history.push(`${searchResUrl}/${searchForm.value}`);
     props.onJobSearchSuccess(searchForm.value, requestId)
   };
 

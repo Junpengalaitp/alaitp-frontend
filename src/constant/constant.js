@@ -1,4 +1,9 @@
 /**
+ * the categories form custom trained SpaCy model is more detailed, here combines similar categories to demonstration.
+ */
+export const combinedCategories = "languages,libraryFramework,data,division,platform,approach,swe,general,protocol,computerScience"
+
+/**
  * map showing category text to categories
  */
 export const categoryText = {

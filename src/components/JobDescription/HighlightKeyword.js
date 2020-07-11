@@ -27,7 +27,7 @@ const HighlightKeyword = props => {
         key={props.startIdx}
         placement={"top"}
         overlay={
-          <Tooltip id={'tooltip-top'} onClick={() => handleClick()}>
+          <Tooltip id={'tooltip-top'}>
             <p>word category: <strong>{props.category}</strong></p>
             <strong>click to see correlated words</strong>.
           </Tooltip>
