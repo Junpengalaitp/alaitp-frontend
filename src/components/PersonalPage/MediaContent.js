@@ -1,11 +1,21 @@
 import React from 'react';
-import ProjectInitiative from "./ProjectInitiative";
+import ContentItem from "./ContentItem";
+import {navItems} from "../../constant/constant";
+import {connect} from "react-redux";
 
 
-const MediaContent = () => (
+const MediaContent = props => (
   <div>
-    <ProjectInitiative/>
+    {navItems.map((navName, idx) => (
+      <ContentItem key={idx} content={navName} show={navName === props.currentPage} />
+    ))}
   </div>
 );
 
-export default MediaContent;
+const mapStateToProps = state => {
+  return {
+    currentPage: state.personalPage.current
+  }
+};
+
+export default connect(mapStateToProps)(MediaContent);

@@ -8,7 +8,7 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SIDE_NAV_CLICK:
-      console.log("SIDE_NAV_CLICK");
+      console.log("SIDE_NAV_CLICK: " + action.payload);
       return updateObject(state, {
         current: action.payload
       });

@@ -54,3 +54,4 @@ export const categoryMinBarLength = {
   protocol: 60,
   computerScience: 140
 }
+export const navItems = ["Project Initiative", "Time Management", "Coding Practice", "Workout Routine", "Reading Habit"]
