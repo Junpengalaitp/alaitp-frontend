@@ -6,6 +6,7 @@ import {updateObject} from "../../util/utility";
 import * as actionTypes from "../../store/actions/actionTypes";
 import {searchJobs} from "../../store/actions/jobSearch";
 import {searchResUrl} from "../../constant/url";
+import {translate} from "../../containers/i18n/translate";
 
 const uuid = require('uuid/v4');
 
@@ -53,7 +54,7 @@ const SearchForm = props => {
           />
         </div>
         <div className="col-1-of-5">
-        <button type="submit" className="btn btn-outline-primary btn-lg">Search</button>
+          <button type="submit" className="btn btn-outline-primary btn-lg">{translate("Search")}</button>
         </div>
       </div>
     </form>
@@ -67,7 +68,7 @@ const SearchForm = props => {
              onChange={event => inputChangedHandler(event)}
              placeholder={searchForm.elementConfig.placeholderNavBar}
       />
-      <button type="submit" className="btn btn-outline-primary">Search</button>
+      <button type="submit" className="btn btn-outline-primary">{translate("Search")}</button>
     </form>
   );
 
