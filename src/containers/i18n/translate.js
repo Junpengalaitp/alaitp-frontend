@@ -5,3 +5,4 @@ export const translate = text => {
 const enCnMap = {
   "Search": "搜索"
 }
+
