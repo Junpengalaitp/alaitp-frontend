@@ -4,6 +4,8 @@ import Tooltip from "react-bootstrap/Tooltip";
 import Badge from "react-bootstrap/Badge";
 import {MyVerticallyCenteredModal} from "../UI/Modal";
 import {categoryColorMap} from "../../constant/constant";
+import {i18nText} from "../../containers/i18n/i18nText";
+import {connect} from "react-redux";
 
 /**
  * Highlighted jon keyword in job description text
@@ -28,8 +30,8 @@ const HighlightKeyword = props => {
         placement={"top"}
         overlay={
           <Tooltip id={'tooltip-top'}>
-            <p>word category: <strong>{props.category}</strong></p>
-            <strong>click to see correlated words</strong>.
+            <p>{i18nText("wordCategory", props.language)} <strong>{props.category}</strong></p>
+            <strong>{i18nText("keywordOverlay", props.language)}</strong>.
           </Tooltip>
         }
       >
@@ -40,9 +42,15 @@ const HighlightKeyword = props => {
       <MyVerticallyCenteredModal
         show={modalShow}
         onHide={() => setModalShow(false)}
-        keyword={props.keyword} />
+        keyword={props.keyword}/>
     </React.Fragment>
   );
 };
 
-export default HighlightKeyword;
+const mapStateToProps = state => {
+  return {
+    language: state.i18n.language
+  }
+};
+
+export default connect(mapStateToProps)(HighlightKeyword);

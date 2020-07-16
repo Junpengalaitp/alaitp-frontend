@@ -5,4 +5,4 @@ export const searchResUrl = mainPageUrl + "/keywords";
 export const personalPageUrl = mainPageUrl + "/personal-page";
 export const personalPageUrlMain = personalPageUrl + "#main"
 export const personalPageUrlTime = personalPageUrl + "#time"
-export const contactUrl = "";
+export const contactUrl = personalPageUrl;

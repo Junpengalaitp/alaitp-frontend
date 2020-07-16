@@ -18,7 +18,8 @@ const KeywordCharts = props => {
   const buttonText = !props.moreChart ? i18nText("seeMoreButton", props.language) : i18nText("seeLessButton", props.language);
   return (
     <div>
-      <h4>The Most Wanted Skills in Search Result (Click to See Correlated skills)</h4>
+      <h4>{i18nText("chartGroupHeading1", props.language)}</h4>
+      <h5>{i18nText("chartGroupHeading2", props.language)}</h5>
       <ShowingCharts/>
       <HidingCharts hiding={!props.moreChart}/>
       <Button variant={"outline-primary"} onClick={() => handleClick()}>{buttonText}</Button>

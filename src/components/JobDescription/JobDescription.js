@@ -1,6 +1,8 @@
 import React from 'react';
 import {Button, Card, Collapse} from 'react-bootstrap';
 import JobDescriptionText from './JobDescriptionText';
+import {connect} from "react-redux";
+import {i18nText} from "../../containers/i18n/i18nText";
 
 /**
  * wrapper of job description text, on click button will show job description text
@@ -34,18 +36,19 @@ class JobDescription extends React.Component {
           </Card.Title>
           <Card.Subtitle className="mb-2 text-muted clearfix">
             <Button
-              className="card-title float-left"
+              className="card-title float-left see-job-text-btn"
               variant="outline-info btn-sm"
               onClick={() => handleOpen()}
               aria-controls="job-collapse-text"
               aria-expanded={this.state.open}>
-              See Job Text
+              {i18nText("seeJobButtonText", this.props.language)}
             </Button>
             <p className="card-text float-right">{this.props.tags}</p>
           </Card.Subtitle>
           <Collapse in={this.state.open}>
             <div id="job-collapse-text mx-1">
-              <JobDescriptionText jobDescriptionText={this.props.jobDescriptionText} jobId={this.props.jobId} opened={this.state.opened} onNoKeyword={() => handleNoKeywords()} />
+              <JobDescriptionText jobDescriptionText={this.props.jobDescriptionText} jobId={this.props.jobId}
+                                  opened={this.state.opened} onNoKeyword={() => handleNoKeywords()}/>
             </div>
           </Collapse>
         </Card.Body>
@@ -54,4 +57,10 @@ class JobDescription extends React.Component {
   }
 }
 
-export default JobDescription
+const mapStateToProps = state => {
+  return {
+    language: state.i18n.language
+  }
+};
+
+export default connect(mapStateToProps)(JobDescription)

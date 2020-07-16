@@ -1,6 +1,8 @@
 import React from 'react';
 import Tooltip from "react-bootstrap/Tooltip";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import {i18nText} from "../../containers/i18n/i18nText";
+import {connect} from "react-redux";
 
 /**
  * on search result page, show a click notice for personal page
@@ -15,7 +17,7 @@ const ClickNoticeLink = props => {
         placement={"top"}
         overlay={
           <Tooltip id={'tooltip-top'}>
-            <h6><strong>click here to know me!</strong></h6>
+            <h6><strong>{i18nText("clickNotice", props.language)}</strong></h6>
           </Tooltip>
         }
       >
@@ -25,4 +27,10 @@ const ClickNoticeLink = props => {
   return link
 }
 
-export default ClickNoticeLink;
+const mapStateToProps = state => {
+  return {
+    language: state.i18n.language
+  }
+};
+
+export default connect(mapStateToProps)(ClickNoticeLink);

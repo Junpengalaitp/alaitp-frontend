@@ -18,8 +18,7 @@ const SearchForm = props => {
     elementType: "input",
     elementConfig: {
       type: "text",
-      placeholder: "Type job title or skill, eg: Software Engineer/Java",
-      placeholderNavBar: "Software Engineer",
+      placeholder: "Software Engineer"
     },
     value: "",
   });
@@ -56,7 +55,7 @@ const SearchForm = props => {
           />
         </div>
         <div className="col-1-of-5">
-          <button type="submit" className="btn btn-outline-primary btn-lg main-page--button">{buttonText}</button>
+          <button type="submit" className="btn btn-outline-primary btn-lg main-page--btn">{buttonText}</button>
         </div>
       </div>
     </form>
@@ -68,9 +67,9 @@ const SearchForm = props => {
              type={searchForm.elementConfig.type}
              value={searchForm.value}
              onChange={event => inputChangedHandler(event)}
-             placeholder={searchForm.elementConfig.placeholderNavBar}
+             placeholder={searchForm.elementConfig.placeholder}
       />
-      <button type="submit" className="btn btn-outline-primary navbar--button">{buttonText}</button>
+      <button type="submit" className="btn btn-outline-primary navbar--btn">{buttonText}</button>
     </form>
   );
 
