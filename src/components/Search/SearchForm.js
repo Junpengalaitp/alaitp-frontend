@@ -56,7 +56,7 @@ const SearchForm = props => {
           />
         </div>
         <div className="col-1-of-5">
-          <button type="submit" className="btn btn-outline-primary btn-lg">{buttonText}</button>
+          <button type="submit" className="btn btn-outline-primary btn-lg main-page--button">{buttonText}</button>
         </div>
       </div>
     </form>
@@ -70,7 +70,7 @@ const SearchForm = props => {
              onChange={event => inputChangedHandler(event)}
              placeholder={searchForm.elementConfig.placeholderNavBar}
       />
-      <button type="submit" className="btn btn-outline-primary">{buttonText}</button>
+      <button type="submit" className="btn btn-outline-primary navbar--button">{buttonText}</button>
     </form>
   );
 

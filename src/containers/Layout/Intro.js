@@ -1,19 +1,25 @@
 import React from 'react'
+import {connect} from "react-redux";
+import {i18nText} from "../i18n/i18nText";
 
-export const Intro = () => {
+const Intro = props => {
   return (
     <div>
       <div className="jumbotron main-page--intro">
-        <h1 className="display-4">Welcome to my page</h1>
+        <h1 className="display-4">{i18nText("introHeading1", props.language)}</h1>
         <hr className="my-4"/>
-        <h3>This is a project I build for helping recruiters to know more
-          about me.
-        </h3>
+        <h3>{i18nText("introHeading2", props.language)}</h3>
         <hr className="my-4"/>
-        <h3>
-          Click the Search button to see what this project does.
-        </h3>
+        <h3>{i18nText("introHeading3", props.language)}</h3>
       </div>
     </div>
   )
 }
+
+const mapStateToProps = state => {
+  return {
+    language: state.i18n.language
+  }
+};
+
+export default connect(mapStateToProps)(Intro);

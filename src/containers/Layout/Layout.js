@@ -2,7 +2,7 @@ import React from "react";
 import {Route} from 'react-router'
 import SearchResults from "./SearchResults"
 import NavBar from '../../components/UI/NavBar'
-import {MainPage} from "./MainPage";
+import MainPage from "./MainPage";
 import PersonalPage from "./PersonalPage";
 import {mainPageUrl, personalPageUrl, searchResUrl} from "../../constant/url";
 import I18NSwitch from "../../components/UI/I18nSwitch";
