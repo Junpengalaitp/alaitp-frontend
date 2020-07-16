@@ -6,7 +6,7 @@ import {updateObject} from "../../util/utility";
 import * as actionTypes from "../../store/actions/actionTypes";
 import {searchJobs} from "../../store/actions/jobSearch";
 import {searchResUrl} from "../../constant/url";
-import {translate} from "../../containers/i18n/translate";
+import {i18nText} from "../../containers/i18n/i18nText";
 
 const uuid = require('uuid/v4');
 
@@ -41,6 +41,8 @@ const SearchForm = props => {
     props.onJobSearchSuccess(searchForm.value, requestId)
   };
 
+  const buttonText = i18nText("searchButton", props.language);
+
   const onSearchBar = (
     <form className="main-page--search_searchBar" onSubmit={handleSubmit}>
       <div className="row">
@@ -54,7 +56,7 @@ const SearchForm = props => {
           />
         </div>
         <div className="col-1-of-5">
-          <button type="submit" className="btn btn-outline-primary btn-lg">{translate("Search")}</button>
+          <button type="submit" className="btn btn-outline-primary btn-lg">{buttonText}</button>
         </div>
       </div>
     </form>
@@ -68,11 +70,17 @@ const SearchForm = props => {
              onChange={event => inputChangedHandler(event)}
              placeholder={searchForm.elementConfig.placeholderNavBar}
       />
-      <button type="submit" className="btn btn-outline-primary">{translate("Search")}</button>
+      <button type="submit" className="btn btn-outline-primary">{buttonText}</button>
     </form>
   );
 
   return props.show ? onNavBar : onSearchBar
+};
+
+const mapStateToProps = state => {
+  return {
+    language: state.i18n.language
+  }
 };
 
 const mapDispatchToProps = dispatch => {
@@ -84,4 +92,4 @@ const mapDispatchToProps = dispatch => {
   }
 };
 
-export default connect(null, mapDispatchToProps)(SearchForm);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchForm);

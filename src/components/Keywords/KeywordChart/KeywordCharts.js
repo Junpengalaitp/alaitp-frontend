@@ -5,6 +5,7 @@ import HidingCharts from "./HidingCharts";
 import {connect} from "react-redux";
 
 import * as actionTypes from "../../../store/actions/actionTypes";
+import {i18nText} from "../../../containers/i18n/i18nText";
 
 const KeywordCharts = props => {
   const handleClick = () => {
@@ -14,7 +15,7 @@ const KeywordCharts = props => {
       props.seeMoreResult();
     }
   }
-  const buttonText = !props.moreChart ? "See More" : "See Less";
+  const buttonText = !props.moreChart ? i18nText("seeMoreButton", props.language) : i18nText("seeLessButton", props.language);
   return (
     <div>
       <h4>The Most Wanted Skills in Search Result (Click to See Correlated skills)</h4>
@@ -27,7 +28,8 @@ const KeywordCharts = props => {
 
 const mapStateToProps = state => {
   return {
-    moreChart: state.globalParam.moreChart
+    moreChart: state.globalParam.moreChart,
+    language: state.i18n.language
   }
 };
 

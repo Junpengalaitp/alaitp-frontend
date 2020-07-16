@@ -2,7 +2,8 @@ import React from 'react';
 import ReactEcharts from 'echarts-for-react';
 import {connect} from "react-redux"
 import {MyVerticallyCenteredModal} from "../../UI/Modal";
-import {categoryMinBarLength, categoryText} from "../../../constant/constant"
+import {categoryMinBarLength} from "../../../constant/constant"
+import {i18nText} from "../../../containers/i18n/i18nText";
 
 const staticChartOptions = {
   tooltip: {
@@ -30,7 +31,6 @@ const staticChartOptions = {
 
 class KeywordChart extends React.Component {
   state = {
-    title: {text: categoryText[this.props.category]},
     yAxis: {type: 'category', data: []},
     series: [{type: 'bar', data: []}],
     ...staticChartOptions,
@@ -58,6 +58,7 @@ class KeywordChart extends React.Component {
 
   getChartOption = () => {
     const XYData = {
+      title: {text: i18nText(this.props.category, this.props.language)},
       yAxis: {
         ...this.state.yAxis,
         axisLabel: {
@@ -103,6 +104,7 @@ class KeywordChart extends React.Component {
   onclick = {
     'click': this.clickKeywordBar.bind(this)
   };
+
   clickKeywordBar(e) {
     console.log(e);
     this.setState({keyword: e.name});
@@ -128,7 +130,8 @@ class KeywordChart extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    chartOption: state.jobKeyword.chartData
+    chartOption: state.jobKeyword.chartData,
+    language: state.i18n.language
   }
 };
 

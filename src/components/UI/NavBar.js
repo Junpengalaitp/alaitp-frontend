@@ -4,11 +4,16 @@ import SearchForm from '../Search/SearchForm';
 import {Col, Nav, Navbar, Row} from 'react-bootstrap';
 import {contactUrl, mainPageUrl, personalPageUrl, searchResUrl} from "../../constant/url";
 import ClickNoticeLink from "./ClickNoticeLink";
+import {connect} from "react-redux";
+import {i18nText} from "../../containers/i18n/i18nText";
 
 /**
  * Navbar on top, wraps bootstrap Navbar
  */
-const NavBar = () => {
+const NavBar = props => {
+  const homeText = i18nText("navHome", props.language)
+  const aboutText = i18nText("navAbout", props.language)
+  const contactText = i18nText("navContact", props.language)
   return (
     <Row className="justify-content-md-center">
       <Col xs={10}>
@@ -20,13 +25,12 @@ const NavBar = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav"/>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
-              <Nav.Link href={mainPageUrl}>Home</Nav.Link>
-              <Route path={searchResUrl} render={props => <Nav.Link href={personalPageUrl}><ClickNoticeLink {...props}
-                                                                                                            show={true}/></Nav.Link>}/>
+              <Nav.Link href={mainPageUrl}>{homeText}</Nav.Link>
+              <Route path={searchResUrl}
+                     render={props => <Nav.Link href={personalPageUrl}><ClickNoticeLink {...props} show={true} text={aboutText}/></Nav.Link>}/>
               <Route path={personalPageUrl}
-                     render={props => <Nav.Link href={personalPageUrl}><ClickNoticeLink {...props}
-                                                                                        show={false}/></Nav.Link>}/>
-              <Nav.Link href={contactUrl}>Contact Me</Nav.Link>
+                     render={props => <Nav.Link href={personalPageUrl}><ClickNoticeLink {...props} show={false} text={aboutText}/></Nav.Link>}/>
+              <Nav.Link href={contactUrl}>{contactText}</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
@@ -35,4 +39,10 @@ const NavBar = () => {
   )
 };
 
-export default NavBar
+const mapStateToProps = state => {
+  return {
+    language: state.i18n.language
+  }
+};
+
+export default connect(mapStateToProps)(NavBar);

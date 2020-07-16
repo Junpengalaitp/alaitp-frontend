@@ -7,16 +7,46 @@ export const combinedCategories = "languages,libraryFramework,data,division,plat
  * map showing category text to categories
  */
 export const categoryText = {
-  languages: "Programing Language",
-  libraryFramework: "Library/Framework",
-  data: "Data Store/Transmission",
-  division: "Job Division",
-  platform: "Platform",
-  approach: "Development Approach",
-  swe: "Software Development Life Cycle",
-  general: "General/Soft Skill",
-  protocol: "Protocol",
-  computerScience: "Computer Science"
+  "languages": {
+    "en": "Programing Language",
+    "cn": "编程语言"
+  },
+  "libraryFramework": {
+    "en": "Library/Framework",
+    "cn": "框架/库"
+  },
+  "data": {
+    "en":"Data Store/Transmission",
+    "cn": "数据储存/传输"
+  },
+  "division": {
+    "en": "Job Division",
+    "cn": "职位分类"
+  },
+  "platform": {
+    "en": "Platform",
+    "cn": "平台"
+  },
+  "approach": {
+    "en": "Development Approach",
+    "cn": "开发方法"
+  },
+  "swe": {
+    "en": "Software Development Life Cycle",
+    "cn": "软件开发"
+  },
+  "general": {
+    "en": "General/Soft Skill",
+    "cn": "软技能"
+  },
+  "protocol": {
+    "en": "Protocol",
+    "cn": "协议"
+  },
+  "computerScience": {
+    "en": "Computer Science",
+    "cn": "计算机科学"
+  }
 }
 
 /**
@@ -40,6 +70,38 @@ export const categoryColorMap = {
 };
 
 /**
+ * category map for tag cloud
+ */
+export const categoryMap = {
+  pl: "programming language",
+  ol: "other language",
+  lb: "library",
+  fw: "framework",
+  cs: "computer science",
+  ai: "artificial intelligence",
+  pt: "protocol",
+  ds: "data storage",
+  dt: "data transmission",
+  dv: "division",
+  ps: "position",
+  we: "work experience",
+  os_: "operating system",
+  sv: "server",
+  ap: "approach",
+  se: "software engineering",
+  pf: "platform",
+  ge: "general",
+  sf: "soft skills",
+  tl: "tool",
+  at: "architect",
+  pd: "product",
+  ql: "quality",
+  of: "offer",
+  tm: "team",
+  cp: "company"
+}
+
+/**
  * map min bar length to categories
  */
 export const categoryMinBarLength = {
@@ -54,4 +116,8 @@ export const categoryMinBarLength = {
   protocol: 60,
   computerScience: 140
 }
+
+/**
+ * personal page side nav items
+ */
 export const navItems = ["Project Initiative", "Time Management", "Coding Practice", "Workout Routine", "Reading Habit"]

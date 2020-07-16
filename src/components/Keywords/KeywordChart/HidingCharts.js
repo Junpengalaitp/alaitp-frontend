@@ -12,12 +12,14 @@ const HidingCharts = props => {
     charts = (
       <div>
         {categoryList.slice(5).map((category, index) => (
-          <KeywordChart category={category} key={index}/>
+          <KeywordChart category={category} categoryText={category} key={index}/>
         ))}
       </div>
     );
   }
   return charts;
 }
+
+
 
 export default HidingCharts;

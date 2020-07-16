@@ -3,7 +3,7 @@ import {updateObject} from "../../util/utility";
 
 /**
  * hold global params
- * @type {{seeMore: boolean, jobsPerPage: number}}
+ * @type {{moreChart: boolean, jobsPerPage: number}}
  */
 const initialState = {
   moreChart: false,

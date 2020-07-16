@@ -6,7 +6,7 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
  * on search result page, show a click notice for personal page
  */
 const ClickNoticeLink = props => {
-  let link = <p>About Me</p>;
+  let link = <p>{props.text}</p>;
   if (props.show) {
     link =
       <OverlayTrigger
@@ -19,7 +19,7 @@ const ClickNoticeLink = props => {
           </Tooltip>
         }
       >
-        <p className={"text-primary"}>About Me</p>
+        <p className={"text-primary"}>{props.text}</p>
       </OverlayTrigger>
   }
   return link

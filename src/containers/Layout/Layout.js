@@ -10,7 +10,7 @@ import I18NSwitch from "../../components/UI/I18nSwitch";
 const Layout = () => {
   return (
     <div>
-      <I18NSwitch/>
+      <I18NSwitch />
       <Route path={mainPageUrl} exact component={MainPage}/>
       <Route path={searchResUrl} component={NavBar}/>
       <Route path={searchResUrl} render={() => <SearchResults/>}/>

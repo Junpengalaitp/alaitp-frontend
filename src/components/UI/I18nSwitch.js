@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import * as actionTypes from "../../store/actions/actionTypes";
 
 const I18NSwitch = props => {
-  const text = props.language === "en" ? "English" : "中文"
+  const text = props.language === "en" ? "中文" : "English"
   return (
     <div className="leftBottom">
       <button type="button" className="btn btn-info btn-lg btn-circle"
