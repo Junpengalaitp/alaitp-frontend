@@ -1,18 +1,8 @@
 import {categoryText} from "../../constant/constant";
 import React from "react";
-import store from "../../store";
 
 export const i18nText = (type, lang) => {
   return i18nMap[type][lang]
-}
-
-export const i18nOnBarChart = () => {
-  const lang = store.getState().i18n
-  if (lang === "en") {
-    return "click to see correlated words with ";
-  } else {
-    return "点击查看关联词"
-  }
 }
 
 const i18nMap = {
@@ -40,6 +30,14 @@ const i18nMap = {
     "en": "See Less",
     "cn": "收起"
   },
+  "modalButton": {
+    "en": "close",
+    "cn": "关闭"
+  },
+  "cloudCategoryButton": {
+    "en": "select category",
+    "cn": "选择类别"
+  },
   "mainPageHeading": {
     "en": "Search For Most Demanded Technical Skills!",
     "cn": "搜索在IT行业工作中最受欢迎的技术!"
@@ -63,6 +61,14 @@ const i18nMap = {
   "chartGroupHeading2": {
     "en": "(Click to See Correlated skills)",
     "cn": "(点击查看关联的技术)"
+  },
+  "modelHeadingLeft": {
+    "en": "Most correlated skill with ",
+    "cn": "在搜索结果中与"
+  },
+  "modelHeadingRight": {
+    "en": " in search result",
+    "cn": "同时出现最多的词"
   },
   "seeJobButtonText": {
     "en": "See Job Text",

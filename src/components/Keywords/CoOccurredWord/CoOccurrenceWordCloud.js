@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react'
 import {TagCloud} from 'react-tagcloud'
 import {ButtonGroup, Dropdown, DropdownButton} from 'react-bootstrap'
 import {categoryMap} from "../../../constant/constant";
+import {i18nText} from "../../../containers/i18n/i18nText";
+import {connect} from "react-redux";
 
 /**
  * use third party library react-tagcloud for rendering correlated words
@@ -36,7 +38,9 @@ const CoOccurrenceWordCloud = props => {
     <div className="container">
       <div>
         <ButtonGroup vertical={false}>
-          <DropdownButton as={ButtonGroup} title="select category" variant="light" drop="right" id="bg-nested-dropdown">
+          <DropdownButton className="cloudCategoryButton" as={ButtonGroup}
+                          title={i18nText("cloudCategoryButton", props.language)} variant="light" drop="right"
+                          id="bg-nested-dropdown">
             {categoryButtons}
           </DropdownButton>
         </ButtonGroup>
@@ -52,4 +56,10 @@ const CoOccurrenceWordCloud = props => {
   );
 };
 
-export default CoOccurrenceWordCloud
+const mapStateToProps = state => {
+  return {
+    language: state.i18n.language
+  }
+};
+
+export default connect(mapStateToProps)(CoOccurrenceWordCloud)

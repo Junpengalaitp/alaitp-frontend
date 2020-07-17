@@ -1,11 +1,13 @@
 import CoOccurredWords from "../Keywords/CoOccurredWord/CoOccurredWords";
 import React from "react";
 import {Button, Modal} from "react-bootstrap";
+import {connect} from "react-redux";
+import {i18nText} from "../../containers/i18n/i18nText";
 
 /**
  * bootstrap modal, contains CoOccurredWords
  */
-export const MyVerticallyCenteredModal = props => {
+const MyVerticallyCenteredModal = props => {
   return (
     <Modal
       {...props}
@@ -15,15 +17,24 @@ export const MyVerticallyCenteredModal = props => {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Employers who hires people with <strong>{props.keyword}</strong> skill are also looking for these skills:
+          {i18nText("modelHeadingLeft", props.language)}
+          <strong>{props.keyword}</strong> {i18nText("modelHeadingRight", props.language)}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <CoOccurredWords keyword={props.keyword}/>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+        <Button className="modalButton" onClick={props.onHide}>{i18nText("modalButton", props.language)}</Button>
       </Modal.Footer>
     </Modal>
   );
 };
+
+const mapStateToProps = state => {
+  return {
+    language: state.i18n.language
+  }
+};
+
+export default connect(mapStateToProps)(MyVerticallyCenteredModal)
