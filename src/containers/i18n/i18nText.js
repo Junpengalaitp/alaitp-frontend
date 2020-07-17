@@ -1,8 +1,18 @@
 import {categoryText} from "../../constant/constant";
 import React from "react";
+import store from "../../store";
 
 export const i18nText = (type, lang) => {
-    return i18nMap[type][lang]
+  return i18nMap[type][lang]
+}
+
+export const i18nOnBarChart = () => {
+  const lang = store.getState().i18n
+  if (lang === "en") {
+    return "click to see correlated words with ";
+  } else {
+    return "点击查看关联词"
+  }
 }
 
 const i18nMap = {
@@ -69,6 +79,10 @@ const i18nMap = {
   "wordCategory": {
     "en": "word category: ",
     "cn": "词语类别："
+  },
+  "barText": {
+    "en": "click to see correlated words with ",
+    "cn": "点击查看关联词："
   }
   , ...categoryText
 }

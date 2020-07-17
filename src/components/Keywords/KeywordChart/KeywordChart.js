@@ -6,16 +6,6 @@ import {categoryMinBarLength} from "../../../constant/constant"
 import {i18nText} from "../../../containers/i18n/i18nText";
 
 const staticChartOptions = {
-  tooltip: {
-    trigger: 'axis',
-    axisPointer: {
-      type: 'shadow'
-    },
-    formatter: params => {
-      const keyword = params[0].axisValue;
-      return "click to see correlated words with " + keyword;
-    }
-  },
   color: ['#3398DB'],
   grid: {
       left: '3%',
@@ -31,9 +21,9 @@ const staticChartOptions = {
 
 class KeywordChart extends React.Component {
   state = {
+    ...staticChartOptions,
     yAxis: {type: 'category', data: []},
     series: [{type: 'bar', data: []}],
-    ...staticChartOptions,
     modalShow: false,
     keyword: "",
   };
@@ -59,12 +49,23 @@ class KeywordChart extends React.Component {
   getChartOption = () => {
     const XYData = {
       title: {text: i18nText(this.props.category, this.props.language)},
+      barText: i18nText("barText", this.props.language),
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'shadow'
+        },
+        formatter: params => {
+          const keyword = params[0].axisValue;
+          return XYData.barText + keyword;
+        }
+      },
       yAxis: {
         ...this.state.yAxis,
         axisLabel: {
           inside: true,
           textStyle: {
-              color: '#fff'
+            color: '#fff'
           }
         },
         axisTick: {
