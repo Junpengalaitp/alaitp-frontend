@@ -232,4 +232,20 @@ export const categoryMinBarLength = {
 /**
  * personal page side nav items
  */
-export const navItems = ["Project Initiative", "Time Management", "Coding Practice", "Workout Routine", "Reading Habit"]
+export const sideNavItems = {
+  "Project Initiative": {
+    "cn": "项目起因"
+  },
+  "Time Management": {
+    "cn": "时间管理"
+  },
+  "Coding Practice": {
+    "cn": "代码练习"
+  },
+  "Workout Routine": {
+    "cn": "健身习惯"
+  },
+  "Reading Habit": {
+    "cn": "阅读习惯"
+  }
+}

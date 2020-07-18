@@ -1,8 +1,7 @@
-import {categoryI18nMap, categoryText} from "./constant";
-import React from "react";
+import {categoryI18nMap, categoryText, sideNavItems} from "./constant";
 
 export const i18nText = (type, lang) => {
-  return i18nMap[type][lang]
+  return i18nMap[type][lang] || type
 }
 
 
@@ -93,6 +92,7 @@ const i18nMap = {
   },
   ...categoryText,
   ...categoryI18nMap,
+  ...sideNavItems,
 }
 
 

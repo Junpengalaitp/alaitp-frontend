@@ -2,15 +2,23 @@ import React from 'react';
 import Nav from "react-bootstrap/Nav";
 import * as actionTypes from "../../store/actions/actionTypes";
 import {connect} from "react-redux";
-import {navItems} from "../../constant/constant";
+import {sideNavItems} from "../../constant/constant";
+import {i18nText} from "../../constant/i18nText";
 
 const SideNav = props => (
   <Nav variant="pills" defaultActiveKey="link-0" className="flex-column">
-    {navItems.map((navName, idx) => (
-      <Nav.Link eventKey={"link-" + idx} key={idx} onSelect={() => props.clickLink(navName)}>{navName}</Nav.Link>
+    {Object.keys(sideNavItems).map((navName, idx) => (
+      <Nav.Link eventKey={"link-" + idx} key={idx}
+                onSelect={() => props.clickLink(navName)}>{i18nText(navName, props.language)}</Nav.Link>
     ))}
   </Nav>
 );
+
+const mapStateToProps = state => {
+  return {
+    language: state.i18n.language,
+  }
+};
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -18,4 +26,4 @@ const mapDispatchToProps = dispatch => {
   }
 };
 
-export default connect(null, mapDispatchToProps)(SideNav);
+export default connect(mapStateToProps, mapDispatchToProps)(SideNav);
