@@ -91,14 +91,126 @@ export const categoryMap = {
   se: "software engineering",
   pf: "platform",
   ge: "general",
-  sf: "soft skills",
+  sf: "soft skill",
   tl: "tool",
   at: "architect",
   pd: "product",
   ql: "quality",
   of: "offer",
   tm: "team",
-  cp: "company"
+  cp: "company",
+  all: "all"
+}
+
+export const categoryI18nMap = {
+  "programming language": {
+    "en": "programming language",
+    "cn": "编程语言"
+  },
+  "other language": {
+    "en": "other language",
+    "cn": "其他语言"
+  },
+  "library": {
+    "en": "library",
+    "cn": "第三方库"
+  },
+  "framework": {
+    "en": "framework",
+    "cn": "框架"
+  },
+  "computer science": {
+    "en": "computer science",
+    "cn": "计算机科学"
+  },
+  "artificial intelligence": {
+    "en": "artificial intelligence",
+    "cn": "人工智能"
+  },
+  "protocol": {
+    "en": "protocol",
+    "cn": "协议"
+  },
+  "data storage": {
+    "en": "data storage",
+    "cn": "数据存储"
+  },
+  "data transmission": {
+    "en": "data transmission",
+    "cn": "数据传输"
+  },
+  "division": {
+    "en": "division",
+    "cn": "职责分类"
+  },
+  "position": {
+    "en": "position",
+    "cn": "职位分类"
+  },
+  "work experience": {
+    "en": "work experience",
+    "cn": "工作经验"
+  },
+  "operating system": {
+    "en": "operating system",
+    "cn": "操作系统"
+  },
+  "server": {
+    "en": "server",
+    "cn": "服务器"
+  },
+  "approach": {
+    "en": "approach",
+    "cn": "开发方法"
+  },
+  "software engineering": {
+    "en": "software engineering",
+    "cn": "软件开发"
+  },
+  "platform": {
+    "en": "platform",
+    "cn": "平台"
+  },
+  "general": {
+    "en": "general",
+    "cn": "通用技能"
+  },
+  "soft skill": {
+    "en": "soft skill",
+    "cn": "软技能"
+  },
+  "tool": {
+    "en": "tool",
+    "cn": "工具"
+  },
+  "architect": {
+    "en": "architect",
+    "cn": "架构"
+  },
+  "product": {
+    "en": "product",
+    "cn": "产品"
+  },
+  "quality": {
+    "en": "quality",
+    "cn": "质量"
+  },
+  "offer": {
+    "en": "offer",
+    "cn": "待遇"
+  },
+  "team": {
+    "en": "team",
+    "cn": "团队"
+  },
+  "company": {
+    "en": "company",
+    "cn": "公司"
+  },
+  "all": {
+    "en": "all category",
+    "cn": "全部类别"
+  }
 }
 
 /**

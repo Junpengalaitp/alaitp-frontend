@@ -2,7 +2,7 @@ import React from 'react';
 import KeywordChart from "./KeywordChart";
 import {combinedCategories} from "../../../constant/constant";
 import {connect} from "react-redux";
-import {i18nText} from "../../../containers/i18n/i18nText";
+import {i18nText} from "../../../constant/i18nText";
 
 /**
  * the charts that is showing when 'see more' button is not clicked

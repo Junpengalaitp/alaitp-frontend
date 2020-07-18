@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {TagCloud} from 'react-tagcloud'
 import {ButtonGroup, Dropdown, DropdownButton} from 'react-bootstrap'
 import {categoryMap} from "../../../constant/constant";
-import {i18nText} from "../../../containers/i18n/i18nText";
+import {i18nText} from "../../../constant/i18nText";
 import {connect} from "react-redux";
 
 /**
@@ -30,8 +30,12 @@ const CoOccurrenceWordCloud = props => {
     setCloudValues(values.slice(0, -1))
   };
 
-  const categoryButtons = Object.keys(categoryMap).map((key, idx) => (
-    <Dropdown.Item eventKey={idx} key={idx} onClick={() => setCategoryWords(key)}>{categoryMap[key]}</Dropdown.Item>
+  /**
+   * word cloud category selection button
+   */
+  const categoryButtons = Object.keys(categoryMap).map((category, idx) => (
+    <Dropdown.Item eventKey={idx} key={idx}
+                   onClick={() => setCategoryWords(category)}>{i18nText(categoryMap[category], props.language)}</Dropdown.Item>
   ));
 
   return (

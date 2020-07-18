@@ -1,7 +1,7 @@
 import React from 'react'
 import SearchBar from '../../components/Search/SearchBar'
 import Intro from './Intro'
-import {i18nText} from "../i18n/i18nText";
+import {i18nText} from "../../constant/i18nText";
 import {connect} from "react-redux";
 
 const MainPage = props => {

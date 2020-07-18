@@ -5,7 +5,7 @@ import HidingCharts from "./HidingCharts";
 import {connect} from "react-redux";
 
 import * as actionTypes from "../../../store/actions/actionTypes";
-import {i18nText} from "../../../containers/i18n/i18nText";
+import {i18nText} from "../../../constant/i18nText";
 
 const KeywordCharts = props => {
   const handleClick = () => {

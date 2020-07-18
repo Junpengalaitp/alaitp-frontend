@@ -2,7 +2,7 @@ import CoOccurredWords from "../Keywords/CoOccurredWord/CoOccurredWords";
 import React from "react";
 import {Button, Modal} from "react-bootstrap";
 import {connect} from "react-redux";
-import {i18nText} from "../../containers/i18n/i18nText";
+import {i18nText} from "../../constant/i18nText";
 
 /**
  * bootstrap modal, contains CoOccurredWords

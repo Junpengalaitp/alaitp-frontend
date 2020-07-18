@@ -4,7 +4,7 @@ import Tooltip from "react-bootstrap/Tooltip";
 import Badge from "react-bootstrap/Badge";
 import MyVerticallyCenteredModal from "../UI/Modal";
 import {categoryColorMap} from "../../constant/constant";
-import {i18nText} from "../../containers/i18n/i18nText";
+import {i18nText} from "../../constant/i18nText";
 import {connect} from "react-redux";
 
 /**

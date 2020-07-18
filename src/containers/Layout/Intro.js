@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from "react-redux";
-import {i18nText} from "../i18n/i18nText";
+import {i18nText} from "../../constant/i18nText";
 
 const Intro = props => {
   return (

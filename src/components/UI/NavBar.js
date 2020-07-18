@@ -5,7 +5,7 @@ import {Col, Nav, Navbar, Row} from 'react-bootstrap';
 import {contactUrl, mainPageUrl, personalPageUrl, searchResUrl} from "../../constant/url";
 import ClickNoticeLink from "./ClickNoticeLink";
 import {connect} from "react-redux";
-import {i18nText} from "../../containers/i18n/i18nText";
+import {i18nText} from "../../constant/i18nText";
 import {Link} from "react-router-dom";
 
 /**

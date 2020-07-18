@@ -3,7 +3,7 @@ import ReactEcharts from 'echarts-for-react';
 import {connect} from "react-redux"
 import MyVerticallyCenteredModal from "../../UI/Modal";
 import {categoryMinBarLength} from "../../../constant/constant"
-import {i18nText} from "../../../containers/i18n/i18nText";
+import {i18nText} from "../../../constant/i18nText";
 
 const staticChartOptions = {
   color: ['#3398DB'],

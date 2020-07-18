@@ -1,9 +1,10 @@
-import {categoryText} from "../../constant/constant";
+import {categoryI18nMap, categoryText} from "./constant";
 import React from "react";
 
 export const i18nText = (type, lang) => {
   return i18nMap[type][lang]
 }
+
 
 const i18nMap = {
   "searchButton": {
@@ -89,7 +90,12 @@ const i18nMap = {
   "barText": {
     "en": "click to see correlated words with ",
     "cn": "点击查看关联词："
-  }
-  , ...categoryText
+  },
+  ...categoryText,
+  ...categoryI18nMap,
 }
+
+
+
+
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import Tooltip from "react-bootstrap/Tooltip";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import {i18nText} from "../../containers/i18n/i18nText";
+import {i18nText} from "../../constant/i18nText";
 import {connect} from "react-redux";
 
 /**

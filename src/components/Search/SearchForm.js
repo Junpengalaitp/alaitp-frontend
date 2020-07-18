@@ -6,7 +6,7 @@ import {updateObject} from "../../util/utility";
 import * as actionTypes from "../../store/actions/actionTypes";
 import {searchJobs} from "../../store/actions/jobSearch";
 import {searchResUrl} from "../../constant/url";
-import {i18nText} from "../../containers/i18n/i18nText";
+import {i18nText} from "../../constant/i18nText";
 
 const uuid = require('uuid/v4');
 

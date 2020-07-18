@@ -2,7 +2,7 @@ import React from 'react';
 import {Button, Card, Collapse} from 'react-bootstrap';
 import JobDescriptionText from './JobDescriptionText';
 import {connect} from "react-redux";
-import {i18nText} from "../../containers/i18n/i18nText";
+import {i18nText} from "../../constant/i18nText";
 
 /**
  * wrapper of job description text, on click button will show job description text
