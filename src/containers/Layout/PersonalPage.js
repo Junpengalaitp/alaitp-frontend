@@ -9,11 +9,11 @@ const PersonalPage = () => {
     <div>
       <NavBar/>
       <div className="row justify-content-center">
-        <div className="col-2">
+        <div className="col-1">
           <SideNav/>
           <Avatar/>
         </div>
-        <div className="col-8">
+        <div className="col-9">
           <MediaContent/>
         </div>
       </div>

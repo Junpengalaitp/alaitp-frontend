@@ -8,8 +8,9 @@ import {i18nText} from "../../constant/i18nText";
 const SideNav = props => (
   <Nav variant="pills" defaultActiveKey="link-0" className="flex-column">
     {Object.keys(sideNavItems).map((navName, idx) => (
-      <Nav.Link eventKey={"link-" + idx} key={idx}
-                onSelect={() => props.clickLink(navName)}>{i18nText(navName, props.language)}</Nav.Link>
+      <Nav.Link className="side-nav-item" eventKey={"link-" + idx} key={idx} onSelect={() => props.clickLink(navName)}>
+        <p className="side-nav-item_text">{i18nText(navName, props.language)}</p>
+      </Nav.Link>
     ))}
   </Nav>
 );

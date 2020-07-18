@@ -1,10 +1,9 @@
 import React from 'react';
 import avatar from "./avatar.jpg"
-import Image from "react-bootstrap/Image";
 
 const Avatar = () => (
-  <div className="mt-5 pt-5">
-    <Image src={avatar} className="img-thumbnail" roundedCircle/>
+  <div className="mt-5 pt-5 avatar">
+    <img src={avatar} alt="" className="img-thumbnail img-avatar"/>
   </div>
 );
 
