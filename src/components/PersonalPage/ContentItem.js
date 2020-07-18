@@ -1,17 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {connect} from "react-redux";
 import Axios from "axios";
 import {i18nTextUrl} from "../../constant/url";
 
 const ContentItem = props => {
   const [text, setText] = useState("");
-
-  useEffect(() => {
-    if (props.show) {
-      requestI18nText()
-    }
-  }, [props.show, props.language])
-
 
   const requestI18nText = () => {
     const language = props.language
@@ -23,6 +16,16 @@ const ContentItem = props => {
         setText(res.data)
       })
   }
+  /**
+   * wrap requestI18nText in useCallback to avoid useEffect dependenct warning
+   */
+  const getI18nText = useCallback(requestI18nText, [])
+
+  useEffect(() => {
+    if (props.show) {
+      getI18nText()
+    }
+  }, [getI18nText, props.show, props.language])
 
 
   let content = <div/>;
