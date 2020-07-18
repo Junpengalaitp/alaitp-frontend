@@ -1,6 +1,6 @@
 import React from "react";
 import {Route} from 'react-router'
-import SearchResults from "./SearchResults"
+import SearchResults from "./SearchResult"
 import NavBar from '../../components/UI/NavBar'
 import MainPage from "./MainPage";
 import PersonalPage from "./PersonalPage";
