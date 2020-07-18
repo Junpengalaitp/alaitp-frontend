@@ -24,8 +24,6 @@ const JobDescriptionText = props => {
       keywordIndices.push([keywordObj.startIdx, keywordObj.endIdx, keywordObj.keyword, keywordObj.category])
     }
   } else {
-    console.log("error, job id: ", jobId, "keyword list: ", keywordList);
-    props.onNoKeyword()
     return <React.Fragment>{jobDescriptionText}</React.Fragment>
   }
 
