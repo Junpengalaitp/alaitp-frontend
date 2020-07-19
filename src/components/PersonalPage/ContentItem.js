@@ -2,6 +2,7 @@ import React, {useCallback, useEffect, useState} from 'react';
 import {connect} from "react-redux";
 import Axios from "axios";
 import {i18nTextUrl} from "../../constant/url";
+import ProjectInitiativeCn from "../../resource/ProjectInitiativeCN";
 
 const ContentItem = props => {
   const [text, setText] = useState("");
@@ -30,11 +31,12 @@ const ContentItem = props => {
 
   let content = <div/>;
   if (props.show) {
-    content = (
-      <div>
-        <p>{text}</p>
-      </div>
-    )
+    // content = (
+    //   <div>
+    //     <p>{text}</p>
+    //   </div>
+    // )
+    content = <ProjectInitiativeCn />
   }
   return content;
 }

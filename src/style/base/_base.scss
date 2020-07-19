@@ -13,6 +13,7 @@
 html {
   /* font-size: 10px; */
   font-size: 62.5%; /* 62.5% of 16px(default) is 10px, avoiding user change font size */
+  background: #FFF;
 }
 body {
   box-sizing: border-box; /* boarders and padding not added to the elements height and weight */
