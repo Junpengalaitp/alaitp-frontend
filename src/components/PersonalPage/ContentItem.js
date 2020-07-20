@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import Axios from "axios";
 import {i18nTextUrl} from "../../constant/url";
 import ProjectInitiativeCn from "../../resource/ProjectInitiativeCN";
+import Workout from "../../resource/Workout";
 
 const ContentItem = props => {
   const [text, setText] = useState("");
@@ -24,6 +25,7 @@ const ContentItem = props => {
 
   useEffect(() => {
     if (props.show) {
+      // console.log(props.content)
       getI18nText()
     }
   }, [getI18nText, props.show, props.language])
@@ -31,12 +33,14 @@ const ContentItem = props => {
 
   let content = <div/>;
   if (props.show) {
-    // content = (
-    //   <div>
-    //     <p>{text}</p>
-    //   </div>
-    // )
-    content = <ProjectInitiativeCn />
+    switch (props.content) {
+      case "Project Initiative":
+        content = <ProjectInitiativeCn />
+        break;
+      case "Workout Routine":
+        content = <Workout />
+        break;
+    }
   }
   return content;
 }

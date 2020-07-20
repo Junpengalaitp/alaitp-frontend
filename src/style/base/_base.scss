@@ -18,3 +18,8 @@ html {
 body {
   box-sizing: border-box; /* boarders and padding not added to the elements height and weight */
 }
+
+img {
+  max-width:100%;
+  height:auto;
+}
