@@ -3,13 +3,13 @@ import {updateObject} from '../../util/utility'
 import SockJS from "sockjs-client";
 import {Stomp} from "@stomp/stompjs/esm5/compatibility/stomp";
 import {onReceiveChartOption, onReceiveJobKeyword, updateChart, updateJobKeyword} from "../actions/jobKeyword";
+import {wsUrl} from "../../constant/url";
 
 const initialState = {
   chartData: {},
   keywordIdxByJob: {}
 };
 
-const wsUrl = "http://localhost:8816/keyword-ws";
 const userKeywordTopic = "/user/queue/keyword";
 const userChartTopic = "/user/queue/chart";
 const sendingTopic = "/app/keyword";

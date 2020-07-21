@@ -2,7 +2,7 @@ import Axios from "axios";
 
 import * as actionTypes from './actionTypes'
 import {updateObject} from "../../util/utility";
-import {serverUrl} from "../../constant/url";
+import {jobDescriptionApiUrl} from "../../constant/url";
 
 export const setJobs = (jobMap, jobSearchId) => {
   return {
@@ -16,7 +16,7 @@ export const searchJobs = (searchInput, requestId) => {
   if (searchInput === '') searchInput = 'Software Engineer';
   return dispatch => {
     console.log("requestId: " + requestId);
-    Axios.get(`${serverUrl}/job-description-api/job-list/${searchInput}/${requestId}`)
+    Axios.get(`${jobDescriptionApiUrl}/${searchInput}/${requestId}`)
       .then(response => {
         dispatch(setJobs(response.data, requestId))
       })

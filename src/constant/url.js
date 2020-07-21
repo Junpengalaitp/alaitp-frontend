@@ -1,9 +1,9 @@
-export const serverUrl = "http://localhost:8888";
+export const serverUrl = "http://localhost:18888";
+export const wsUrl = "http://localhost:8816" + "/keyword-ws";
+export const jobDescriptionApiUrl = serverUrl + "/job-description-api/job-list";
 export const correlateWordReqUrl = serverUrl + "/co_occurrence_matrix/most-correlated-words";
 export const i18nTextUrl = serverUrl + "/internationalization/i18n-content";
 export const mainPageUrl = "/alaitp-frontend";
 export const searchResUrl = mainPageUrl + "/keywords";
 export const personalPageUrl = mainPageUrl + "/personal-page";
-export const personalPageUrlMain = personalPageUrl + "#main"
-export const personalPageUrlTime = personalPageUrl + "#time"
 export const contactUrl = personalPageUrl;
