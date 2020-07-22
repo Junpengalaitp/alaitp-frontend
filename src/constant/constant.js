@@ -242,6 +242,9 @@ export const sideNavItems = {
   "Time Management": {
     "cn": "时间管理"
   },
+  "Work Habit": {
+    "cn": "工作习惯"
+  },
   "Coding Practice": {
     "cn": "代码练习"
   },

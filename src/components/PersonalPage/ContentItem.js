@@ -2,8 +2,10 @@ import React, {useCallback, useEffect, useState} from 'react';
 import {connect} from "react-redux";
 import Axios from "axios";
 import {i18nTextUrl} from "../../constant/url";
-import ProjectInitiativeCn from "../../resource/ProjectInitiativeCN";
-import Workout from "../../resource/Workout";
+import ProjectInitiative from "./content/ProjectInitiative";
+import Workout from "./content/Workout";
+import TimeManagement from "./content/TimeManagement";
+import WorkHabit from "./content/WorkHabbit";
 
 const ContentItem = props => {
   const [text, setText] = useState("");
@@ -35,11 +37,19 @@ const ContentItem = props => {
   if (props.show) {
     switch (props.content) {
       case "Project Initiative":
-        content = <ProjectInitiativeCn />
+        content = <ProjectInitiative />
         break;
       case "Workout Routine":
         content = <Workout />
         break;
+      case "Time Management":
+        content = <TimeManagement />
+        break;
+      case "Work Habit":
+        content = <WorkHabit />
+        break;
+      default:
+        return content
     }
   }
   return content;

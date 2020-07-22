@@ -1,5 +1,5 @@
 import React from 'react';
-import avatar from "./avatar.jpg"
+import avatar from "./resource/image/avatar.jpg"
 
 const Avatar = () => (
   <div className="mt-5 pt-5 avatar">

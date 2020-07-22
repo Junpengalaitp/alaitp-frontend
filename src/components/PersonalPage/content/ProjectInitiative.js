@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProjectInitiativeCn = () => (
+const ProjectInitiative = () => (
   <div className="row">
     <div className="col-1"/>
     <div className="intro-text col-7">
@@ -31,4 +31,4 @@ const ProjectInitiativeCn = () => (
   </div>
 );
 
-export default ProjectInitiativeCn;
+export default ProjectInitiative;
