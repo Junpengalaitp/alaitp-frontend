@@ -21,7 +21,7 @@ const ContentItem = props => {
       })
   }
   /**
-   * wrap requestI18nText in useCallback to avoid useEffect dependenct warning
+   * wrap requestI18nText in useCallback to avoid useEffect dependency warning
    */
   const getI18nText = useCallback(requestI18nText, [])
 
