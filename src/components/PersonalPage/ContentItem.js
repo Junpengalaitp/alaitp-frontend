@@ -5,7 +5,7 @@ import {i18nTextUrl} from "../../constant/url";
 import ProjectInitiative from "./content/ProjectInitiative";
 import Workout from "./content/Workout";
 import TimeManagement from "./content/TimeManagement";
-import WorkHabit from "./content/WorkHabbit";
+import WorkHabit from "./content/WorkHabit";
 
 const ContentItem = props => {
   const [text, setText] = useState("");
