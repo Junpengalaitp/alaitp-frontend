@@ -7,6 +7,7 @@ import Workout from "./content/Workout";
 import TimeManagement from "./content/TimeManagement";
 import WorkHabit from "./content/WorkHabit";
 import ReadingHabit from "./content/ReadingHabit";
+import CodingPractice from "./content/CodingPractice";
 
 const ContentItem = props => {
   const [text, setText] = useState("");
@@ -51,6 +52,9 @@ const ContentItem = props => {
         break;
       case "Reading Habit":
         content = <ReadingHabit />
+        break;
+      case "Coding Practice":
+        content = <CodingPractice />
         break;
       default:
         return content

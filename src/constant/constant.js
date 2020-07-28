@@ -236,19 +236,24 @@ export const sideNavItems = {
   "Project Initiative": {
     "cn": "项目起因"
   },
-  "Workout Routine": {
-    "cn": "健身习惯"
-  },
   "Time Management": {
     "cn": "时间管理"
   },
-  "Work Habit": {
-    "cn": "工作习惯"
+  "Workout Routine": {
+    "cn": "健身习惯"
+  },
+  "Reading Habit": {
+    "cn": "阅读习惯"
   },
   "Coding Practice": {
     "cn": "代码练习"
   },
-  "Reading Habit": {
-    "cn": "阅读习惯"
-  }
+  "Learning Method": {
+    "cn": "学习方式"
+  },
+  "Work Habit": {
+    "cn": "工作习惯"
+  },
+
+
 }
