@@ -1,39 +1,13 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React from 'react';
 import {connect} from "react-redux";
-import Axios from "axios";
-import {i18nTextUrl} from "../../constant/url";
 import ProjectInitiative from "./content/ProjectInitiative";
 import Workout from "./content/Workout";
 import TimeManagement from "./content/TimeManagement";
-import WorkHabit from "./content/WorkHabit";
 import ReadingHabit from "./content/ReadingHabit";
 import CodingPractice from "./content/CodingPractice";
+import LearningMethod from "./content/LearningMethod";
 
 const ContentItem = props => {
-  const [text, setText] = useState("");
-
-  const requestI18nText = () => {
-    const language = props.language
-    const type = props.content
-    console.log("requesting with: ", type, "language: ", language);
-    Axios.get(`${i18nTextUrl}/${type}/${language}`)
-      .then(res => {
-        console.log("requesting res: ", res);
-        setText(res.data)
-      })
-  }
-  /**
-   * wrap requestI18nText in useCallback to avoid useEffect dependency warning
-   */
-  const getI18nText = useCallback(requestI18nText, [])
-
-  useEffect(() => {
-    if (props.show) {
-      // console.log(props.content)
-      getI18nText()
-    }
-  }, [getI18nText, props.show, props.language])
-
 
   let content = <div/>;
   if (props.show) {
@@ -47,14 +21,14 @@ const ContentItem = props => {
       case "Time Management":
         content = <TimeManagement />
         break;
-      case "Work Habit":
-        content = <WorkHabit />
-        break;
       case "Reading Habit":
         content = <ReadingHabit />
         break;
       case "Coding Practice":
         content = <CodingPractice />
+        break;
+      case "Learning Method":
+        content = <LearningMethod />
         break;
       default:
         return content

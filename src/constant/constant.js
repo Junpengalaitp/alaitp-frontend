@@ -251,9 +251,4 @@ export const sideNavItems = {
   "Learning Method": {
     "cn": "学习方式"
   },
-  "Work Habit": {
-    "cn": "工作习惯"
-  },
-
-
 }
