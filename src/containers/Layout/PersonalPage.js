@@ -12,7 +12,7 @@ const PersonalPage = () => {
       <div className="row justify-content-center">
         <div className="col-1">
           <SideNav/>
-          <Avatar/>
+          <Avatar location={"sideNav"}/>
           <ContactBar />
         </div>
         <div className="col-9">

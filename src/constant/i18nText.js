@@ -94,6 +94,10 @@ const i18nMap = {
     "en": "Scan the QR Code to add me on WeChat",
     "cn": "微信扫一扫加我好友"
   },
+  "contact": {
+    "en": "Contact Me",
+    "cn": "欢迎联络"
+  },
   ...categoryText,
   ...categoryI18nMap,
   ...sideNavItems,
