@@ -28,13 +28,13 @@ const ContactBar = () => {
         <button type="button" onClick={() => setModalShow(true)}>
           <img src={wechat} alt=""/>
         </button>
-        <button type="button">
-          <img src={linkedin} alt="https://www.linkedin.com/in/junpeng-he"/>
+        <button type="button" onClick={() => window.open("https://www.linkedin.com/in/junpeng-he")}>
+          <img src={linkedin} alt=""/>
         </button>
-        <button type="button">
+        <button type="button" onClick={() => window.open("https://github.com/Junpengalaitp")}>
           <img src={github} alt=""/>
         </button>
-        <button type="button">
+        <button type="button" onClick={() => window.open("https://leetcode.com/hejp009/")}>
           <img src={leetcode} alt=""/>
         </button>
         <button type="button">
