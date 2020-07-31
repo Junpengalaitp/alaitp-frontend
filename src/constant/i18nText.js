@@ -90,6 +90,10 @@ const i18nMap = {
     "en": "click to see correlated words with ",
     "cn": "点击查看关联词："
   },
+  "wechatQR": {
+    "en": "Scan the QR Code to add me on WeChat",
+    "cn": "微信扫一扫加我好友"
+  },
   ...categoryText,
   ...categoryI18nMap,
   ...sideNavItems,
