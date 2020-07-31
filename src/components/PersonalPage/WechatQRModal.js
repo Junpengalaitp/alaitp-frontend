@@ -10,12 +10,13 @@ import wechatQR from "./resource/image/wechatQR.jpg"
 const WechatQRModal = props => {
   return (
     <Modal
-      {...props}
+      show={props.show}
+      onHide={props.onHide}
       size="md"
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header closeButton>
+      <Modal.Header>
         <Modal.Title id="contained-modal-title-vcenter">
           {i18nText("wechatQR", props.language)}
         </Modal.Title>
