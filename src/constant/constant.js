@@ -245,10 +245,10 @@ export const sideNavItems = {
   "Reading Habit": {
     "cn": "阅读习惯"
   },
-  "Coding Practice": {
-    "cn": "代码练习"
-  },
   "Learning Method": {
     "cn": "学习方式"
+  },
+  "Coding Practice": {
+    "cn": "代码练习"
   },
 }
