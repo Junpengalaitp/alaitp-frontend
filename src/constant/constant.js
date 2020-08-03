@@ -217,7 +217,7 @@ export const categoryI18nMap = {
  * map min bar length to categories
  */
 export const categoryMinBarLength = {
-  languages: 60,
+  languages: 70,
   libraryFramework: 100,
   data: 80,
   division: 120,
