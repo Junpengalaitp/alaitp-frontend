@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Route} from 'react-router';
 import SearchForm from '../Search/SearchForm';
 import {Col, Nav, Navbar, Row} from 'react-bootstrap';
@@ -7,6 +7,9 @@ import ClickNoticeLink from "./ClickNoticeLink";
 import {connect} from "react-redux";
 import {i18nText} from "../../constant/i18nText";
 import {Link} from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import WechatQRModal from "../PersonalPage/WechatQRModal";
+import ContactModal from "../PersonalPage/ContactModal";
 
 /**
  * Navbar on top, wraps bootstrap Navbar
@@ -15,6 +18,8 @@ const NavBar = props => {
   const homeText = i18nText("navHome", props.language)
   const aboutText = i18nText("navAbout", props.language)
   const contactText = i18nText("navContact", props.language)
+
+  const [modalShow, setModalShow] = useState(false)
 
   return (
     <Row className="justify-content-md-center">
@@ -36,11 +41,14 @@ const NavBar = props => {
                      render={props => <Nav.Link as={Link} className="nav-link"
                                                 to={personalPageUrl}><ClickNoticeLink {...props} show={false}
                                                                                       text={aboutText}/></Nav.Link>}/>
-              <Nav.Link as={Link} className="nav-link" to={contactUrl}>{contactText}</Nav.Link>
+              <Nav.Link onClick={() => setModalShow(true)}>{contactText}</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
       </Col>
+      <ContactModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}/>
     </Row>
   )
 };

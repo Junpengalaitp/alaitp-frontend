@@ -254,7 +254,7 @@ export const categoryI18nMap = {
  * map min bar length to categories
  */
 export const categoryMinBarLength = {
-  languages: 60,
+  languages: 70,
   libraryFramework: 100,
   data: 80,
   division: 120,
@@ -282,10 +282,10 @@ export const sideNavItems = {
   "Reading Habit": {
     "cn": "阅读习惯"
   },
-  "Coding Practice": {
-    "cn": "代码练习"
-  },
   "Learning Method": {
     "cn": "学习方式"
+  },
+  "Coding Practice": {
+    "cn": "代码练习"
   },
 }
