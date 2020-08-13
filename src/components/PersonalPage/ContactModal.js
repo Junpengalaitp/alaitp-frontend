@@ -2,7 +2,6 @@ import React from "react";
 import {Button, Modal} from "react-bootstrap";
 import {connect} from "react-redux";
 import {i18nText} from "../../constant/i18nText";
-import wechatQR from "./resource/image/wechatQR.jpg"
 import Avatar from "./avatar";
 import ContactBar from "./ContactBar";
 

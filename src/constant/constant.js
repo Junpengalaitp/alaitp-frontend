@@ -70,38 +70,6 @@ export const categoryColorMap = {
 };
 
 /**
- * category map for tag cloud
- */
-export const categoryMap = {
-  pl: "programming language",
-  ol: "other language",
-  lb: "library",
-  fw: "framework",
-  cs: "computer science",
-  ai: "artificial intelligence",
-  pt: "protocol",
-  ds: "data storage",
-  dt: "data transmission",
-  dv: "division",
-  ps: "position",
-  we: "work experience",
-  os_: "operating system",
-  sv: "server",
-  ap: "approach",
-  se: "software engineering",
-  pf: "platform",
-  ge: "general",
-  sf: "soft skill",
-  tl: "tool",
-  at: "architect",
-  pd: "product",
-  ql: "quality",
-  of: "offer",
-  tm: "team",
-  cp: "company",
-}
-
-/**
  * technical category map for tag cloud
  */
 export const technicalCategoryMap = {

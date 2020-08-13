@@ -2,13 +2,11 @@ import React, {useState} from 'react'
 import {Route} from 'react-router';
 import SearchForm from '../Search/SearchForm';
 import {Col, Nav, Navbar, Row} from 'react-bootstrap';
-import {contactUrl, mainPageUrl, personalPageUrl, searchResUrl} from "../../constant/url";
+import {mainPageUrl, personalPageUrl, searchResUrl} from "../../constant/url";
 import ClickNoticeLink from "./ClickNoticeLink";
 import {connect} from "react-redux";
 import {i18nText} from "../../constant/i18nText";
 import {Link} from "react-router-dom";
-import Button from "react-bootstrap/Button";
-import WechatQRModal from "../PersonalPage/WechatQRModal";
 import ContactModal from "../PersonalPage/ContactModal";
 
 /**
