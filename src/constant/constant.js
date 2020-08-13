@@ -99,7 +99,44 @@ export const categoryMap = {
   of: "offer",
   tm: "team",
   cp: "company",
-  all: "all"
+}
+
+/**
+ * technical category map for tag cloud
+ */
+export const technicalCategoryMap = {
+  pl: "programming language",
+  ol: "other language",
+  lb: "library",
+  fw: "framework",
+  cs: "computer science",
+  ai: "artificial intelligence",
+  pt: "protocol",
+  ds: "data storage",
+  dt: "data transmission",
+  dv: "division",
+  ps: "position",
+  os_: "operating system",
+  sv: "server",
+  ap: "approach",
+  se: "software engineering",
+  pf: "platform",
+  tl: "tool",
+  at: "architect",
+}
+
+/**
+ * non-technical category map for tag cloud
+ */
+export const nonTechnicalCategoryMap = {
+  we: "work experience",
+  ge: "general",
+  sf: "soft skill",
+  pd: "product",
+  ql: "quality",
+  of: "offer",
+  tm: "team",
+  cp: "company",
 }
 
 export const categoryI18nMap = {

@@ -34,9 +34,13 @@ const i18nMap = {
     "en": "close",
     "cn": "关闭"
   },
-  "cloudCategoryButton": {
-    "en": "select category",
-    "cn": "选择类别"
+  "cloudTechnicalCategoryButton": {
+    "en": "select category(technical)",
+    "cn": "选择类别(技术)"
+  },
+  "cloudNonTechnicalCategoryButton": {
+    "en": "select category(non-technical)",
+    "cn": "选择类别(非技术)"
   },
   "mainPageHeading": {
     "en": "Search For Most Demanded Technical Skills!",

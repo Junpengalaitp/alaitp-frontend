@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {TagCloud} from 'react-tagcloud'
 import {ButtonGroup, Dropdown, DropdownButton} from 'react-bootstrap'
-import {categoryMap} from "../../../constant/constant";
+import {categoryMap, nonTechnicalCategoryMap, technicalCategoryMap} from "../../../constant/constant";
 import {i18nText} from "../../../constant/i18nText";
 import {connect} from "react-redux";
 
@@ -31,21 +31,38 @@ const CoOccurrenceWordCloud = props => {
   };
 
   /**
-   * word cloud category selection button
+   * word cloud technical category selection button
    */
-  const categoryButtons = Object.keys(categoryMap).map((category, idx) => (
-    <Dropdown.Item eventKey={idx} key={idx}
-                   onClick={() => setCategoryWords(category)}>{i18nText(categoryMap[category], props.language)}</Dropdown.Item>
+  const technicalCategoryButtons = Object.keys(technicalCategoryMap).map((category, idx) => (
+    <Dropdown.Item eventKey={idx} key={idx} flip={true} onClick={() => setCategoryWords(category)}>
+      {i18nText(technicalCategoryMap[category], props.language)}
+    </Dropdown.Item>
+  ));
+
+  /**
+   * word cloud non-technical category selection button
+   */
+  const nonTechnicalCategoryButtons = Object.keys(nonTechnicalCategoryMap).map((category, idx) => (
+    <Dropdown.Item eventKey={idx} key={idx} flip={true} onClick={() => setCategoryWords(category)}>
+      {i18nText(nonTechnicalCategoryMap[category], props.language)}
+    </Dropdown.Item>
   ));
 
   return (
     <div className="container">
       <div>
-        <ButtonGroup vertical={false}>
-          <DropdownButton className="cloudCategoryButton" as={ButtonGroup}
-                          title={i18nText("cloudCategoryButton", props.language)} variant="light" drop="right"
+        <ButtonGroup>
+          <DropdownButton className="cloudCategoryButton" as={ButtonGroup} size={"sm"}
+                          title={i18nText("cloudTechnicalCategoryButton", props.language)} variant="light" drop="right"
                           id="bg-nested-dropdown">
-            {categoryButtons}
+            {technicalCategoryButtons}
+          </DropdownButton>
+        </ButtonGroup>
+        <ButtonGroup>
+          <DropdownButton className="cloudCategoryButton" as={ButtonGroup} size={"sm"}
+                          title={i18nText("cloudNonTechnicalCategoryButton", props.language)} variant="light" drop="right"
+                          id="bg-nested-dropdown">
+            {nonTechnicalCategoryButtons}
           </DropdownButton>
         </ButtonGroup>
       </div>
