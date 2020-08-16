@@ -13,7 +13,10 @@ export const setJobs = (jobMap, jobSearchId) => {
 };
 
 export const searchJobs = (searchInput, requestId) => {
-  if (searchInput === '') searchInput = 'Software Engineer';
+  if (searchInput === '') {
+    searchInput = 'Software Engineer';
+  }
+  searchInput = searchInput.replace('#', '%23')
   return dispatch => {
     console.log("requestId: " + requestId);
     Axios.get(`${jobDescriptionApiUrl}/${searchInput}/${requestId}`)
