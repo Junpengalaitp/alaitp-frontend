@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/alaitp-frontend/static/css/main.75cf8203.chunk.css",
-    "main.js": "/alaitp-frontend/static/js/main.a339dfa1.chunk.js",
-    "main.js.map": "/alaitp-frontend/static/js/main.a339dfa1.chunk.js.map",
+    "main.js": "/alaitp-frontend/static/js/main.85119010.chunk.js",
+    "main.js.map": "/alaitp-frontend/static/js/main.85119010.chunk.js.map",
     "runtime-main.js": "/alaitp-frontend/static/js/runtime-main.32ca70ff.js",
     "runtime-main.js.map": "/alaitp-frontend/static/js/runtime-main.32ca70ff.js.map",
     "static/css/2.ace36aee.chunk.css": "/alaitp-frontend/static/css/2.ace36aee.chunk.css",
     "static/js/2.f2d89a4f.chunk.js": "/alaitp-frontend/static/js/2.f2d89a4f.chunk.js",
     "static/js/2.f2d89a4f.chunk.js.map": "/alaitp-frontend/static/js/2.f2d89a4f.chunk.js.map",
     "index.html": "/alaitp-frontend/index.html",
-    "precache-manifest.341ad379e091e81cb7ddcbbe5087c694.js": "/alaitp-frontend/precache-manifest.341ad379e091e81cb7ddcbbe5087c694.js",
+    "precache-manifest.c1cb545044965f438ca3f4eb0a9a9a60.js": "/alaitp-frontend/precache-manifest.c1cb545044965f438ca3f4eb0a9a9a60.js",
     "service-worker.js": "/alaitp-frontend/service-worker.js",
     "static/css/2.ace36aee.chunk.css.map": "/alaitp-frontend/static/css/2.ace36aee.chunk.css.map",
     "static/css/main.75cf8203.chunk.css.map": "/alaitp-frontend/static/css/main.75cf8203.chunk.css.map",
@@ -41,6 +41,6 @@
     "static/css/2.ace36aee.chunk.css",
     "static/js/2.f2d89a4f.chunk.js",
     "static/css/main.75cf8203.chunk.css",
-    "static/js/main.a339dfa1.chunk.js"
+    "static/js/main.85119010.chunk.js"
   ]
 }
