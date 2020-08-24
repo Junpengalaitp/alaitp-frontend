@@ -29,6 +29,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
+    "prod": "serve -s build -l 3000",
     "compile:sass": "node-sass src/style/main.scss src/App.css -w"
   },
   "eslintConfig": {
