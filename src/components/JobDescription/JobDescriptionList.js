@@ -25,7 +25,9 @@ const JobDescriptionList = props => {
 
   let searchResult = <Spinner />;
   if (!props.loading && props.searchComplete) {
-    totalJobs = Object.keys(props.jobMap).length;
+    // sort the jobs, so requests result with same job title are displayed in the same order regardless of amount
+    const jobArray = Object.keys(props.jobMap).sort();
+    totalJobs = jobArray.length;
 
     if (!rendered) {
       props.onKeywordSearchStart();
@@ -34,7 +36,7 @@ const JobDescriptionList = props => {
 
     const lastJobIdx = currentPage * props.jobsPerPage;
     const firstJobIdx = lastJobIdx - props.jobsPerPage;
-    const currentJobs = Object.keys(props.jobMap).slice(firstJobIdx, lastJobIdx);
+    const currentJobs = jobArray.slice(firstJobIdx, lastJobIdx);
 
     searchResult = currentJobs.map((jobId) => (
       <JobDescription
@@ -48,6 +50,7 @@ const JobDescriptionList = props => {
       ));
     paginationShow = true
   }
+
   const paginate = (pageNumber, direction) => {
     if (direction === null) {
       setCurrentPage(pageNumber)

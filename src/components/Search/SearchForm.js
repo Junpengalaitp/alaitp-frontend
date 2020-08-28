@@ -32,12 +32,16 @@ const SearchForm = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    const requestId = uuid();
+    // first, quickly get the 20 jobs for the first job page for better UX
+    let requestId = uuid();
+    props.onJobSearchComplete(searchForm.value, 20, requestId)
+    // then, get the total search result and open ws for receiving keywords
+    requestId = uuid();
     props.connectWs(requestId);
     props.onJobSearchStart();
     props.clearChart();
     props.history.push(`${searchResUrl}/${searchForm.value}`);
-    props.onJobSearchSuccess(searchForm.value, requestId)
+    props.onJobSearchComplete(searchForm.value, 1000, requestId)
   };
 
   const buttonText = i18nText("searchButton", props.language);
@@ -87,7 +91,7 @@ const mapDispatchToProps = dispatch => {
     onJobSearchStart: () => dispatch({type: actionTypes.JOB_SEARCH_START}),
     connectWs: requestId => dispatch({type: actionTypes.SOCKETS_CONNECT_AND_SEND, requestId: requestId}),
     clearChart: () => dispatch({type: actionTypes.CHART_CLEAR}),
-    onJobSearchSuccess: (searchInput, requestId) => dispatch(searchJobs(searchInput, requestId))
+    onJobSearchComplete: (searchInput, amount, requestId) => dispatch(searchJobs(searchInput, amount, requestId))
   }
 };
 

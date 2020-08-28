@@ -12,14 +12,14 @@ export const setJobs = (jobMap, jobSearchId) => {
   };
 };
 
-export const searchJobs = (searchInput, requestId) => {
+export const searchJobs = (searchInput, amount, requestId) => {
   if (searchInput === '') {
     searchInput = 'Software Engineer';
   }
   searchInput = searchInput.replace('#', '%23')
   return dispatch => {
     console.log("requestId: " + requestId);
-    Axios.get(`${jobDescriptionApiUrl}/${searchInput}/${requestId}`)
+    Axios.get(`${jobDescriptionApiUrl}/${searchInput}/${amount}/${requestId}`)
       .then(response => {
         dispatch(setJobs(response.data, requestId))
       })
