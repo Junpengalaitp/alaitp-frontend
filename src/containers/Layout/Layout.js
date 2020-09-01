@@ -11,10 +11,10 @@ const Layout = () => {
   return (
     <div>
       <I18NSwitch />
-      <Route path={mainPageUrl} exact component={MainPage}/>
-      <Route path={searchResUrl} component={NavBar}/>
-      <Route path={searchResUrl} render={() => <SearchResults/>}/>
-      <Route path={personalPageUrl} render={() => <PersonalPage/>}/>
+      <Route path={mainPageUrl} exact component={MainPage} />
+      <Route path={searchResUrl} component={NavBar} />
+      <Route path={searchResUrl} render={() => <SearchResults/>} />
+      <Route path={personalPageUrl} render={() => <PersonalPage/>} />
     </div>
   )
 }

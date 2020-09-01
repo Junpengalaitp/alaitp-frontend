@@ -28,7 +28,7 @@ class JobDescription extends React.Component {
       })
     };
     return (
-      <Card style={{ width: '49rem' }}>
+      <Card style={{ width: 'width:100%' }}>
         <Card.Body>
           <Card.Title className="clearfix">
             <p className="card-title float-left"><strong>{this.props.title}</strong></p>
