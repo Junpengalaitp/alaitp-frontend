@@ -3,7 +3,7 @@ import React from 'react';
 const ProjectInitiative = () => (
   <div className="row">
     <div className="col-1"/>
-    <div className="intro-text col-7">
+    <div className="intro-text col-8">
       <p>我为什么会做这个项目，有以下几点原因。</p>
 
       <p>第一点，我认为优秀的开发者不仅能写好代码，还要有产品头脑，具备产品设计方面的知识。能做出一个有用，易用，给用户带来价值的产品。
@@ -27,7 +27,6 @@ const ProjectInitiative = () => (
 
       <p>接下来的页面就是我个人生活，学习和工作习惯的展示，希望可以帮助到你们更全面的了解我。</p>
     </div>
-    <div className="col-1"/>
   </div>
 );
 
