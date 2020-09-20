@@ -23,7 +23,7 @@ const NavBar = props => {
     <Row className="justify-content-md-center">
       <Col xs={10}>
         <Navbar sticky="top" bg="light" variant="light" expand="lg" className="justify-content-between mb-5">
-          <Navbar.Brand href={mainPageUrl}>ALAITP</Navbar.Brand>
+          <Navbar.Brand href={mainPageUrl}>Junpeng</Navbar.Brand>
           <Route path={[searchResUrl, personalPageUrl]}
                  render={props => <SearchForm {...props} inputCSS="mr-sm-2" buttonCSS="btn btn-outline-primary"
                                               show/>}/>
