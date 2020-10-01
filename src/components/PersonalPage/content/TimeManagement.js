@@ -1,5 +1,5 @@
 import React from 'react';
-import kanbanFlow from "../resource/image/kanbanFlowEn.png";
+import kanbanFlow from "../resource/image/kanbanFlowEn.jpeg";
 
 const TimeManagement = () => (
   <div className="intro-text">
