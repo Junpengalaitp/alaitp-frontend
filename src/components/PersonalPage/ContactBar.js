@@ -5,11 +5,14 @@ import github from "./resource/image/github.png"
 import leetcode from "./resource/image/leetcode.png"
 import email from "./resource/image/email.png"
 import WechatQRModal from "./WechatQRModal";
+import keep from "./resource/image/keep_logo.jpeg"
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
+import KeepQRModal from "./KeepQRModal";
 
 const ContactBar = () => {
-  const [modalShow, setModalShow] = useState(false)
+  const [wechatModalShow, setWechatModalShow] = useState(false)
+  const [keepModalShow, setKeepModalShow] = useState(false)
 
   const emailPopover = (
     <Popover id="popover-basic">
@@ -22,10 +25,13 @@ const ContactBar = () => {
   return (
     <div className="contact-bar">
       <WechatQRModal
-        show={modalShow}
-        onHide={() => setModalShow(false)}/>
+        show={wechatModalShow}
+        onHide={() => setWechatModalShow(false)}/>
+      <KeepQRModal
+        show={keepModalShow}
+        onHide={() => setKeepModalShow(false)}/>
       <div className="btn-group">
-        <button type="button" onClick={() => setModalShow(true)}>
+        <button type="button" onClick={() => setWechatModalShow(true)}>
           <img src={wechat} alt=""/>
         </button>
         <button type="button" onClick={() => window.open("https://www.linkedin.com/in/junpeng-he")}>
@@ -36,6 +42,9 @@ const ContactBar = () => {
         </button>
         <button type="button" onClick={() => window.open("https://leetcode.com/hejp009/")}>
           <img src={leetcode} alt=""/>
+        </button>
+        <button type="button" onClick={() => setKeepModalShow(true)}>
+          <img src={keep} alt=""/>
         </button>
         <button type="button">
           <OverlayTrigger trigger="click" placement="right" overlay={emailPopover}>
