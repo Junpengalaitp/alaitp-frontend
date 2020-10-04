@@ -3,6 +3,7 @@ import SearchBar from '../../components/Search/SearchBar'
 import Intro from './Intro'
 import {i18nText} from "../../constant/i18nText";
 import {connect} from "react-redux";
+import BeiAn from "../../Beian";
 
 const MainPage = props => {
   return (
@@ -14,6 +15,7 @@ const MainPage = props => {
           <Intro/>
         </div>
       </main>
+      <BeiAn />
     </div>
   )
 }

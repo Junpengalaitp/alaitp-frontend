@@ -5,7 +5,7 @@ import github from "./resource/image/github.png"
 import leetcode from "./resource/image/leetcode.png"
 import email from "./resource/image/email.png"
 import WechatQRModal from "./WechatQRModal";
-import keep from "./resource/image/keep_logo.jpeg"
+import keep from "./resource/image/keep_logo.png"
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
 import KeepQRModal from "./KeepQRModal";

@@ -1,4 +1,4 @@
-.leftBottom {
+.leftMid {
   z-index: 9999;
   position: fixed;
   padding: 5px;
@@ -10,4 +10,17 @@
   left: 0;
   top: 40%;
   bottom: 40%;
+}
+
+.rightBottom {
+  z-index: 9999;
+  position: fixed;
+  padding: 5px;
+  text-align: center;
+  width: 175px;
+  height: 22px;
+
+  right: 0;
+  top: 95%;
+  bottom: 0;
 }
