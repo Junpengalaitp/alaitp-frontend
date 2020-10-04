@@ -1,12 +1,12 @@
 import React from 'react';
 import books1 from "../resource/image/books_1.jpg";
 import books2 from "../resource/image/books_2.jpg";
-import a1 from "../resource/image/audible_1.jpg";
-import a2 from "../resource/image/audible_2.jpg";
-import a3 from "../resource/image/audible_3.jpg";
-import a4 from "../resource/image/audible_4.jpg";
-import a5 from "../resource/image/audible_5.jpg";
-import a6 from "../resource/image/audible_6.jpg";
+import a1 from "../resource/image/audible_1.jpeg";
+import a2 from "../resource/image/audible_2.jpeg";
+import a3 from "../resource/image/audible_3.jpeg";
+import a4 from "../resource/image/audible_4.jpeg";
+import a5 from "../resource/image/audible_5.jpeg";
+import a6 from "../resource/image/audible_6.jpeg";
 
 
 const ReadingHabit = () => (

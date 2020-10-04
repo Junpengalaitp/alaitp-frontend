@@ -42,13 +42,14 @@ const LearningMethod = () => (
     <div className="row">
       <div className="col-1" />
       <div className="col-7">
-        <img src={coursera} alt=""/>
+        <img src={udemy} alt=""/>
       </div>
     </div>
+
     <div className="row">
       <div className="col-1" />
       <div className="col-7">
-        <img src={udemy} alt=""/>
+        <img src={coursera} alt=""/>
       </div>
     </div>
   </div>

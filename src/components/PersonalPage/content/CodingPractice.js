@@ -1,6 +1,7 @@
 import React from 'react';
-import github from "../resource/image/github_profile.jpg";
-import leetcode from "../resource/image/leetcode_profile.jpg";
+import github from "../resource/image/github_profile.jpeg";
+import leetcode from "../resource/image/leetcode_profile.jpeg";
+import ImageWithModal from "./ImageWithModal";
 
 const CodingPractice = () => (
   <div>
@@ -15,14 +16,14 @@ const CodingPractice = () => (
     <div className="row">
       <div className="col-1" />
       <div className="col-9">
-        <img src={github} alt=""/>
+        <ImageWithModal img={github} />
       </div>
     </div>
 
     <div className="row">
       <div className="col-1" />
       <div className="col-9">
-        <img src={leetcode} alt=""/>
+        <ImageWithModal img={leetcode} />
       </div>
     </div>
   </div>

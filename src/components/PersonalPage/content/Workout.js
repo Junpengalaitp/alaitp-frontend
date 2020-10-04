@@ -1,7 +1,7 @@
 import React from 'react';
-import keepData1 from "../resource/image/keep_data_1.jpg"
-import keepData2 from "../resource/image/keep_data_2.jpg"
-import keepBadges from "../resource/image/keep_badges.jpg"
+import keepData1 from "../resource/image/keep_data_1.jpeg"
+import keepData2 from "../resource/image/keep_data_2.jpeg"
+import keepBadges from "../resource/image/keep_badges.jpeg"
 
 const Workout = () => (
   <div>

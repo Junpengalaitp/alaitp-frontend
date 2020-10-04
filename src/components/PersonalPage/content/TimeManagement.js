@@ -1,5 +1,6 @@
 import React from 'react';
 import kanbanFlow from "../resource/image/kanbanFlowEn.jpeg";
+import ImageWithModal from "./ImageWithModal";
 
 const TimeManagement = () => (
   <div className="intro-text">
@@ -18,7 +19,7 @@ const TimeManagement = () => (
     <div className="row">
       <div className="col-1" />
       <div className="col-8">
-        <img src={kanbanFlow} alt=""/>
+        <ImageWithModal img={kanbanFlow} />
       </div>
     </div>
   </div>
