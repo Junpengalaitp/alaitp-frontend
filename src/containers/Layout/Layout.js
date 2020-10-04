@@ -6,7 +6,6 @@ import MainPage from "./MainPage";
 import PersonalPage from "./PersonalPage";
 import {mainPageUrl, personalPageUrl, searchResUrl} from "../../constant/url";
 import I18NSwitch from "../../components/UI/I18nSwitch";
-import BeiAn from "../../Beian";
 
 const Layout = () => {
   return (
