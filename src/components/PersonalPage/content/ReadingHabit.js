@@ -8,29 +8,52 @@ import a4 from "../resource/image/audible_4.jpeg";
 import a5 from "../resource/image/audible_5.jpeg";
 import a6 from "../resource/image/audible_6.jpeg";
 import {Fade} from "react-bootstrap";
+import {connect} from "react-redux";
 
 
-const ReadingHabit = () => {
+const ReadingHabit = props => {
   const [open, setOpen] = useState(false)
   useEffect(() => setOpen(true),
     [])
+  const textCN = (
+    <div>
+      <p>我对信息的获取做了三个分类:</p>
+      <p>第一类：别人付出金钱想让你知道的：广告和营销。</p>
+      <p>第二类：自己付出金钱才能获得的：书籍。</p>
+      <p>第三类：不仅自己付出金钱，还需付出努力才能知道的：专业知识。</p>
+      <p>这三类信息的质量是递增的，所以我希望获得的信息都是第二类和第三类的。虽然现在从网络获得信息很方便，但我更偏爱从书籍中获得较高质量的信息。</p>
+      <p>
+        原因有两点，一是每本书自身的各章节构成了一个完整的系统，系统化的知识比碎片化的知识更容易吸收和掌握。二是虽然通过互联网也能获取不少高质量的
+        信息， 但是时常伴随着一类信息的干扰。当然，我从互联网获取信息也是很频繁的，不过通过读书培养的系统性思维，能够更好的将互联网上碎片化信息进行
+        整合，更高效的利用信息。
+      </p>
+    </div>
+  )
+  const textEN = (
+    <div>
+      <p>I summarized three categories of information acquisition:</p>
+      <p>The first category: what others want you to know and paying money to do it: advertising and marketing. </p>
+      <p>The second category: what you can get by paying for yourself: books.</p>
+      <p>The third category: not only pay for yourself but also need to work hard to understand: professional knowledge.</p>
+      <p>
+        The quality of these three types of information is in increasing order. Hence the information I hope to obtain
+        is from the second and third categories. Although it is very convenient to get information from the Internet,
+        I prefer higher quality information from books.</p>
+      <p>
+        There are two reasons. One is that the chapters of each book form a complete knowledge system, and systematic
+        knowledge is easier to absorb and master than fragmented knowledge. Secondly, although a lot of high-quality
+        information is there on the internet, it is often accompanied by the noise of the first category of information.
+        Of course, I get information from the Internet very frequently, but with the systematic thinking cultivated through
+        book reading, I can better integrate the fragmented information on the Internet and use them more efficiently.
+      </p>
+    </div>
+  )
   return (
     <div className="row">
       <div className="col-1"/>
       <div className="intro-text col-9">
         <Fade in={open}>
-          <div>
-            <p>我对信息的获取做了三个分类:</p>
-            <p>第一类：别人付出金钱想让你知道的：广告和营销。</p>
-            <p>第二类：自己付出金钱才能获得的：书籍。</p>
-            <p>第三类：不仅自己付出金钱，还需付出努力才能知道的：专业知识。</p>
-            <p>这三类信息的质量是递增的，所以我希望获得的信息都是第二类和第三类的。虽然现在从网络获得信息很方便，但我更偏爱从书籍中获得较高质量的信息。</p>
-            <p>
-              原因有两点，一是每本书自身的各章节构成了一个完整的系统，系统化的知识比碎片化的知识更容易吸收和掌握。二是虽然通过互联网也能获取不少高质量的
-              信息， 但是时常伴随着一类信息的干扰。当然，我从互联网获取信息也是很频繁的，不过通过读书培养的系统性思维，能够更好的将互联网上碎片化信息进行
-              整合，更高效的利用信息。
-            </p>
-          </div>
+          {props.language === "en" ? textEN : textCN}
         </Fade>
       </div>
 
@@ -63,4 +86,10 @@ const ReadingHabit = () => {
   );
 };
 
-export default ReadingHabit;
+const mapStateToProps = state => {
+  return {
+    language: state.i18n.language,
+  }
+};
+
+export default connect(mapStateToProps, null)(ReadingHabit);
