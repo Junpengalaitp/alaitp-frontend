@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-import ProjectInitiative from "./content/ProjectInitiative";
+import ProjectOrigin from "./content/ProjectOrigin";
 import Workout from "./content/Workout";
 import TimeManagement from "./content/TimeManagement";
 import ReadingHabit from "./content/ReadingHabit";
@@ -12,8 +12,8 @@ const ContentItem = props => {
   let content = <div/>;
   if (props.show) {
     switch (props.content) {
-      case "Project Initiative":
-        content = <ProjectInitiative />
+      case "Project Origin":
+        content = <ProjectOrigin />
         break;
       case "Workout Routine":
         content = <Workout />

@@ -238,7 +238,7 @@ export const categoryMinBarLength = {
  * personal page side nav items
  */
 export const sideNavItems = {
-  "Project Initiative": {
+  "Project Origin": {
     "cn": "项目起因"
   },
   "Time Management": {

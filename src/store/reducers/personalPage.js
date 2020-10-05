@@ -2,7 +2,7 @@ import * as actionTypes from '../actions/actionTypes'
 import {updateObject} from '../../util/utility'
 
 const initialState = {
-  current: "Project Initiative"
+  current: "Project Origin"
 };
 
 const reducer = (state = initialState, action) => {
