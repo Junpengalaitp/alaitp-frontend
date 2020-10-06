@@ -1,20 +1,25 @@
-import React from 'react'
-import SearchBar from '../../components/Search/SearchBar'
-import Intro from './Intro'
-import {i18nText} from "../../constant/i18nText";
+import React, {Fragment} from 'react';
 import {connect} from "react-redux";
 import BeiAn from "../../Beian";
+import Media from "react-media";
+import LandingPage from "./LandingPage";
+import MobilePage from "./MobilePage";
 
-const MainPage = props => {
+const MainPage = () => {
   return (
     <div>
-      <main className="main-page">
-        <div className="main-page--search">
-          <h1 className="main-page--search_heading">{i18nText("mainPageHeading", props.language)}</h1>
-          <SearchBar/>
-          <Intro/>
-        </div>
-      </main>
+      <Media queries={{
+        small: "(max-width: 991px)",
+        large: "(min-width: 992px)"
+      }}>
+        {matches => (
+          <Fragment>
+            {matches.small && <MobilePage />}
+            {matches.large && <LandingPage />}
+          </Fragment>
+        )}
+      </Media>
+
       <BeiAn />
     </div>
   )

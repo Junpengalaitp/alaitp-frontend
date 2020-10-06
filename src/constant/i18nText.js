@@ -102,6 +102,10 @@ const i18nMap = {
     "en": "Contact Me",
     "cn": "欢迎联络"
   },
+  "mobileAlert" : {
+    "en": "Sorry, mobile view is not supported, please visit with a larger screen",
+    "cn": "抱歉，移动端暂不支持，请使用大屏幕浏览"
+  },
   ...categoryText,
   ...categoryI18nMap,
   ...sideNavItems,

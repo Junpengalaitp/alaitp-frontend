@@ -6,15 +6,15 @@ const BeiAn = () => (
     <a target="_blank" rel="noopener noreferrer" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34170202000384"
        style={{
          "display": "inline-block",
-         "text-decoration": "none",
+         "textDecoration": "none",
          "height": "20px",
-         "line-height": "20px"
+         "lineHeight": "20px"
     }}>
       <img src={BeiAnImg} alt="" style={{"float": "left"}}/>
       <p style={{
         "float": "left",
         "height": "20px",
-        "line-height": "20px",
+        "lineHeight": "20px",
         "margin": "0px 0px 0px 5px",
         "color": "#939393"
       }}>
