@@ -4,13 +4,9 @@ import {connect} from "react-redux";
 
 const MobilePage = props => (
   <div>
-    <div>
-      <div className="jumbotron main-page--intro">
-        <h1 className="display-4">
-          {i18nText("mobileAlert", props.language)}
-        </h1>
-      </div>
-    </div>
+    <h1 className="text-center">
+      {i18nText("mobileAlert", props.language)}
+    </h1>
   </div>
 );
 
