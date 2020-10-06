@@ -7,6 +7,10 @@ const MobilePage = props => (
     <h1 className="text-center">
       {i18nText("mobileAlert", props.language)}
     </h1>
+    <br/>
+    <h1 className="text-center">
+      url: junpenghe.com
+    </h1>
   </div>
 );
 
