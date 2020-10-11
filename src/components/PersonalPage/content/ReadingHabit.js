@@ -29,6 +29,20 @@ const ReadingHabit = props => {
       </p>
     </div>
   )
+
+  const textCN_sub = (
+    <div className="intro-text col-9 mt-5">
+      <p>
+        最近一年感觉到读书的质量比数量更重要，好书值得多读几遍，所以开始了记读书笔记，可以在
+        <a href="https://github.com/Junpengalaitp/book-reading" target="_blank" rel="noopener noreferrer">GitHub</a>
+        上查看我的笔记。
+      </p>
+      <p>
+        为了更好的利用时间，在运动和上下班通勤时，我会用Amazon Audible听有声书。
+      </p>
+    </div>
+  )
+
   const textEN = (
     <div>
       <p>I summarized three categories of information acquisition:</p>
@@ -48,6 +62,20 @@ const ReadingHabit = props => {
       </p>
     </div>
   )
+
+  const textEN_sub = (
+    <div className="intro-text col-9 mt-5">
+      <p>
+        In the past year, I feel that the quality of reading is more important than quantity.
+        Good books are worth reading several times, so I started to take reading notes. You can check my notes on
+        <a href="https://github.com/Junpengalaitp/book-reading" target="_blank" rel="noopener noreferrer"> GitHub</a>.
+      </p>
+      <p>
+        In order to make better use of my time, I also use Amazon Audible to listen to audiobooks during sports and
+        commuting to and from get off work.
+      </p>
+    </div>
+  )
   return (
     <div className="row">
       <div className="col-1"/>
@@ -64,11 +92,7 @@ const ReadingHabit = props => {
       </div>
 
       <div className="col-1"/>
-      <div className="intro-text col-9 mt-5">
-        <p>
-          为了更好的利用时间，在运动和上下班通勤时，我会用Amazon Audible听有声书。
-        </p>
-      </div>
+      {props.language === "en" ? textEN_sub : textCN_sub}
 
       <div className="row">
         <div className="col-1"/>
