@@ -18,6 +18,17 @@ const NavBar = props => {
   const contactText = i18nText("navContact", props.language)
 
   const [modalShow, setModalShow] = useState(false)
+  const [counter, setCounter] = React.useState(10)
+
+  React.useEffect(() => {
+    counter >= 0 && setTimeout(() => {
+      console.log(counter)
+      setCounter(counter - 1)
+      if (counter <= 0) {
+        setModalShow(true)
+      }
+    }, 1000);
+  }, [counter]);
 
   return (
     <Row className="justify-content-md-center">
