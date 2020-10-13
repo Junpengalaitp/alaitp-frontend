@@ -22,7 +22,6 @@ const NavBar = props => {
 
   React.useEffect(() => {
     counter >= 0 && setTimeout(() => {
-      console.log(counter)
       setCounter(counter - 1)
       if (counter <= 0) {
         setModalShow(true)
