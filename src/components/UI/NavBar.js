@@ -18,7 +18,7 @@ const NavBar = props => {
   const contactText = i18nText("navContact", props.language)
 
   const [modalShow, setModalShow] = useState(false)
-  const [counter, setCounter] = React.useState(10)
+  const [counter, setCounter] = React.useState(15)
 
   React.useEffect(() => {
     counter >= 0 && setTimeout(() => {
