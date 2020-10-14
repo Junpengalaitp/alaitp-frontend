@@ -99,8 +99,12 @@ const i18nMap = {
     "cn": "微信扫一扫加我好友"
   },
   "contact": {
-    "en": "Contact Me",
-    "cn": "欢迎联络"
+    "en": "Contact Me or ",
+    "cn": "欢迎联络 或者 "
+  },
+  "personal page link": {
+    "en": "know me more",
+    "cn": "更多的了解我"
   },
   "mobileAlert" : {
     "en": "Sorry, mobile view is not supported, please visit with a larger screen",

@@ -4,6 +4,8 @@ import {connect} from "react-redux";
 import {i18nText} from "../../constant/i18nText";
 import Avatar from "./avatar";
 import ContactBar from "./ContactBar";
+import {personalPageUrl} from "../../constant/url";
+import {Link} from "react-router-dom";
 
 /**
  * bootstrap modal, contains CoOccurredWords
@@ -20,6 +22,7 @@ const ContactModal = props => {
       <Modal.Header>
         <Modal.Title id="contained-modal-title-vcenter" centered={true}>
           {i18nText("contact", props.language)}
+          <Link to={personalPageUrl}>{i18nText("personal page link", props.language)}</Link>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
