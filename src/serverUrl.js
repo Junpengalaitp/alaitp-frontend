@@ -1,1 +1,1 @@
-export const serverUrl = "https://junpenghe.com:8888";
+export const serverUrl = "http://119.45.93.22:31026";

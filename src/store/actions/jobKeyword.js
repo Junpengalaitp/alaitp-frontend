@@ -39,6 +39,7 @@ export const updateJobKeyword = (state, payload) => {
 };
 
 export const onReceiveJobKeyword = msg => {
+  console.log("onReceiveJobKeyword")
   const payload = JSON.parse(msg.body);
   if (payload.msgType === "jobKeyword") {
     store.dispatch({type: actionTypes.JOB_KEYWORD_UPDATE, jobKeyword: payload})
@@ -46,6 +47,7 @@ export const onReceiveJobKeyword = msg => {
 }
 
 export const onReceiveChartOption = msg => {
+  console.log("onReceiveChartOption")
   if (msg.body === "session end") {
     store.dispatch({type: actionTypes.SOCKETS_DISCONNECT})
     return;

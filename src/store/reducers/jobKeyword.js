@@ -29,9 +29,12 @@ const reducer = (state = initialState, action) => {
       stompClient.debug = () => {
       };
       stompClient.connect({}, () => {
+        console.log("ws connected")
         stompClient.send(sendingTopic, {}, action.requestId);
         stompClient.subscribe(userKeywordTopic, onReceiveJobKeyword);
+        console.log(userKeywordTopic + "subscribed")
         stompClient.subscribe(userChartTopic, onReceiveChartOption)
+        console.log(userChartTopic + "subscribed")
       });
       return state;
 
