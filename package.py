@@ -1,9 +1,24 @@
+import os
+import sys
+
+
+app_name = "frontend"
+docker_registry= "localhost:5555"
+docker_registry_tag = docker_registry + "/" + app_name
+
+def package():
+    run_cmd("npm run build")
+
+def build_image():
+    run_cmd("docker build --tag=" + app_name + " --force-rm=true .")
+    run_cmd("docker tag " + app_name + " " + docker_registry_tag)
+    run_cmd("docker push " + docker_registry_tag)
+
+def run_cmd(cmd):
+    print cmd
+    os.system(cmd)
+
+
 if __name__ == '__main__':
-    import os
-    import socket
-    image_name = "frontend"
-    docker_tag = f"119.45.93.22:5555/{image_name}"
-    os.system("npm run build")
-    os.system(f"docker build --tag={image_name} --force-rm=true .")
-    os.system(f"docker tag {image_name} {docker_tag}")
-    os.system(f"docker push {docker_tag}")
+    package()
+    build_image()
