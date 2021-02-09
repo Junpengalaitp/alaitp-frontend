@@ -33,3 +33,5 @@ yarn-error.log*
 .idea/dictionaries/hejunpeng.xml
 
 /.vscode/
+/certs/
+certs
