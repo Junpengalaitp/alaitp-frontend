@@ -20,7 +20,7 @@ def change_server_url():
     server_url_file.truncate()
     server_url_file.write("export const serverUrl = ")
 
-    server_url = "https://junpenghe.com:31888" if env == "prod" else "http://localhost:31888"
+    server_url = "https://junpenghe.com" if env == "prod" else "http://localhost"
 
     server_url_file.write('"' + server_url + '"' + ";")
 
@@ -92,6 +92,7 @@ def build_image():
     restore_config_file()
 
 def k8s_deploy():
+    run_cmd("kubectl delete -f kubernetes.yaml " + "-n " + k8s_namespace)
     run_cmd("kubectl apply -f kubernetes.yaml " + "-n " + k8s_namespace)
 
 def run_sudo_cmd(cmd):
