@@ -1,6 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import github from "../resource/image/github_profile.jpeg";
-import leetcode from "../resource/image/leetcode_profile.jpeg";
 import ImageWithModal from "./ImageWithModal";
 import {Fade} from "react-bootstrap";
 import {connect} from "react-redux";
@@ -38,14 +36,14 @@ const CodingPractice = props => {
       <div className="row">
         <div className="col-1"/>
         <div className="col-9">
-          <ImageWithModal img={github}/>
+          <ImageWithModal img={"https://frontend-image-bucket-1258989137.cos.ap-nanjing.myqcloud.com/github_profile.jpg"}/>
         </div>
       </div>
 
       <div className="row">
         <div className="col-1"/>
         <div className="col-9">
-          <ImageWithModal img={leetcode}/>
+          <ImageWithModal img={"https://frontend-image-bucket-1258989137.cos.ap-nanjing.myqcloud.com/leetcode_profile.jpg"}/>
         </div>
       </div>
     </div>

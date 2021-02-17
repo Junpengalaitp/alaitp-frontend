@@ -1,7 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import keepData1 from "../resource/image/keep_data_1.jpeg"
-import keepData2 from "../resource/image/keep_data_2.jpeg"
-import keepBadges from "../resource/image/keep_badges.jpeg"
 import {Fade} from "react-bootstrap";
 import {connect} from "react-redux";
 
@@ -41,13 +38,13 @@ const Workout = props => {
       <div className="row">
         <div className="col-1"/>
         <div className="col-3">
-          <img src={keepData1} alt=""/>
+          <img src={"https://frontend-image-bucket-1258989137.cos.ap-nanjing.myqcloud.com/keep_data_1.jpeg"} alt=""/>
         </div>
         <div className="col-3">
-          <img src={keepData2} alt=""/>
+          <img src={"https://frontend-image-bucket-1258989137.cos.ap-nanjing.myqcloud.com/keep_data_2.jpeg"} alt=""/>
         </div>
         <div className="col-3">
-          <img src={keepBadges} alt=""/>
+          <img src={"https://frontend-image-bucket-1258989137.cos.ap-nanjing.myqcloud.com/keep_marathon.jpeg"} alt=""/>
         </div>
       </div>
     </div>

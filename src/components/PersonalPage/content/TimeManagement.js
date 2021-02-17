@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import kanbanFlow from "../resource/image/kanbanFlowEn.jpeg";
 import ImageWithModal from "./ImageWithModal";
 import {Fade} from "react-bootstrap";
 import {connect} from "react-redux";
@@ -46,7 +45,7 @@ const TimeManagement = props => {
       <div className="row">
         <div className="col-1"/>
         <div className="col-8">
-          <ImageWithModal img={kanbanFlow}/>
+          <ImageWithModal img={"https://frontend-image-bucket-1258989137.cos.ap-nanjing.myqcloud.com/kanbanFlowEn.jpeg"}/>
         </div>
       </div>
     </div>

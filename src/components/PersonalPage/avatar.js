@@ -1,5 +1,4 @@
 import React from 'react';
-import avatar from "./resource/image/avatar.jpg"
 
 const Avatar = props => {
   let style;
@@ -10,7 +9,7 @@ const Avatar = props => {
   }
   return (
     <div className={style}>
-      <img src={avatar} alt="" className="img-thumbnail img-avatar"/>
+      <img src={"https://frontend-image-bucket-1258989137.cos.ap-nanjing.myqcloud.com/avatar.jpg"} alt="" className="img-thumbnail img-avatar"/>
     </div>
   )
 }

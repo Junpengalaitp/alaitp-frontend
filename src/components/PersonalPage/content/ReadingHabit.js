@@ -1,12 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import books1 from "../resource/image/books_1.jpg";
-import books2 from "../resource/image/books_2.jpg";
-import a1 from "../resource/image/audible_1.jpeg";
-import a2 from "../resource/image/audible_2.jpeg";
-import a3 from "../resource/image/audible_3.jpeg";
-import a4 from "../resource/image/audible_4.jpeg";
-import a5 from "../resource/image/audible_5.jpeg";
-import a6 from "../resource/image/audible_6.jpeg";
 import {Fade} from "react-bootstrap";
 import {connect} from "react-redux";
 
@@ -87,8 +79,8 @@ const ReadingHabit = props => {
 
       <div className="row">
         <div className="col-1"/>
-        <img className="col-5" src={books1} alt=""/>
-        <img className="col-5" src={books2} alt=""/>
+        <img className="col-5" src={"https://frontend-image-bucket-1258989137.cos.ap-nanjing.myqcloud.com/books_1.jpg"} alt=""/>
+        <img className="col-5" src={"https://frontend-image-bucket-1258989137.cos.ap-nanjing.myqcloud.com/books_2.jpg"} alt=""/>
       </div>
 
       <div className="col-1"/>
@@ -96,15 +88,15 @@ const ReadingHabit = props => {
 
       <div className="row">
         <div className="col-1"/>
-        <img className="col-3" src={a1} alt=""/>
-        <img className="col-3" src={a2} alt=""/>
-        <img className="col-3" src={a3} alt=""/>
+        <img className="col-3" src={"https://frontend-image-bucket-1258989137.cos.ap-nanjing.myqcloud.com/audible_1.jpeg"} alt=""/>
+        <img className="col-3" src={"https://frontend-image-bucket-1258989137.cos.ap-nanjing.myqcloud.com/audible_2.jpeg"} alt=""/>
+        <img className="col-3" src={"https://frontend-image-bucket-1258989137.cos.ap-nanjing.myqcloud.com/audible_3.jpeg"} alt=""/>
       </div>
       <div className="row mt-3">
         <div className="col-1"/>
-        <img className="col-3" src={a4} alt=""/>
-        <img className="col-3" src={a5} alt=""/>
-        <img className="col-3" src={a6} alt=""/>
+        <img className="col-3" src={"https://frontend-image-bucket-1258989137.cos.ap-nanjing.myqcloud.com/audible_4.jpeg"} alt=""/>
+        <img className="col-3" src={"https://frontend-image-bucket-1258989137.cos.ap-nanjing.myqcloud.com/audible_5.jpeg"} alt=""/>
+        <img className="col-3" src={"https://frontend-image-bucket-1258989137.cos.ap-nanjing.myqcloud.com/audible_6.jpeg"} alt=""/>
       </div>
     </div>
   );

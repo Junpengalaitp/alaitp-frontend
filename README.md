@@ -4,7 +4,7 @@ alaitp-frontend
 
 ## Author
 
-* **Junpeng He** - *Initial work* - [alaitp](https://junpengalaitp.github.io/alaitp-frontend/)
+* **Junpeng He** - *Initial work* - [junpenghe.com](https://junpenghe.com)
 
 ## Main Feature
 * search technical jobs and find most popular technologies

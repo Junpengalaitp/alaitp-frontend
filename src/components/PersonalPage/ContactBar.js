@@ -1,11 +1,5 @@
 import React, {useState} from 'react';
-import wechat from "./resource/image/wechat.png"
-import linkedin from "./resource/image/linkedin.png"
-import github from "./resource/image/github.png"
-import leetcode from "./resource/image/leetcode.png"
-import email from "./resource/image/email.png"
 import WechatQRModal from "./WechatQRModal";
-import keep from "./resource/image/keep_logo.png"
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
 import KeepQRModal from "./KeepQRModal";
@@ -32,23 +26,23 @@ const ContactBar = () => {
         onHide={() => setKeepModalShow(false)}/>
       <div className="btn-group">
         <button type="button" onClick={() => setWechatModalShow(true)}>
-          <img src={wechat} alt=""/>
+          <img src={"https://frontend-image-bucket-1258989137.cos.ap-nanjing.myqcloud.com/wechat.png"} alt=""/>
         </button>
         <button type="button" onClick={() => window.open("https://www.linkedin.com/in/junpeng-he")}>
-          <img src={linkedin} alt=""/>
+          <img src={"https://frontend-image-bucket-1258989137.cos.ap-nanjing.myqcloud.com/linkedin.png"} alt=""/>
         </button>
         <button type="button" onClick={() => window.open("https://github.com/Junpengalaitp")}>
-          <img src={github} alt=""/>
+          <img src={"https://frontend-image-bucket-1258989137.cos.ap-nanjing.myqcloud.com/github.png"} alt=""/>
         </button>
         <button type="button" onClick={() => window.open("https://leetcode.com/hejp009/")}>
-          <img src={leetcode} alt=""/>
+          <img src={"https://frontend-image-bucket-1258989137.cos.ap-nanjing.myqcloud.com/leetcode.png"} alt=""/>
         </button>
         <button type="button" onClick={() => setKeepModalShow(true)}>
-          <img src={keep} alt=""/>
+          <img src={"https://frontend-image-bucket-1258989137.cos.ap-nanjing.myqcloud.com/keep_logo.png"} alt=""/>
         </button>
         <button type="button">
           <OverlayTrigger trigger="click" placement="right" overlay={emailPopover}>
-            <img src={email} alt=""/>
+            <img src={"https://frontend-image-bucket-1258989137.cos.ap-nanjing.myqcloud.com/email.png"} alt=""/>
           </OverlayTrigger>
         </button>
       </div>

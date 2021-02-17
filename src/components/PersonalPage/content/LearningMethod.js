@@ -1,7 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import certs1 from "../resource/image/certs_1.jpeg";
-import certs2 from "../resource/image/certs_2.jpeg";
-import certs3 from "../resource/image/certs_3.jpeg";
 import {Fade} from "react-bootstrap";
 import {connect} from "react-redux";
 
@@ -96,21 +93,28 @@ const LearningMethod = props => {
       <div className="row">
         <div className="col-1"/>
         <div className="col-7">
-          <img src={certs1} alt=""/>
+          <img src={"https://frontend-image-bucket-1258989137.cos.ap-nanjing.myqcloud.com/certs_1.jpg"} alt=""/>
         </div>
       </div>
 
       <div className="row">
         <div className="col-1"/>
         <div className="col-7">
-          <img src={certs2} alt=""/>
+          <img src={"https://frontend-image-bucket-1258989137.cos.ap-nanjing.myqcloud.com/certs_2.jpg"} alt=""/>
         </div>
       </div>
 
       <div className="row">
         <div className="col-1"/>
         <div className="col-7">
-          <img src={certs3} alt=""/>
+          <img src={"https://frontend-image-bucket-1258989137.cos.ap-nanjing.myqcloud.com/certs_3.jpg"} alt=""/>
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="col-1"/>
+        <div className="col-7">
+          <img src={"https://frontend-image-bucket-1258989137.cos.ap-nanjing.myqcloud.com/certs_4.jpg"} alt=""/>
         </div>
       </div>
 
